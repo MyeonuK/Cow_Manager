@@ -1,6 +1,20 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-let myData = [];
+const xlsx = require("xlsx");
+const fs = require("fs");
+
+const category = [
+  "AnimalNo",
+  "BirthDate",
+  "Sex",
+  "HouseNo",
+  "CageNo",
+  "Fam",
+  "Brucella",
+  "Tube",
+  "Update",
+];
+let myData = {};
 
 async function getHTML() {
   try {
@@ -12,16 +26,15 @@ async function getHTML() {
   }
 }
 
-//let dataObject = readXLSX("/data/test.xlsx");
 getHTML()
   .then((html) => {
     let titleList = [];
     const $ = cheerio.load(html.data);
-    const fam = $("div.infTb")
+    const bodyList = $("div.infTb")
       .children("table")
       .children("tbody")
       .children("tr")
-      .children("td.fir")
+      .children("td")
       .children("span");
 
     //const brucella
@@ -31,10 +44,13 @@ getHTML()
         title: $(this).text(),
       };
     });
+
     return titleList;
   })
   .then((res) => {
-    console.log(res.length);
-    myData.push(res[res.length - 1]);
-    console.log(myData);
+    myData.fam = res[2];
+    myData.brucella = [res[3], res[4]];
+    myData.tube = [res[5], res[6]];
+
+    const workSheet = xlsx.utils.json_to_sheet(data);
   });

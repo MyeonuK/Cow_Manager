@@ -1,0 +1,10 @@
+html {
+  box-sizing: border-box;
+}
+
+.Button {
+  width: 200px;
+  height: 100px;
+  font-size: 25px;
+  color: black;
+}
