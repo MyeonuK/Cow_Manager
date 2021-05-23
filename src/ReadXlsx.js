@@ -1,9 +1,14 @@
 class ReadXlsx {
-  data = {};
+  fileData = null;
   parsedData = null;
 
   constructor(filename) {
     this.readFile(filename);
+  }
+
+  getData() {
+    console.log(this.parsedData);
+    return this.parsedData;
   }
 
   readFile(filename) {
@@ -12,33 +17,52 @@ class ReadXlsx {
         return res.arrayBuffer();
       })
       .then((res) => {
-        let workbook;
-        workbook = XLSX.read(new Uint8Array(res), {
+        this.fileData = XLSX.read(new Uint8Array(res), {
           type: "array",
         });
 
-        for (let sheetName in workbook.Sheets) {
-          this.data[sheetName] = {};
-          this.data[sheetName]["len"] = 0;
+        //this.parseData();
+      });
+  }
 
-          let temp = [];
-          for (let cell in workbook.Sheets[sheetName]) {
-            temp.push(workbook.Sheets[sheetName][cell].w);
-          }
-          temp.shift();
+  parseData() {
+    let sheet = this.fileData.Sheets.test;
+    let cells = Object.keys(sheet);
+    let cellValues = new Array();
+    cells.shift();
 
-          let len = temp.length;
-          for (let l = 0; l < len; l++) {
-            let c = temp[l][0];
-            if ("A" <= c && c <= "Z") {
-              this.data[sheetName]["len"] += 1;
-            } else {
-              break;
-            }
+    let titles = new Array();
+    let cows = {};
+
+    // cow 객체들과 titles 배열 생성
+    async function test() {
+      cells.forEach((cell) => {
+        if (cell.slice(0, 1) == "A") {
+          if (Number(cell.slice(1)) != 1) {
+            cows[sheet[cell].v] = {};
           }
+        } else if (Number(cell.slice(1)) == 1) {
+          titles.push(sheet[cell].v);
+        }
+
+        cellValues.push(sheet[cell].v);
+      });
+    }
+    // 각 cow 객체에 title에 맞는 값 저장
+    test().then(() => {
+      for (let i = 0; i < titles.length + 1; i++) {
+        cellValues.shift();
+      }
+
+      Object.keys(cows).forEach((cow) => {
+        cellValues.shift();
+        for (let i = 0; i < titles.length; i++) {
+          cows[cow][titles[i]] = cellValues.shift();
         }
       });
-    console.log("jhelelfwlfwekfweflwkejf");
-    console.log(this.data);
+    });
+
+    this.parsedData = cows;
+    console.log(this.parsedData);
   }
 }

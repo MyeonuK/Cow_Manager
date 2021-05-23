@@ -13,13 +13,34 @@ class CowTab extends Tab {
     this.render();
   }
 
-  render() {
+  setData(callback) {
+    callback();
+    console.log(this.data);
+  }
+
+  ppp() {
+    this.data.parseData();
+  }
+
+  async render() {
     const $tabTitle = document.createElement("h2");
     $tabTitle.className = "tabTitle";
-    $tabTitle.innerText = "cowcowcow";
+    $tabTitle.innerText = "CowTab";
 
-    this.data = new ReadXlsx("data/data.xlsx");
+    this.data = new ReadXlsx("data/test.xlsx");
+    this.setData(this.ppp);
+
+    /*
+    const p = async () => {
+      this.setData();
+      return 1;
+    };
+    p().then(() => {
+      console.log(this.data.getData());
+    });
+    */
 
     this.$mainDiv.appendChild($tabTitle);
+    this.$mainDiv.appendChild($testP);
   }
 }
