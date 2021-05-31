@@ -6,8 +6,6 @@ class App {
 
   constructor($target) {
     this.$target = $target;
-
-    this.mainUI = new MainUI($target);
-    //this.readData = new ReadData();
+    this.mainUI = new MainUI(this.$target);
   }
 }

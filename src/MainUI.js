@@ -5,12 +5,14 @@ class MainUI {
     $houseTab: null,
     $vaccinTab: null,
   };
+  data = null;
 
   constructor($target) {
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "MainDiv";
 
     this.$mainDiv = $mainDiv;
+    console.log($target);
     $target.appendChild(this.$mainDiv);
 
     this.render();
@@ -22,7 +24,21 @@ class MainUI {
     this.$tabs.$vaccinTab.hide();
   }
 
-  render() {
+  setTabs($contentDiv) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.$tabs.$cowTab = new CowTab($contentDiv, this.data);
+        this.$tabs.$houseTab = new HouseTab($contentDiv, this.data);
+        this.$tabs.$vaccinTab = new VaccinTab($contentDiv, this.data);
+        this.hideAllTab();
+        this.$tabs.$cowTab.show();
+      }, 1000);
+    });
+  }
+
+  async render() {
+    this.data = new ReadXlsx("data/test.xlsx");
+
     const $header = document.createElement("header");
     $header.className = "Header";
 
@@ -38,7 +54,6 @@ class MainUI {
     const $cowBtn = document.createElement("button");
     $cowBtn.className = "Button";
     $cowBtn.innerText = "Cow";
-    //$cowBtn.addEventListener("click", this.openCowTab);
     $cowBtn.addEventListener("click", () => {
       this.hideAllTab();
       this.$tabs.$cowTab.show();
@@ -71,11 +86,6 @@ class MainUI {
     this.$mainDiv.appendChild($nav);
     this.$mainDiv.appendChild($contentDiv);
 
-    this.$tabs.$cowTab = new CowTab($contentDiv);
-    this.$tabs.$houseTab = new HouseTab($contentDiv);
-    this.$tabs.$vaccinTab = new VaccinTab($contentDiv);
-
-    this.hideAllTab();
-    this.$tabs.$cowTab.show();
+    await this.setTabs($contentDiv);
   }
 }

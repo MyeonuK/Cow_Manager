@@ -4,6 +4,8 @@ class ReadXlsx {
 
   constructor(filename) {
     this.readFile(filename);
+
+    //this.parseData();
   }
 
   getData() {
@@ -21,7 +23,7 @@ class ReadXlsx {
           type: "array",
         });
 
-        //this.parseData();
+        this.parseData();
       });
   }
 

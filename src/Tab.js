@@ -1,10 +1,12 @@
 class Tab {
   $mainDiv = null;
+  data = null;
 
-  constructor($target) {
+  constructor($target, data) {
     /*
-    super($target);
+    super($target, data);
     console.log("Tab");
+    this.data = data;
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "tabDiv";
     $mainDiv.innerText = "tabtabtab";
