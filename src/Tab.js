@@ -8,7 +8,7 @@ class Tab {
     console.log("Tab");
     this.data = data;
     const $mainDiv = document.createElement("div");
-    $mainDiv.className = "tabDiv";
+    $mainDiv.className = "TabDiv";
     $mainDiv.innerText = "tabtabtab";
 
     this.$mainDiv = $mainDiv;

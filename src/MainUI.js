@@ -12,80 +12,105 @@ class MainUI {
     $mainDiv.className = "MainDiv";
 
     this.$mainDiv = $mainDiv;
-    console.log($target);
     $target.appendChild(this.$mainDiv);
 
     this.render();
   }
 
-  hideAllTab() {
+  getColor(color) {
+    switch (color) {
+      case "choose":
+        return "#ff0000";
+      case "unchoose":
+        return "#f5f5dc";
+    }
+  }
+
+  hideAllTab($buttonList) {
+    $buttonList.forEach(
+      (button) => (button.style.backgroundColor = this.getColor("unchoose"))
+    );
     this.$tabs.$cowTab.hide();
     this.$tabs.$houseTab.hide();
     this.$tabs.$vaccinTab.hide();
   }
 
-  setTabs($contentDiv) {
-    return new Promise((resolve, reject) => {
+  setTabs($contentDiv, $buttonList) {
+    return new Promise(() => {
       setTimeout(() => {
-        this.$tabs.$cowTab = new CowTab($contentDiv, this.data);
-        this.$tabs.$houseTab = new HouseTab($contentDiv, this.data);
-        this.$tabs.$vaccinTab = new VaccinTab($contentDiv, this.data);
-        this.hideAllTab();
+        this.$tabs.$cowTab = new CowTab($contentDiv, this.data.parsedData);
+        this.$tabs.$houseTab = new HouseTab($contentDiv, this.data.parsedData);
+        this.$tabs.$vaccinTab = new VaccinTab(
+          $contentDiv,
+          this.data.parsedData
+        );
+
+        this.hideAllTab($buttonList);
+        $buttonList[0].style.backgroundColor = this.getColor("choose");
         this.$tabs.$cowTab.show();
-      }, 1000);
+
+        const $tabList = [
+          this.$tabs.$cowTab,
+          this.$tabs.$houseTab,
+          this.$tabs.$vaccinTab,
+        ];
+        for (let i = 0; i < $buttonList.length; i++) {
+          $buttonList[i].addEventListener("click", () => {
+            $tabList[i].show();
+          });
+        }
+      }, 100);
     });
   }
 
   async render() {
     this.data = new ReadXlsx("data/test.xlsx");
 
+    // header
     const $header = document.createElement("header");
     $header.className = "Header";
 
+    // title
     const $title = document.createElement("h1");
     $title.className = "Title";
     $title.innerText = "Cow_Manager";
 
-    $header.appendChild($title);
-
+    // nav
     const $nav = document.createElement("nav");
     $nav.className = "Nav";
 
+    // navBtn
     const $cowBtn = document.createElement("button");
-    $cowBtn.className = "Button";
-    $cowBtn.innerText = "Cow";
-    $cowBtn.addEventListener("click", () => {
-      this.hideAllTab();
-      this.$tabs.$cowTab.show();
-    });
-
     const $houseBtn = document.createElement("button");
-    $houseBtn.className = "Button";
-    $houseBtn.innerText = "House";
-    $houseBtn.addEventListener("click", () => {
-      this.hideAllTab();
-      this.$tabs.$houseTab.show();
-    });
-
     const $vaccinBtn = document.createElement("button");
-    $vaccinBtn.className = "Button";
+    $cowBtn.innerText = "Cow";
+    $houseBtn.innerText = "House";
     $vaccinBtn.innerText = "Vaccin";
-    $vaccinBtn.addEventListener("click", () => {
-      this.hideAllTab();
-      this.$tabs.$vaccinTab.show();
+
+    const $buttonList = [$cowBtn, $houseBtn, $vaccinBtn];
+
+    $buttonList.forEach((button) => {
+      button.className = "Button";
+      button.addEventListener("click", () => {
+        this.hideAllTab($buttonList);
+        button.style.backgroundColor = this.getColor("choose");
+      });
     });
+    //error : Uncaught TypeError: Cannot read property 'show' of null
 
-    $nav.appendChild($cowBtn);
-    $nav.appendChild($houseBtn);
-    $nav.appendChild($vaccinBtn);
-
+    // contentDiv
     const $contentDiv = document.createElement("div");
     $contentDiv.className = "ContentDiv";
 
+    // append
+    $header.appendChild($title);
+    $nav.appendChild($cowBtn);
+    $nav.appendChild($houseBtn);
+    $nav.appendChild($vaccinBtn);
+    $header.appendChild($nav);
     this.$mainDiv.appendChild($header);
-    this.$mainDiv.appendChild($nav);
     this.$mainDiv.appendChild($contentDiv);
 
-    await this.setTabs($contentDiv);
+    await this.setTabs($contentDiv, $buttonList);
   }
 }

@@ -3,7 +3,6 @@ class HouseTab extends Tab {
 
   constructor($target) {
     super($target);
-    console.log("HouseTab");
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "HouseDiv";
     $mainDiv.innerText = "househouse";
