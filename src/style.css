@@ -1,3 +1,21 @@
+:root {
+  /* color */
+  --color-white: #ffffff;
+  --color-gray: #424242;
+  --color-beige: #fffae9;
+
+  /* font size */
+  --font-l: 30px;
+  --font-m: 25px;
+  --font-s: 20px;
+  --font-ss: 15px;
+
+  /* layout size */
+  --layout-m: 50px;
+  --layout-s: 30px;
+  --layout-ss: 20px;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -6,10 +24,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--color-beige);
 }
 * {
   padding: 0;
   margin: 0;
+  font-size: var(--font-s);
 }
 
 #App {
@@ -18,51 +38,80 @@ body {
 }
 
 .MainDiv {
-  margin: 2.5% 2.5%;
   height: 95%;
 }
 
 .Header {
-  padding: 20px 0px;
+  height: 85px;
+  padding: 0 var(--layout-m);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid grey;
+  background-color: var(--color-gray);
 }
 
 .Title {
-  width: auto;
+  width: 250px;
   align-content: center;
-  font-size: 30px;
+  font-size: var(--font-l);
+  color: var(--color-white);
 }
 
 .Nav {
-  width: auto;
+  width: max-content;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: left;
 }
 
 .Button {
-  width: 200px;
-  height: 50px;
-  font-size: 25px;
-  color: black;
+  padding: var(--layout-ss) var(--layout-s);
+  margin: 0 var(--layout-s);
+  font-size: var(--font-m);
+  color: var(--color-beige);
   border: none;
-  background-color: #f5f5dc;
+  background-color: transparent;
 }
 
-.Nav .Button {
-  width: 150px;
-  margin-left: 30px;
+.Tool {
+  width: 250px;
 }
 
 .ContentDiv {
-  padding: 20px 40px;
+  padding: var(--layout-m) calc(var(--layout-m) * 2);
   display: flex;
   flex-direction: column;
 }
 
 .TabTitle {
+  padding: var(--layout-s);
   justify-content: right;
+  font-size: var(--font-l);
+}
+
+.Item {
+  height: auto;
+  padding: var(--layout-ss);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.5px solid var(--color-gray);
+}
+
+.Item_AnimalNo {
+  font-size: var(--font-s);
+  padding-right: var(--layout-s);
+}
+
+.Info_Group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Item_Info {
+  width: auto;
+  padding: calc(var(--layout-ss) / 5) var(--layout-ss);
+  font-size: var(--font-ss);
 }

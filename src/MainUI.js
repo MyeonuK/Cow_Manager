@@ -27,9 +27,7 @@ class MainUI {
   }
 
   hideAllTab($buttonList) {
-    $buttonList.forEach(
-      (button) => (button.style.backgroundColor = this.getColor("unchoose"))
-    );
+    $buttonList.forEach((button) => (button.style.fontWeight = "normal"));
     this.$tabs.$cowTab.hide();
     this.$tabs.$houseTab.hide();
     this.$tabs.$vaccinTab.hide();
@@ -46,7 +44,7 @@ class MainUI {
         );
 
         this.hideAllTab($buttonList);
-        $buttonList[0].style.backgroundColor = this.getColor("choose");
+        $buttonList[0].style.fontWeight = "bold";
         this.$tabs.$cowTab.show();
 
         const $tabList = [
@@ -93,10 +91,13 @@ class MainUI {
       button.className = "Button";
       button.addEventListener("click", () => {
         this.hideAllTab($buttonList);
-        button.style.backgroundColor = this.getColor("choose");
+        button.style.fontWeight = "bold";
       });
     });
     //error : Uncaught TypeError: Cannot read property 'show' of null
+
+    const $tool = document.createElement("span");
+    $tool.className = "Tool";
 
     // contentDiv
     const $contentDiv = document.createElement("div");
@@ -108,6 +109,7 @@ class MainUI {
     $nav.appendChild($houseBtn);
     $nav.appendChild($vaccinBtn);
     $header.appendChild($nav);
+    $header.appendChild($tool);
     this.$mainDiv.appendChild($header);
     this.$mainDiv.appendChild($contentDiv);
 
