@@ -4,9 +4,9 @@ const PORT = 8001;
 app.set("views", "/views");
 app.set("view engine", "ejs");
 app.get("/", (req, res) => {
-  res.render("index");
+  //res.render("index");
+  console.log("yeae");
 });
 app.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
 });
-console.log("yeae");
