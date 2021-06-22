@@ -5,7 +5,7 @@ app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.get("/", (req, res) => {
   //res.render("index");
-  console.log("yeae");
+  console.log("wtff");
 });
 app.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
