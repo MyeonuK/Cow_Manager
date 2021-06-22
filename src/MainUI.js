@@ -57,12 +57,12 @@ class MainUI {
             $tabList[i].show();
           });
         }
-      }, 100);
+      }, 300);
     });
   }
 
   async render() {
-    this.data = new ReadXlsx("data/test.xlsx");
+    this.data = new ReadXlsx("data/data_final.xlsx");
 
     // header
     const $header = document.createElement("header");
@@ -94,7 +94,6 @@ class MainUI {
         button.style.fontWeight = "bold";
       });
     });
-    //error : Uncaught TypeError: Cannot read property 'show' of null
 
     const $tool = document.createElement("span");
     $tool.className = "Tool";

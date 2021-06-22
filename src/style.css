@@ -2,12 +2,13 @@
   /* color */
   --color-white: #ffffff;
   --color-gray: #424242;
-  --color-beige: #fffae9;
+  /*--color-beige: #fffae9;*/
+  --color-beige: beige;
 
   /* font size */
   --font-l: 30px;
   --font-m: 25px;
-  --font-s: 20px;
+  --font-s: 18px;
   --font-ss: 15px;
 
   /* layout size */
@@ -25,6 +26,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--color-beige);
+  font-family: "Noto Sans KR", sans-serif;
 }
 * {
   padding: 0;
@@ -64,6 +66,10 @@ body {
   align-items: left;
 }
 
+.Nav_Button {
+  display: none;
+}
+
 .Button {
   padding: var(--layout-ss) var(--layout-s);
   margin: 0 var(--layout-s);
@@ -78,30 +84,53 @@ body {
 }
 
 .ContentDiv {
-  padding: var(--layout-m) calc(var(--layout-m) * 2);
+  padding: 0 calc(var(--layout-m) * 2);
   display: flex;
   flex-direction: column;
 }
 
+.TabTitleDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .TabTitle {
   padding: var(--layout-s);
-  justify-content: right;
   font-size: var(--font-l);
 }
 
-.Item {
+.Input {
+  width: auto;
+  height: 30px;
+}
+
+.Item,
+.ItemTitle {
   height: auto;
   padding: var(--layout-ss);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 0.5px solid var(--color-gray);
+  border-bottom: 0.5px solid var(--color-gray);
+}
+
+.Item > *,
+.ItemTitle > * {
+  width: 15%;
+  text-align: center;
+}
+
+.Item > *:nth-child(2),
+.ItemTitle > *:nth-child(2) {
+  width: 7.5%;
 }
 
 .Item_AnimalNo {
   font-size: var(--font-s);
-  padding-right: var(--layout-s);
+  text-align: left;
 }
 
 .Info_Group {
@@ -110,8 +139,95 @@ body {
   align-items: center;
 }
 
+.Info_Group > *:first-child {
+  margin-bottom: 10px;
+}
+
 .Item_Info {
-  width: auto;
-  padding: calc(var(--layout-ss) / 5) var(--layout-ss);
   font-size: var(--font-ss);
+}
+
+@media only screen and (max-width: 700px) {
+  .Nav {
+    display: none;
+  }
+
+  .ContentDiv {
+    padding: 0 var(--layout-ss);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .TabTitle {
+    padding: var(--layout-ss);
+    justify-content: right;
+    font-size: var(--font-l);
+    flex-shrink: 0;
+  }
+
+  .Input {
+    /*display: none;*/
+    width: 100px;
+    flex-grow: 1;
+  }
+
+  .ItemTitle > *,
+  .Item > * {
+    display: none;
+  }
+
+  .ItemTitle > a,
+  .ItemTitle > span:first-of-type,
+  .Item > a,
+  .Item > span:first-of-type {
+    display: flex;
+    width: 50%;
+  }
+  .Modal {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .Modal_Window {
+    width: 90%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  }
+
+  .Modal_Content {
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Modal_Title {
+    font-size: var(--font-m);
+    margin-bottom: 20px;
+  }
+
+  .Modal_Info_Title {
+    font-size: var(--font-s);
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .Modal_Group {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .Modal_Info {
+    font-size: var(--font-ss);
+    margin-right: 30px;
+  }
 }

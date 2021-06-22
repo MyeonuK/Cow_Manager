@@ -11,15 +11,16 @@ class CowTab extends Tab {
 
     this.$mainDiv = $mainDiv;
     $target.appendChild(this.$mainDiv);
-
     this.render();
   }
 
-  pushData($target, item, itemInfo) {
+  getData(item) {
     const $item = document.createElement("div");
+    let itemInfo = this.data[item];
+
+    $item.className = "Item";
     $item.innerHTML = `
-      <div class="Item">
-        <span class="Item_AnimalNo">${item}</span>
+        <a class="Item_AnimalNo" href="https://www.mtrace.go.kr/mtracesearch/cattleNoSearch.do?btsProgNo=0109008401&btsActionMethod=SELECT&cattleNo=${item}"">${item}</a>
         <span class="Info_Group">
           <span class="Item_Info">${itemInfo.HouseNo}번 축사</span>
           <span class="Item_Info">${itemInfo.CageNo}번 우리</span>
@@ -29,42 +30,86 @@ class CowTab extends Tab {
           <span class="Item_Info">${itemInfo.BirthDate}</span>
         </span>
         <span class="Item_Info">${itemInfo.Fam}</span>
-        <span class="Item_Info">${itemInfo.Brucella}</span>
-        <span class="Item_Info">${itemInfo.Tube}</span>
-      </div>`;
+        <span class="Info_Group">
+          <span class="Item_Info">${itemInfo.BruInfo}</span>
+          <span class="Item_Info">${itemInfo.BruDate}</span>
+        </span>
+        <span class="Info_Group">
+          <span class="Item_Info">${itemInfo.TubeInfo}</span>
+          <span class="Item_Info">${itemInfo.TubeDate}</span>
+        </span>`;
 
-    $target.appendChild($item);
+    $item.addEventListener("click", function () {
+      let $modal = new Modal(
+        document.getElementsByClassName("CowDiv")[0],
+        item,
+        itemInfo
+      );
+    });
+
+    return $item;
+  }
+
+  setArticle(value) {
+    const $article = document.createElement("article");
+    $article.className = "Article";
+    $article.id = "Article";
+
+    const $itemTitle = document.createElement("div");
+    $itemTitle.className = "ItemTitle";
+    $itemTitle.innerHTML = `
+      <a class="Item_AnimalNo">등록번호</a>
+      <span class="Item_Info">축사 및 우리</span>
+      <span class="Item_Info">성별 및 생년월일</span>
+      <span class="Item_Info">구제역</span>
+      <span class="Item_Info">브루셀라</span>
+      <span class="Item_Info">결핵</span>`;
+    $article.appendChild($itemTitle);
+
+    let cowList = Object.keys(this.data).sort();
+
+    for (let item of cowList) {
+      if (item.includes(value)) {
+        $article.appendChild(this.getData(item));
+      }
+    }
+
+    return $article;
   }
 
   render() {
+    const $tabTitleDiv = document.createElement("div");
+    $tabTitleDiv.className = "TabTitleDiv";
+
     const $tabTitle = document.createElement("h2");
     $tabTitle.className = "TabTitle";
     $tabTitle.innerText = "CowTab";
-    const $article = document.createElement("article");
-    $article.className = "Article";
 
-    const $itemTitle = document.createElement("div");
-    $itemTitle.className = "Item";
-    $itemTitle.innerHTML = `
-    <span class="Item_AnimalNo">등록번호</span>
-    <span class="Info_Group">
-      <span class="Item_Info">축사 및 우리</span>
-    </span>
-    <span class="Info_Group">
-      <span class="Item_Info">성별</span>
-      <span class="Item_Info">생년월일</span>
-    </span>
-    <span class="Item_Info">구제역</span>
-    <span class="Item_Info">브루셀라</span>
-    <span class="Item_Info">결핵</span>`;
-    $article.appendChild($itemTitle);
+    const $input = document.createElement("input");
+    $input.className = "Input";
+    $input.type = "number";
+    $input.oninput = function () {
+      const $itemArr = document.getElementsByClassName("Item");
 
-    let cowList = Object.keys(this.data);
-    for (let item of cowList) {
-      this.pushData($article, item, this.data[item]);
-    }
+      for (let item of $itemArr) {
+        let tempNo = item
+          .getElementsByClassName("Item_AnimalNo")[0]
+          .innerText.replace(/(\s*)/g, "");
+        let tempValue = $input.value.replace(/(\s*)/g, "");
 
-    this.$mainDiv.appendChild($tabTitle);
+        if (tempNo.includes(tempValue)) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      }
+    };
+    $tabTitleDiv.appendChild($tabTitle);
+    $tabTitleDiv.appendChild($input);
+
+    let $article = this.setArticle("");
+
+    this.$mainDiv.appendChild($tabTitleDiv);
     this.$mainDiv.appendChild($article);
   }
 }

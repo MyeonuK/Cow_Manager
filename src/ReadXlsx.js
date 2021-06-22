@@ -20,12 +20,15 @@ class ReadXlsx {
         this.fileData = XLSX.read(new Uint8Array(res), {
           type: "array",
         });
-
-        this.parseData();
       });
+
+    setTimeout(() => {
+      this.parseData();
+    }, 200);
   }
 
   parseData() {
+    console.log(this.fileData);
     let sheet = this.fileData.Sheets.test;
     let cells = Object.keys(sheet);
     let cellValues = new Array();
