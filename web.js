@@ -1,4 +1,4 @@
-const express = require("express");
+/*const express = require("express");
 const app = express();
 const PORT = 8001;
 app.set("views", "/views");
@@ -8,4 +8,5 @@ app.get("/", (req, res) => {
 });
 app.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
-});
+});*/
+console.log("yeae");
