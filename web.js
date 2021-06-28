@@ -1,5 +1,5 @@
 console.log("hello");
-/*
+
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -14,4 +14,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
 });
-*/
