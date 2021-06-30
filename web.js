@@ -14,18 +14,17 @@ app.set("views", "/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/views");
 //app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
 
-/*
+app.use("/", indexRouter);
 app.use(
   "/",
-  //express.static("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/public")
-  express.static(path.join(__dirname, "./public"))
+  express.static("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/public")
+  //express.static(path.join(__dirname, "./public"))
 );
-
+/*
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 */
-app.use("/", indexRouter);
 
 app.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
