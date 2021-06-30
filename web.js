@@ -3,7 +3,7 @@ const path = require("path");
 
 const indexRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/index");
 //const indexRouter = require("./routes/index");
-const userRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/users");
+//const userRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/users");
 //const userRouter = require("./routes/users");
 
 const app = express();
