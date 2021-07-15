@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const cors = requird("cors");
 
 const indexRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/index");
 //const indexRouter = require("./routes/index");
@@ -12,6 +13,7 @@ const PORT = 8001;
 app.set("view engine", "ejs");
 app.set("views", "/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/views");
 
+app.use(cors());
 app.use(
   "/",
   express.static("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/public")
