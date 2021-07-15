@@ -1,0 +1,9 @@
+< src >
+
+
+< routes >
+crawler.js - 소 번호 받아서 크롤링 후 정보 반환 -> database.js
+database.js - db 관련 함수들, 
+            update: crawler.js 통해서 소 정보 총 업데이트
+            select: db에 있는 소 정보 검색
+index.js - query 받아서 database.js의 함수 실행

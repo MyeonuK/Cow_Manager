@@ -31,21 +31,6 @@ setTimeout(function () {
   fs.writeFileSync("shhhh.csv", "\uFEFF" + csv_string);
 }, 1000);
 
-/*
-ggggg().then((result) => {
-  console.log(myData);
-});
-async function ggggg() {
-  return new Promise((resolve, reject) => {
-    for (let i = 0; i < numItem - 1; i++) {
-      readData(items[i]);
-    }
-    resolve(1);
-  });
-}
-*/
-//readData("002146429601");
-
 async function getHTML(animalNo) {
   try {
     return await axios.get(

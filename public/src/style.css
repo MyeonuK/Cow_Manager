@@ -70,7 +70,7 @@ body {
   display: none;
 }
 
-.Button {
+.Nav .Button {
   padding: var(--layout-ss) var(--layout-s);
   margin: 0 var(--layout-s);
   font-size: var(--font-m);

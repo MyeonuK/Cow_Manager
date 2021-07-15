@@ -104,7 +104,27 @@ class CowTab extends Tab {
         }
       }
     };
+
+    const $testButton = document.createElement("button");
+    $testButton.className = "Button";
+    $testButton.innerText = "test";
+    $testButton.onclick = function () {
+      fetch("http://localhost:8001/update")
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    };
+
+    const $updateButton = document.createElement("button");
+    $updateButton.className = "Button";
+    $updateButton.innerText = "update";
+    $updateButton.onclick = function () {
+      fetch("http://localhost:8001/pls?id=456")
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    };
     $tabTitleDiv.appendChild($tabTitle);
+    $tabTitleDiv.appendChild($testButton);
+    $tabTitleDiv.appendChild($updateButton);
     $tabTitleDiv.appendChild($input);
 
     let $article = this.setArticle("");

@@ -2,7 +2,6 @@
   "name": "node_server",
   "version": "1.0.0",
   "description": "",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node web.js"
@@ -10,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aternus/csv-to-xlsx": "^1.0.19",
     "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   }
 }
