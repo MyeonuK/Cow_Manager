@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-//const cors = require("cors");
+const cors = require("cors");
 
 const indexRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/index");
 //const indexRouter = require("./routes/index");
@@ -12,12 +12,12 @@ const PORT = 8001;
 
 app.set("view engine", "ejs");
 app.set("views", "/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/views");
-//app.use(cors());
-app.all("/*", function (req, res, next) {
+app.use(cors());
+/*app.all("/*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With");
   next();
-});
+});*/
 app.use(
   "/",
   express.static("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/public")
