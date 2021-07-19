@@ -32,8 +32,8 @@ router.get("/pls", function (req, res) {
   conn.query(sql, function (err, rows, fields) {
     if (err) console.error(err);
     else {
-      console.log(JSON.stringify(rows[0]));
-      res.status(200).json(JSON.stringify(rows[0]));
+      console.log(JSON.stringify(rows));
+      res.status(200).json(JSON.stringify(rows));
     }
   });
 });
