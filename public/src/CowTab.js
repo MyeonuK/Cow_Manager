@@ -116,8 +116,8 @@ class CowTab extends Tab {
     $testButton.className = "Button";
     $testButton.innerText = "test";
     $testButton.onclick = function () {
-      //fetch("http://myeonu.cafe24app.com/update")
-      fetch("http://localhost:8001/update")
+      fetch("http://myeonu.cafe24app.com/update")
+        //fetch("http://localhost:8001/update")
         .then((res) => res.json())
         .then((res) => console.log(res));
     };
@@ -126,8 +126,8 @@ class CowTab extends Tab {
     $updateButton.className = "Button";
     $updateButton.innerText = "update";
     $updateButton.onclick = function () {
-      //fetch("http://myeonu.cafe24app.com/pls?id=456")
-      fetch("http://localhost:8001/pls")
+      fetch("http://myeonu.cafe24app.com/pls")
+        //fetch("http://localhost:8001/pls")
         .then((res) => res.json())
         .then((res) => console.log(res));
     };
