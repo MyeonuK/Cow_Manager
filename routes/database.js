@@ -28,21 +28,15 @@ module.exports = {
     });
   },
   search: function (conn, table, id) {
-    let sql = `SELECT * FROM ${table} WHERE testkey="${id}"`;
+    let sql = `SELECT * FROM TTABLE WHERE testkey="${id}"`;
 
     if (id == null) {
-      sql = `SELECT * FROM ${table}`;
+      sql = `SELECT * FROM TTABLE`;
     }
     conn.query(sql, function (err, rows, fields) {
       if (err) console.error(err);
       else {
-        console.log(JSON.stringify(rows[0]));
-        //return JSON.stringify(rows[0]);
-        let test = {
-          hello: "helko",
-          www: "wwwww",
-        };
-        return test;
+        return rows;
       }
     });
   },

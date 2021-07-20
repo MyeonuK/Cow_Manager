@@ -4,6 +4,7 @@ class CowTab extends Tab {
 
   constructor($target, data) {
     super($target, data);
+    console.log(data);
     this.data = data;
 
     const $mainDiv = document.createElement("div");
@@ -21,22 +22,22 @@ class CowTab extends Tab {
     $item.className = "Item";
     $item.innerHTML = `
         <a class="Item_AnimalNo" href="https://www.mtrace.go.kr/mtracesearch/cattleNoSearch.do?btsProgNo=0109008401&btsActionMethod=SELECT&cattleNo=${item}"">${item}</a>
+        
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.HouseNo}번 축사</span>
-          <span class="Item_Info">${itemInfo.CageNo}번 우리</span>
+          <span class="Item_Info">${itemInfo.sex}</span>
+          <span class="Item_Info">${itemInfo.birthDate}</span>
         </span>
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.Sex}</span>
-          <span class="Item_Info">${itemInfo.BirthDate}</span>
-        </span>
-        <span class="Item_Info">${itemInfo.Fam}</span>
-        <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.BruInfo}</span>
-          <span class="Item_Info">${itemInfo.BruDate}</span>
+          <span class="Item_Info">${itemInfo.famInfo}</span>
+          <span class="Item_Info">${itemInfo.famDate}</span>
         </span>
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.TubeInfo}</span>
-          <span class="Item_Info">${itemInfo.TubeDate}</span>
+          <span class="Item_Info">${itemInfo.bruInfo}</span>
+          <span class="Item_Info">${itemInfo.bruDate}</span>
+        </span>
+        <span class="Info_Group">
+          <span class="Item_Info">${itemInfo.tubeInfo}</span>
+          <span class="Item_Info">${itemInfo.tubeDate}</span>
         </span>`;
 
     $item.addEventListener("click", function () {
@@ -66,10 +67,17 @@ class CowTab extends Tab {
       <span class="Item_Info">결핵</span>`;
     $article.appendChild($itemTitle);
 
-    let cowList = Object.keys(this.data).sort();
+    //let cowList = Object.keys(this.data).sort();
 
-    for (let item of cowList) {
+    /*for (let item of cowList) {
       if (item.includes(value)) {
+        $article.appendChild(this.getData(item));
+      }
+    }
+    */
+    for (let item of this.data) {
+      console.log(item);
+      if (item.id.includes(value)) {
         $article.appendChild(this.getData(item));
       }
     }
@@ -109,7 +117,8 @@ class CowTab extends Tab {
     $testButton.className = "Button";
     $testButton.innerText = "test";
     $testButton.onclick = function () {
-      fetch("http://myeonu.cafe24app.com/update")
+      //fetch("http://myeonu.cafe24app.com/update")
+      fetch("http://localhost:8001/update")
         .then((res) => res.json())
         .then((res) => console.log(res));
     };
@@ -118,7 +127,8 @@ class CowTab extends Tab {
     $updateButton.className = "Button";
     $updateButton.innerText = "update";
     $updateButton.onclick = function () {
-      fetch("http://myeonu.cafe24app.com/pls?id=456")
+      //fetch("http://myeonu.cafe24app.com/pls?id=456")
+      fetch("http://localhost:8001/pls")
         .then((res) => res.json())
         .then((res) => console.log(res));
     };

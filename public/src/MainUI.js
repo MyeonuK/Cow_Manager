@@ -14,6 +14,11 @@ class MainUI {
     this.$mainDiv = $mainDiv;
     $target.appendChild(this.$mainDiv);
 
+    fetch("http://localhost:8001/pls")
+      .then((res) => res.json())
+      .then((res) => (this.data = res))
+      .then((res) => console.log(this.data));
+
     this.render();
   }
 
@@ -36,7 +41,8 @@ class MainUI {
   setTabs($contentDiv, $buttonList) {
     return new Promise(() => {
       setTimeout(() => {
-        this.$tabs.$cowTab = new CowTab($contentDiv, this.data.parsedData);
+        console.log(this.data);
+        this.$tabs.$cowTab = new CowTab($contentDiv, this.data);
         this.$tabs.$houseTab = new HouseTab($contentDiv, this.data.parsedData);
         this.$tabs.$vaccinTab = new VaccinTab(
           $contentDiv,
@@ -62,7 +68,7 @@ class MainUI {
   }
 
   async render() {
-    this.data = new ReadXlsx("data/data_final.xlsx");
+    //this.data = new ReadXlsx("data/data_final.xlsx");
 
     // header
     const $header = document.createElement("header");
