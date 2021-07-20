@@ -17,34 +17,33 @@ class CowTab extends Tab {
 
   getData(item) {
     const $item = document.createElement("div");
-    let itemInfo = this.data[item];
+    //let itemInfo = this.data[item];
 
     $item.className = "Item";
     $item.innerHTML = `
-        <a class="Item_AnimalNo" href="https://www.mtrace.go.kr/mtracesearch/cattleNoSearch.do?btsProgNo=0109008401&btsActionMethod=SELECT&cattleNo=${item}"">${item}</a>
+        <a class="Item_AnimalNo" href="https://www.mtrace.go.kr/mtracesearch/cattleNoSearch.do?btsProgNo=0109008401&btsActionMethod=SELECT&cattleNo=${item.id}"">${item.id}</a>
         
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.sex}</span>
-          <span class="Item_Info">${itemInfo.birthDate}</span>
+          <span class="Item_Info">${item.sex}</span>
+          <span class="Item_Info">${item.birthDate}</span>
         </span>
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.famInfo}</span>
-          <span class="Item_Info">${itemInfo.famDate}</span>
+          <span class="Item_Info">${item.famInfo}</span>
+          <span class="Item_Info">${item.famDate}</span>
         </span>
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.bruInfo}</span>
-          <span class="Item_Info">${itemInfo.bruDate}</span>
+          <span class="Item_Info">${item.bruInfo}</span>
+          <span class="Item_Info">${item.bruDate}</span>
         </span>
         <span class="Info_Group">
-          <span class="Item_Info">${itemInfo.tubeInfo}</span>
-          <span class="Item_Info">${itemInfo.tubeDate}</span>
+          <span class="Item_Info">${item.tubeInfo}</span>
+          <span class="Item_Info">${item.tubeDate}</span>
         </span>`;
 
     $item.addEventListener("click", function () {
       let $modal = new Modal(
         document.getElementsByClassName("CowDiv")[0],
-        item,
-        itemInfo
+        item
       );
     });
 
@@ -76,7 +75,7 @@ class CowTab extends Tab {
     }
     */
     for (let item of this.data) {
-      console.log(item);
+      console.log(item.sex);
       if (item.id.includes(value)) {
         $article.appendChild(this.getData(item));
       }

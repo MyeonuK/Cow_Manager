@@ -19,6 +19,8 @@ const sql_insert =
   "INSERT INTO cowList(id, birthDate, sex, famInfo, famDate, bruInfo, bruDate, tubeInfo, tubeDate) VALUES('002 1465 4761 5', '2020-01-01', '거세', '해당없음', '2020-01-01', '해당없음', '2020-01-01', '해당없음', '2020-01-01')";
 const sql_select = "SELECT * FROM cowList";
 const sql_drop = "DROP TABLE cowList";
+const sql_open = "GRANT ALL ON *.* TO gusdn0217@'%'";
+const sql_flush = "FLUSH PRIVILEGES";
 
 // 데이터베이스 연결
 connection.connect();

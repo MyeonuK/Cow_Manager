@@ -1,9 +1,8 @@
 class Modal {
   $modal = null;
-  title = null;
   data = null;
 
-  constructor($target, title, data) {
+  constructor($target, data) {
     let $app = document.getElementsByTagName("body")[0];
     $app.style.overflow = "hidden";
 
@@ -18,7 +17,6 @@ class Modal {
     this.$modal = $modal;
     $target.appendChild(this.$modal);
 
-    this.title = title;
     this.data = data;
 
     this.render();
@@ -36,28 +34,26 @@ class Modal {
     $modal_window.className = "Modal_Window";
     $modal_window.innerHTML = `
     <div class="Modal_Content">
-      <div class="Modal_Title">${this.title}</div>
-      <span class="Modal_Info_Title">축사</span>
-      <span class="Modal_Group">
-        <span class="Modal_Info">${this.data.HouseNo}번 축사</span>
-        <span class="Modal_Info">${this.data.CageNo}번 우리</span>
-      </span>
+      <div class="Modal_Title">${this.data.id}</div>
       <span class="Modal_Info_Title">성별 및 생년월일</span>
       <span class="Modal_Group">
-        <span class="Modal_Info">${this.data.Sex}</span>
-        <span class="Modal_Info">${this.data.BirthDate}</span>
+        <span class="Modal_Info">${this.data.sex}</span>
+        <span class="Modal_Info">${this.data.birthDate}</span>
       </span>
       <span class="Modal_Info_Title">구제역</span>
-        <span class="Modal_Info">${this.data.Fam}</span>
+      <span class="Modal_Group">
+      <span class="Modal_Info">${this.data.famInfo}</span>
+      <span class="Modal_Info">${this.data.famDate}</span>
+    </span>
       <span class="Modal_Info_Title">브루셀라</span>
       <span class="Modal_Group">
-        <span class="Modal_Info">${this.data.BruInfo}</span>
-        <span class="Modal_Info">${this.data.BruDate}</span>
+        <span class="Modal_Info">${this.data.bruInfo}</span>
+        <span class="Modal_Info">${this.data.bruDate}</span>
       </span>
       <span class="Modal_Info_Title">결핵</span>
       <span class="Modal_Group">
-        <span class="Modal_Info">${this.data.TubeInfo}</span>
-        <span class="Modal_Info">${this.data.TubeDate}</span>
+        <span class="Modal_Info">${this.data.tubeInfo}</span>
+        <span class="Modal_Info">${this.data.tubeDate}</span>
       </span>
     </div>
     `;
