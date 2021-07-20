@@ -17,8 +17,8 @@ app.use(cors());
 app.use(
   "/",
   express.static("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/public")
-);
-*/
+  );
+  */
 // view engine setup (local)
 
 app.set("view engine", "ejs");
@@ -26,6 +26,7 @@ app.set("views", path.join(__dirname, "./views"));
 app.use("/", express.static(path.join(__dirname, "./public")));
 //
 app.use("/", indexRouter);
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`server started on PORT ${PORT}`);
