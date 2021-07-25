@@ -25,18 +25,104 @@ const sql_flush = "FLUSH PRIVILEGES";
 // 데이터베이스 연결
 connection.connect();
 
-// create 쿼리문 사용
+const numbers = [
+  "002 1467 1543 2",
+  "002 1465 4674 5",
+  "002 1479 2976 3",
+  "002 1479 0304 8",
+  "002 1465 4139 7",
+  "002 1474 8937 3",
+  "002 1450 1688 0",
+  "002 1465 4596 1",
+  "002 1468 3604 3",
+  "002 1480 1177 6",
+  "002 1489 6428 2",
+  "002 1465 3798 7",
+  "002 1483 6762 8",
+  "002 1464 0655 8",
+  "002 1465 4808 9",
+  "002 1462 5942 4",
+  "002 1458 1719 8",
+  "002 1464 0786 8",
+  "002 1458 1718 0",
+  "002 1464 0785 0",
+  "002 1465 4568 9",
+  "002 1495 0749 9",
+  "002 1465 4094 0",
+  "002 1465 4572 8",
+  "002 1465 4574 4",
+  "002 1465 4772 0",
+  "002 1467 0765 8",
+  "002 1465 4253 1",
+  "002 1464 2960 1",
+  "002 1479 3019 1",
+  "002 1465 4669 0",
+  "002 1468 3360 9",
+  "002 1464 0763 9",
+  "002 1465 4573 6",
+  "002 1463 6892 1",
+  "002 1465 4158 1",
+  "002 1465 4768 2",
+  "002 1479 0596 6",
+  "002 1465 4039 4",
+  "002 1464 3025 3",
+  "002 1465 4771 1",
+  "002 1465 4767 4",
+  "002 1465 4571 0",
+  "002 1464 0736 6",
+  "002 1479 0326 5",
+  "002 1474 7512 2",
+  "002 1480 1594 8",
+  "002 1479 0449 1",
+  "002 1496 7286 1",
+  "002 1465 4261 1",
+  "002 1483 6761 0",
+  "002 1453 4138 2",
+  "002 1475 7557 2",
+  "002 1480 1477 5",
+  "002 1465 4765 8",
+  "002 1465 4128 4",
+  "002 1480 1479 1",
+  "002 1479 2806 0",
+  "002 1465 3975 5",
+  "002 1465 3965 9",
+  "002 1465 3932 9",
+  "002 1465 3779 6",
+  "002 1465 3951 1",
+  "002 1465 3652 5",
+  "002 1465 4806 4",
+  "002 1465 4761 5",
+];
 let id;
+
+// insert numbers
+/*
+for (let i = 0; i < numbers.length; i++) {
+  connection.query(
+    `INSERT INTO cowList(id) VALUES(${numbers[i]})`,
+    (error, results, fields) => {
+      if (error) console.log(error.sql);
+      if (!error) console.log(numbers[i]);
+      //id = results[0].id;
+    }
+  );
+}
+*/
+
+// select all data
+/*
 connection.query(sql_select, (error, results, fields) => {
-  if (error) throw error;
+  if (error) console.log(error.sql);
   else console.log(results);
   //id = results[0].id;
 });
-
+*/
 //readData(id);
 
 // 연결 종료
 connection.end();
+
+readData("002 1465 3932 9");
 
 function readData(animalNo) {
   getHTML(animalNo)
@@ -56,12 +142,12 @@ function readData(animalNo) {
           title: $(this).text(),
         };
       });
-      console.log(stringList);
+      //console.log(stringList);
       return stringList;
     })
     .then((res) => {
       // res로부터 파싱
-      /*
+      let myData = {};
       let num = res[0].title;
       let birthDate = res[1].title;
       let sex = res[3].title;
@@ -72,22 +158,22 @@ function readData(animalNo) {
       let tube_info = res[14].title;
 
       // 개체번호, 생년월일, 성별
-      this.data.num = num;
-      this.data.birthDate = birthDate;
-      this.data.sex = sex;
+      myData.num = num;
+      myData.birthDate = birthDate;
+      myData.sex = sex;
 
       // 구제역
       for (let i = 0; i < fam.length; i++) {
         if (fam[i] != " " && fam[i] != "\t" && fam[i] != "\n") {
-          this.data.fam = fam.slice(i, fam.indexOf("\n", i - 1));
+          myData.fam = fam.slice(i, fam.indexOf("\n", i - 1));
           break;
         }
       }
 
       // 브루셀라
-      this.data.bru_info = bru_info;
+      myData.bru_info = bru_info;
       if (bru_info == "해당 없음") {
-        this.data.bru_date = bru_date.slice(0, bru_date.indexOf("\n", 0));
+        myData.bru_date = bru_date.slice(0, bru_date.indexOf("\n", 0));
       } else {
         let temp = "";
         let index;
@@ -122,10 +208,7 @@ function readData(animalNo) {
           tube_info[i] != "\t" &&
           tube_info[i] != "\n"
         ) {
-          this.data.tube_info = tube_info.slice(
-            i,
-            tube_info.indexOf("\n", i - 1)
-          );
+          myData.tube_info = tube_info.slice(i, tube_info.indexOf("\n", i - 1));
           break;
         }
       }
@@ -136,23 +219,19 @@ function readData(animalNo) {
           tube_date[i] != "\t" &&
           tube_date[i] != "\n"
         ) {
-          this.data.tube_date = tube_date.slice(
-            i,
-            tube_date.indexOf("\n", i - 1)
-          );
+          myData.tube_date = tube_date.slice(i, tube_date.indexOf("\n", i - 1));
           break;
         }
       }
 
       // 업데이트 날짜
       let today = new Date();
-      this.data.update = today.toLocaleString();
+      myData.update = today.toLocaleString();
 
-      myData.push(data);
-      */
+      console.log(myData);
     });
 
-  return this;
+  //return this;
 }
 
 async function getHTML(animalNo) {
