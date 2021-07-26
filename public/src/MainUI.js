@@ -14,10 +14,9 @@ class MainUI {
     this.$mainDiv = $mainDiv;
     $target.appendChild(this.$mainDiv);
     fetch("http://myeonu.cafe24app.com/pls")
-      //    fetch("http://localhost:8001/pls")
       .then((res) => res.json())
-      .then((res) => (this.data = res))
-      .then((res) => console.log(this.data));
+      .then((res) => (this.data = res));
+    //.then((res) => console.log(this.data));
 
     this.render();
   }
@@ -68,8 +67,6 @@ class MainUI {
   }
 
   async render() {
-    //this.data = new ReadXlsx("data/data_final.xlsx");
-
     // header
     const $header = document.createElement("header");
     $header.className = "Header";

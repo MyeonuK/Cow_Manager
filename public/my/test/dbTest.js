@@ -21,6 +21,7 @@ const sql_select = "SELECT * FROM cowList";
 const sql_drop = "DROP TABLE cowList";
 const sql_open = "GRANT ALL ON *.* TO gusdn0217@'%'";
 const sql_flush = "FLUSH PRIVILEGES";
+const sql_update = "UPDATE cowList SET id =";
 
 // 데이터베이스 연결
 connection.connect();
@@ -117,15 +118,47 @@ connection.query(sql_select, (error, results, fields) => {
   //id = results[0].id;
 });
 */
-//readData(id);
 
+// update data
+/*
+readData("002 1465 3932 9")
+.then((res) => {
+  let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', bruDate='${res.bruDate}', tubeInfo='${res.tubeInfo}', tubeDate='${res.tubeDate}' WHERE id='${res.id}'`;
+  console.log(sql_update);
+  connection.query(sql_update, (error, results, fields) => {
+    if (error) console.log(error);
+    else console.log(results);
+  });
+})
+.then((res) => connection.end());
+*/
+
+// update all data
+/*
+for (let i of numbers) {
+  readData(i).then((res) => {
+    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', bruDate='${res.bruDate}', tubeInfo='${res.tubeInfo}', tubeDate='${res.tubeDate}' WHERE id='${res.id}'`;
+    console.log(sql_update);
+    connection.query(sql_update, (error, results, fields) => {
+      if (error) console.log(error);
+      else console.log(results);
+    });
+  });
+}
+*/
+connection.query(
+  "ALTER TABLE cowList MODIFY birthDate DATE",
+  (error, results, fields) => {
+    if (error) console.log(error.sql);
+    else console.log(results);
+    //id = results[0].id;
+  }
+);
 // 연결 종료
 connection.end();
 
-readData("002 1465 3932 9");
-
-function readData(animalNo) {
-  getHTML(animalNo)
+async function readData(animalNo) {
+  return await getHTML(animalNo)
     .then((html) => {
       // 크롤링
       let stringList = [];
@@ -146,89 +179,86 @@ function readData(animalNo) {
       return stringList;
     })
     .then((res) => {
-      // res로부터 파싱
       let myData = {};
-      let num = res[0].title;
+      // res로부터 파싱
+      let id = res[0].title;
       let birthDate = res[1].title;
       let sex = res[3].title;
       let fam = res[10].title;
-      let bru_date = res[11].title;
-      let bru_info = res[12].title;
-      let tube_date = res[13].title;
-      let tube_info = res[14].title;
+      let bruDate = res[11].title;
+      let bruInfo = res[12].title;
+      let tubeDate = res[13].title;
+      let tubeInfo = res[14].title;
 
       // 개체번호, 생년월일, 성별
-      myData.num = num;
-      myData.birthDate = birthDate;
+      myData.id = id;
       myData.sex = sex;
+
+      // 생년월일, 나이
+      myData.birthDate = birthDate.slice(0, birthDate.indexOf(" "));
+      myData.age = birthDate.slice(
+        birthDate.indexOf("(") + 1,
+        birthDate.length - 4
+      );
 
       // 구제역
       for (let i = 0; i < fam.length; i++) {
         if (fam[i] != " " && fam[i] != "\t" && fam[i] != "\n") {
-          myData.fam = fam.slice(i, fam.indexOf("\n", i - 1));
+          fam = fam.slice(i, fam.indexOf("\n", i - 1));
           break;
         }
       }
+      myData.famDate =
+        "20" + fam.slice(0, 2) + "-" + fam.slice(3, 5) + "-" + fam.slice(6, 8);
+      myData.famInfo = fam.slice(fam.indexOf("(") + 1, fam.indexOf(")"));
 
       // 브루셀라
-      myData.bru_info = bru_info;
-      if (bru_info == "해당 없음") {
-        myData.bru_date = bru_date.slice(0, bru_date.indexOf("\n", 0));
+      myData.bruInfo = bruInfo;
+      if (bruInfo == "해당 없음") {
+        myData.bruDate = bruDate.slice(0, bruDate.indexOf("\n", 0));
       } else {
         let temp = "";
         let index;
-        for (let i = 0; i < bru_date.length; i++) {
-          if (
-            bru_date[i] != " " &&
-            bru_date[i] != "\t" &&
-            bru_date[i] != "\n"
-          ) {
-            index = bru_date.indexOf("\n", i - 1);
-            temp = bru_date.slice(i, bru_date.indexOf("\n", i - 1));
+        for (let i = 0; i < bruDate.length; i++) {
+          if (bruDate[i] != " " && bruDate[i] != "\t" && bruDate[i] != "\n") {
+            index = bruDate.indexOf("\n", i - 1);
+            temp = bruDate.slice(i, bruDate.indexOf("\n", i - 1));
             break;
           }
         }
-        for (let i = index; i < bru_date.length; i++) {
-          if (
-            bru_date[i] != " " &&
-            bru_date[i] != "\t" &&
-            bru_date[i] != "\n"
-          ) {
-            data.bru_date =
-              temp + " " + bru_date.slice(i, bru_date.indexOf("\n", i - 1));
+        for (let i = index; i < bruDate.length; i++) {
+          if (bruDate[i] != " " && bruDate[i] != "\t" && bruDate[i] != "\n") {
+            myData.bruDate =
+              temp + " " + bruDate.slice(i, bruDate.indexOf("\n", i - 1));
             break;
           }
         }
       }
 
       // 결핵
-      for (let i = 0; i < tube_info.length; i++) {
-        if (
-          tube_info[i] != " " &&
-          tube_info[i] != "\t" &&
-          tube_info[i] != "\n"
-        ) {
-          myData.tube_info = tube_info.slice(i, tube_info.indexOf("\n", i - 1));
+      for (let i = 0; i < tubeInfo.length; i++) {
+        if (tubeInfo[i] != " " && tubeInfo[i] != "\t" && tubeInfo[i] != "\n") {
+          myData.tubeInfo = tubeInfo.slice(i, tubeInfo.indexOf("\n", i - 1));
           break;
         }
       }
 
-      for (let i = 0; i < tube_date.length; i++) {
-        if (
-          tube_date[i] != " " &&
-          tube_date[i] != "\t" &&
-          tube_date[i] != "\n"
-        ) {
-          myData.tube_date = tube_date.slice(i, tube_date.indexOf("\n", i - 1));
+      for (let i = 0; i < tubeDate.length; i++) {
+        if (tubeDate[i] != " " && tubeDate[i] != "\t" && tubeDate[i] != "\n") {
+          myData.tubeDate = tubeDate.slice(i, tubeDate.indexOf("\n", i - 1));
           break;
         }
+      }
+      if (myData.tubeDate == "해당없음") {
+        myData.tubeDate = "";
       }
 
       // 업데이트 날짜
       let today = new Date();
       myData.update = today.toLocaleString();
 
-      console.log(myData);
+      //console.log(myData);
+      return myData;
     });
 
   //return this;

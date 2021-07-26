@@ -21,3 +21,19 @@
 CREATE TABLE cowList(id varchar(15) not null, birthDate date, sex varchar(3), famInfo varchar(5) not null, famDate date, bruInfo varchar(5) not null, bruDate date, tubeInfo varchar(5) not null, tubeDate date)
 
 ALTER TABLE `cowlist` ADD `id` VARCHAR(15) NOT NULL, ADD `birthDate` DATE NULL AFTER `id`, ADD `sex` VARCHAR(3) NOT NULL AFTER `birthDate`, ADD `famInfo` VARCHAR(5) NOT NULL AFTER `sex`, ADD `famDate` DATE NULL AFTER `famInfo`, ADD `bruInfo` VARCHAR(5) NOT NULL AFTER `famDate`, ADD `bruDate` DATE NULL AFTER `bruInfo`, ADD `tubeInfo` VARCHAR(5) NOT NULL AFTER `bruDate`, ADD `tubeDate` DATE NULL AFTER `tubeInfo`, ADD PRIMARY KEY (`id`);
+
+
+
+
+id - string
+(house - number
+(room - number
+birthDate - date
+age - number
+sex - string
+famInfo - string
+famDate - date
+bruInfo - string
+bruDate - date
+tubeInfo - string
+tubeDate - date
