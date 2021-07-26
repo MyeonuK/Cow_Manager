@@ -15,7 +15,29 @@ class MainUI {
     $target.appendChild(this.$mainDiv);
     fetch("http://myeonu.cafe24app.com/pls")
       .then((res) => res.json())
-      .then((res) => (this.data = res));
+      .then((res) => (this.data = res))
+      .then((res) => {
+        for (let i of this.data) {
+          i.birthDate = i.birthDate.slice(0, 10);
+          if (i.famDate == "0000-00-00") {
+            i.famDate = null;
+          } else {
+            i.famDate = i.famDate.slice(0, 10);
+          }
+
+          if (i.bruDate == "0000-00-00") {
+            i.bruDate = null;
+          } else {
+            i.bruDate = i.bruDate.slice(0, 10);
+          }
+
+          if (i.tubeDate == "0000-00-00") {
+            i.tubeDate = null;
+          } else {
+            i.tubeDate = i.tubeDate.slice(0, 10);
+          }
+        }
+      });
     //.then((res) => console.log(this.data));
 
     this.render();
