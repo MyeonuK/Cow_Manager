@@ -33,7 +33,7 @@ function load(req, res, conn) {
     }
   });
   */
-  console.log(hello);
+  console.log("hello");
 }
 
 async function readData(animalNo) {
