@@ -26,7 +26,7 @@ router.get("/update", function (req, res) {
 });
 
 router.get("/load", function (req, res) {
-  console.log("hello");
+  res.status(200).json("hello");
   db.load(req, res, conn);
 });
 
