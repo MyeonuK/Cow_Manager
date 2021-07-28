@@ -126,7 +126,7 @@ class CowTab extends Tab {
     $updateButton.className = "Button";
     $updateButton.innerText = "update";
     $updateButton.onclick = function () {
-      fetch("http://myeonu.cafe24app.com/pls")
+      fetch("http://myeonu.cafe24app.com/update")
         //fetch("http://localhost:8001/pls")
         .then((res) => res.json())
         .then((res) => console.log(res));

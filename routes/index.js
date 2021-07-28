@@ -1,5 +1,6 @@
 const express = require("express");
 const mysql = require("mysql");
+const db = require("./database");
 const router = express.Router();
 
 let dbInfo = {
@@ -21,21 +22,11 @@ router.get("/", function (req, res) {
 });
 
 router.get("/update", function (req, res) {
-  update(req, res);
+  db.update(req, res, conn);
 });
 
-router.get("/pls", function (req, res) {
-  let sql = `SELECT * FROM cowList WHERE id="${req.query.id}"`;
-
-  if (req.query.id == null) {
-    sql = `SELECT * FROM cowList`;
-  }
-  conn.query(sql, function (err, rows, fields) {
-    if (err) console.error(err);
-    else {
-      res.status(200).json(rows);
-    }
-  });
+router.get("/load", function (req, res) {
+  db.load(req, res, conn);
 });
 
 module.exports = router;
