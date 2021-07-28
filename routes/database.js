@@ -20,6 +20,7 @@ function update(req, res, conn) {
 }
 
 function load(req, res, conn) {
+  /*
   let sql = `SELECT * FROM cowList WHERE id="${req.query.id}"`;
 
   if (req.query.id == null) {
@@ -31,6 +32,8 @@ function load(req, res, conn) {
       res.status(200).json(rows);
     }
   });
+  */
+  console.log(hello);
 }
 
 async function readData(animalNo) {
