@@ -1,6 +1,6 @@
 const express = require("express");
 const mysql = require("mysql");
-const db = require("./database");
+//const db = require("./database");
 const router = express.Router();
 
 let dbInfo = {
@@ -22,7 +22,7 @@ router.get("/", function (req, res) {
 });
 
 router.get("/update", function (req, res) {
-  db.update(req, res, conn);
+  // db.update(req, res, conn);
 });
 
 router.get("/load", function (req, res) {
