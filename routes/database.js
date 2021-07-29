@@ -33,6 +33,8 @@ function load(req, res, conn) {
     }
   });
   */
+  return { threee: "wefwf", two: "twowowo" };
+
   console.log("hello");
 }
 
