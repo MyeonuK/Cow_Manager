@@ -21,13 +21,11 @@ function update(req, res, conn) {
 
 function load(req, res, conn) {
   let sql = `SELECT * FROM cowList WHERE id="${req.query.id}"`;
-
+  console.log(req.query.id);
+  /*
   if (req.query.id == null) {
     sql = `SELECT * FROM cowList`;
   }
-
-  res.status(200).json({ answer: req.query.id });
-  /*
   conn.query(sql, function (err, rows, fields) {
     if (err) console.error(err);
     else {
