@@ -26,7 +26,7 @@ function load(req, res, conn) {
     sql = `SELECT * FROM cowList`;
   }
 
-  console.log(req.query.id);
+  res.status(200).json({ answer: req.query.id });
   /*
   conn.query(sql, function (err, rows, fields) {
     if (err) console.error(err);
