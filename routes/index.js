@@ -27,7 +27,8 @@ router.get("/update", function (req, res) {
 
 router.get("/load", function (req, res) {
   //let hek = { threee: "wefwf", two: "twowowo" };
-  res.status(200).json(db.load(req, res, conn));
+  db.load(req, res, conn);
+  //res.status(200).json(db.load(req, res, conn));
   //db.load(req, res, conn);
 });
 

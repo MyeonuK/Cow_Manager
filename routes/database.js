@@ -33,9 +33,7 @@ function load(req, res, conn) {
     }
   });
   */
-  return { threee: "wefwf", two: "twowowo" };
-
-  console.log("hello");
+  res.status(200).json({ threee: "wefwf", two: "twowowo" });
 }
 
 async function readData(animalNo) {
