@@ -20,20 +20,22 @@ function update(req, res, conn) {
 }
 
 function load(req, res, conn) {
-  /*
   let sql = `SELECT * FROM cowList WHERE id="${req.query.id}"`;
 
   if (req.query.id == null) {
     sql = `SELECT * FROM cowList`;
   }
+
+  console.log(req.query.id);
+  /*
   conn.query(sql, function (err, rows, fields) {
     if (err) console.error(err);
     else {
       res.status(200).json(rows);
     }
   });
-  */
-  res.status(200).json({ threee: "wefwf", two: "twowowo" });
+*/
+  //res.status(200).json({ threee: "wefwf", two: "twowowo" });
 }
 
 async function readData(animalNo) {
