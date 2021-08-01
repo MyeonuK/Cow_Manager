@@ -44,7 +44,7 @@ function load(id) {
   //return { threee: "wefwf", two: "twowowo" };
 
   conn.query(sql, function (err, rows, fields) {
-    console.log(typeof rows);
+    console.log(rows);
     if (err) {
       console.error(err);
       return null;
