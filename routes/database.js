@@ -50,6 +50,7 @@ function load(id) {
       for (let data of rows) {
         arr.push(data);
       }
+      console.log(arr);
       return JSON.stringify(arr);
       return JSON.stringify(rows);
     }
