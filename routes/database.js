@@ -41,7 +41,8 @@ function load(id) {
     sql = `SELECT * FROM cowList`;
   }
 
-  console.log(conn);
+  return { threee: "wefwf", two: "twowowo" };
+
   conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
