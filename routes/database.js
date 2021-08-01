@@ -42,10 +42,11 @@ function load(id) {
   }
 
   conn.query(sql, function (err, rows, fields) {
+    console.log(rows[0]);
     if (err) {
       console.error(err);
     } else {
-      return rows[0];
+      return JSON.stringify(rows[0]);
       return JSON.stringify(rows);
     }
   });
