@@ -40,6 +40,8 @@ function load(id) {
   if (id == null) {
     sql = `SELECT * FROM cowList`;
   }
+
+  console.log(conn);
   conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
