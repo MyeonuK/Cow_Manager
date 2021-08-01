@@ -48,7 +48,18 @@ function load(id) {
     } else {
       let arr = [];
       for (let data of rows) {
-        arr.push(data);
+        let obj = {};
+        obj.id = data.id;
+        obj.birthDate = data.birthDate;
+        obj.age = data.age;
+        obj.sex = data.sex;
+        obj.famInfo = data.famInfo;
+        obj.famDate = data.famDate;
+        obj.bruInfo = data.bruInfo;
+        obj.bruDate = data.bruDate;
+        obj.tubeInfo = data.tubeInfo;
+        obj.tubeDate = data.tubeDate;
+        arr.push(obj);
       }
       console.log(arr);
       return JSON.stringify(arr);
