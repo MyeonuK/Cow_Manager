@@ -1,6 +1,6 @@
 const express = require("express");
 const db = require("./database");
-const crawler = require("./crawler");
+//const crawler = require("./crawler");
 const router = express.Router();
 
 router.get("/", function (req, res) {
