@@ -36,8 +36,8 @@ function update(req, res, conn) {
 
 function load(id) {
   let sql = `SELECT * FROM cowList WHERE id="${id}"`;
-  console.log(id);
-  if (id == null) {
+
+  if (id == undefined) {
     sql = `SELECT * FROM cowList`;
   }
 
