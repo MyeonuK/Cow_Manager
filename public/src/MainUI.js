@@ -17,6 +17,7 @@ class MainUI {
       .then((res) => res.json())
       .then((res) => (this.data = res))
       .then((res) => {
+        console.log(this.data);
         for (let i of this.data) {
           i.birthDate = i.birthDate.slice(0, 10);
           if (i.famDate == "0000-00-00") {
