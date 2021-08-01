@@ -34,10 +34,10 @@ function update(req, res, conn) {
   }
 }
 
-function load(id, conn) {
+function load(id) {
   let sql = `SELECT * FROM cowList WHERE id="${id}"`;
 
-  if (req.query.id == null) {
+  if (id == null) {
     sql = `SELECT * FROM cowList`;
   }
   conn.query(sql, function (err, rows, fields) {
