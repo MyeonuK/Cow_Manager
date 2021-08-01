@@ -12,6 +12,12 @@ let dbInfo = {
   port: "3306",
 };
 
+const conn = mysql.createConnection(dbInfo);
+conn.connect(function (err) {
+  if (err) console.error("connection error: " + err);
+  else console.log("connected successfuelly!");
+});
+
 router.get("/", function (req, res) {
   res.render("index.ejs");
 });
