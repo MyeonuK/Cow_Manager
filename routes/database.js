@@ -46,10 +46,7 @@ function load(id) {
     if (err) {
       console.error(err);
     } else {
-      return [
-        { one: "onne", two: "ttto" },
-        { one: "WW", two: "dfwf" },
-      ];
+      return { one: "onne", two: "ttto" };
       let arr = [];
       for (let data of rows) {
         let obj = {};
