@@ -1,6 +1,21 @@
 // mysql 모듈 사용
 const axios = require("axios");
 const cheerio = require("cheerio");
+const mysql = require("mysql");
+
+let dbInfo = {
+  host: "myeonu.cafe24app.com",
+  user: "gusdn0217",
+  password: "Dbdb4783!",
+  database: "gusdn0217",
+  port: "3306",
+};
+
+const conn = mysql.createConnection(dbInfo);
+conn.connect(function (err) {
+  if (err) console.error("connection error: " + err);
+  else console.log("connected successfuelly!");
+});
 
 function update(req, res, conn) {
   for (let i of numbers) {
@@ -19,20 +34,18 @@ function update(req, res, conn) {
   }
 }
 
-function load(req, res, conn) {
-  let sql = `SELECT * FROM cowList WHERE id="${req.query.id}"`;
-  console.log(req.query.id);
-  /*
+function load(id, conn) {
+  let sql = `SELECT * FROM cowList WHERE id="${id}"`;
+
   if (req.query.id == null) {
     sql = `SELECT * FROM cowList`;
   }
   conn.query(sql, function (err, rows, fields) {
     if (err) console.error(err);
     else {
-      res.status(200).json(rows);
+      return rows;
     }
   });
-*/
   //res.status(200).json({ threee: "wefwf", two: "twowowo" });
 }
 
