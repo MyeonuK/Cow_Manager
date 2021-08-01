@@ -36,13 +36,12 @@ function update(req, res, conn) {
 
 function load(id) {
   let sql = `SELECT * FROM cowList WHERE id="${id}"`;
-
+  console.log(id);
   if (id == null) {
     sql = `SELECT * FROM cowList`;
   }
 
   conn.query(sql, function (err, rows, fields) {
-    console.log(rows[0]);
     if (err) {
       console.error(err);
     } else {
