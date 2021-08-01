@@ -62,7 +62,7 @@ function load(id) {
         arr.push(obj);
       }
       console.log(arr);
-      return JSON.stringify(arr);
+      return arr;
       return JSON.stringify(rows);
     }
   });
