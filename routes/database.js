@@ -46,7 +46,11 @@ function load(id) {
     if (err) {
       console.error(err);
     } else {
-      return JSON.stringify(rows[0]);
+      let arr = [];
+      for (let data of rows) {
+        arr.push(data);
+      }
+      return JSON.stringify(arr);
       return JSON.stringify(rows);
     }
   });
