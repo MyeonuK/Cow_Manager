@@ -41,18 +41,13 @@ function load(id) {
     sql = `SELECT * FROM cowList`;
   }
 
-  //return { threee: "wefwf", two: "twowowo" };
-
   conn.query(sql, function (err, rows, fields) {
-    console.log(rows);
     if (err) {
       console.error(err);
-      return null;
     } else {
       return rows;
     }
   });
-  //res.status(200).json({ threee: "wefwf", two: "twowowo" });
 }
 
 async function readData(animalNo) {

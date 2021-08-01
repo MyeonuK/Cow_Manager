@@ -12,7 +12,7 @@ router.get("/update", function (req, res) {
 });
 
 router.get("/load", function (req, res) {
-  res.status(200).json(db.load(req.query.id));
+  res.status(200).json(JSON.stringify(db.load(req.query.id)));
 });
 
 module.exports = router;
