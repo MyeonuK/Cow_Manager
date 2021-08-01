@@ -45,7 +45,7 @@ function load(id) {
     if (err) {
       console.error(err);
     } else {
-      return rows[i];
+      return rows[0];
       return JSON.stringify(rows);
     }
   });
