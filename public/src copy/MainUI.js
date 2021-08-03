@@ -13,8 +13,7 @@ class MainUI {
 
     this.$mainDiv = $mainDiv;
     $target.appendChild(this.$mainDiv);
-    //fetch("http://myeonu.cafe24app.com/load")
-    fetch("load")
+    fetch("http://myeonu.cafe24app.com/load")
       .then((res) => res.json())
       .then((res) => (this.data = res))
       .then((res) => {

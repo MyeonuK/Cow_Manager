@@ -4,11 +4,20 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 // 연결할 DB 정보입력
+/*
 const connection = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
   password: "Dbdb4783!",
   database: "gusdn0217",
+  port: "3306",
+});
+*/
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "cowmanager",
   port: "3306",
 });
 
@@ -24,8 +33,10 @@ const sql_flush = "FLUSH PRIVILEGES";
 const sql_update = "UPDATE cowList SET id =";
 
 // 데이터베이스 연결
-connection.connect();
-
+connection.connect(function (err) {
+  if (err) console.error("connection error: " + err);
+  else console.log("connected successfuelly!");
+});
 const numbers = [
   "002 1467 1543 2",
   "002 1465 4674 5",
@@ -100,9 +111,9 @@ let id;
 /*
 for (let i = 0; i < numbers.length; i++) {
   connection.query(
-    `INSERT INTO cowList(id) VALUES(${numbers[i]})`,
+    `INSERT INTO cowList(id) VALUES('${numbers[i]}')`,
     (error, results, fields) => {
-      if (error) console.log(error.sql);
+      if (error) console.log(error);
       if (!error) console.log(numbers[i]);
       //id = results[0].id;
     }
@@ -119,33 +130,28 @@ connection.query(sql_select, (error, results, fields) => {
 });
 */
 
-// update data
-/*
-readData("002 1465 3932 9")
-.then((res) => {
-  let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', bruDate='${res.bruDate}', tubeInfo='${res.tubeInfo}', tubeDate='${res.tubeDate}' WHERE id='${res.id}'`;
-  console.log(sql_update);
-  connection.query(sql_update, (error, results, fields) => {
-    if (error) console.log(error);
-    else console.log(results);
-  });
-})
-.then((res) => connection.end());
-*/
-
 // update all data
-/*
+
 for (let i of numbers) {
   readData(i).then((res) => {
-    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', bruDate='${res.bruDate}', tubeInfo='${res.tubeInfo}', tubeDate='${res.tubeDate}' WHERE id='${res.id}'`;
-    console.log(sql_update);
+    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+
+    if (res.bruDate != null) {
+      sql_update += `, bruDate='${res.bruDate}'`;
+    }
+    if (res.tubeDate != null) {
+      sql_update += `, tubeDate='${res.tubeDate}'`;
+    }
+    sql_update += `WHERE id='${res.id}'`;
+
     connection.query(sql_update, (error, results, fields) => {
       if (error) console.log(error);
       else console.log(results);
     });
   });
 }
-*/
+
+/*
 connection.query(
   "ALTER TABLE cowList MODIFY birthDate DATE",
   (error, results, fields) => {
@@ -154,8 +160,9 @@ connection.query(
     //id = results[0].id;
   }
 );
+*/
 // 연결 종료
-connection.end();
+//connection.end();
 
 async function readData(animalNo) {
   return await getHTML(animalNo)
@@ -215,7 +222,7 @@ async function readData(animalNo) {
       // 브루셀라
       myData.bruInfo = bruInfo;
       if (bruInfo == "해당 없음") {
-        myData.bruDate = bruDate.slice(0, bruDate.indexOf("\n", 0));
+        myData.bruDate = null;
       } else {
         let temp = "";
         let index;
@@ -226,13 +233,7 @@ async function readData(animalNo) {
             break;
           }
         }
-        for (let i = index; i < bruDate.length; i++) {
-          if (bruDate[i] != " " && bruDate[i] != "\t" && bruDate[i] != "\n") {
-            myData.bruDate =
-              temp + " " + bruDate.slice(i, bruDate.indexOf("\n", i - 1));
-            break;
-          }
-        }
+        myData.bruDate = temp;
       }
 
       // 결핵
@@ -250,7 +251,7 @@ async function readData(animalNo) {
         }
       }
       if (myData.tubeDate == "해당없음") {
-        myData.tubeDate = "";
+        myData.tubeDate = null;
       }
 
       // 업데이트 날짜

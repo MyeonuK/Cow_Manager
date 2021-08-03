@@ -3,11 +3,20 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const mysql = require("mysql");
 
-let dbInfo = {
+/*
+const dbInfo = {
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
   password: "Dbdb4783!",
   database: "gusdn0217",
+  port: "3306",
+};
+*/
+const dbInfo = {
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "cowmanager",
   port: "3306",
 };
 
