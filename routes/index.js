@@ -4,11 +4,20 @@ const express = require("express");
 const router = express.Router();
 const mysql = require("mysql");
 
+/*
 let dbInfo = {
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
   password: "Dbdb4783!",
   database: "gusdn0217",
+  port: "3306",
+};
+*/
+let dbInfo = {
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "cowmanager",
   port: "3306",
 };
 
@@ -20,6 +29,10 @@ conn.connect(function (err) {
 
 router.get("/", function (req, res) {
   res.render("index.ejs");
+});
+
+router.get("/newpage", function (req, res) {
+  res.render("newpage.ejs");
 });
 
 router.get("/update", function (req, res) {

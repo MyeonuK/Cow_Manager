@@ -2,8 +2,10 @@
   /* color */
   --color-white: #ffffff;
   --color-gray: #424242;
-  /*--color-beige: #fffae9;*/
   --color-beige: beige;
+  --color-navy: #323c57;
+  --color-font: white;
+  --color-lightgray: #bbbbbb;
 
   /* font size */
   --font-l: 30px;
@@ -25,13 +27,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-beige);
+  background-color: var(--color-navy);
   font-family: "Noto Sans KR", sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 * {
   padding: 0;
   margin: 0;
   font-size: var(--font-s);
+  color: var(--color-font);
 }
 
 #App {
@@ -43,191 +52,36 @@ body {
   height: 95%;
 }
 
-.Header {
-  height: 85px;
-  padding: 0 var(--layout-m);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: var(--color-gray);
+.ContentDiv {
+  padding: var(--layout-ss);
 }
 
-.Title {
-  width: 250px;
-  align-content: center;
-  font-size: var(--font-l);
-  color: var(--color-white);
+.Header {
+  width: 100%;
+  padding: var(--layout-ss) 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: solid red 1px;
+}
+
+.Section {
+  background-color: #478e77;
 }
 
 .Nav {
-  width: max-content;
+  width: 100%;
+  height: 70px;
+  background-color: var(--color-white);
+  position: fixed;
+  bottom: 0;
   display: flex;
   flex-direction: row;
-  align-items: left;
-}
-
-.Nav_Button {
-  display: none;
-}
-
-.Nav .Button {
-  padding: var(--layout-ss) var(--layout-s);
-  margin: 0 var(--layout-s);
-  font-size: var(--font-m);
-  color: var(--color-beige);
-  border: none;
-  background-color: transparent;
-}
-
-.Tool {
-  width: 250px;
-}
-
-.ContentDiv {
-  padding: 0 calc(var(--layout-m) * 2);
-  display: flex;
-  flex-direction: column;
-}
-
-.TabTitleDiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-.TabTitle {
-  padding: var(--layout-s);
-  font-size: var(--font-l);
-}
-
-.Input {
-  width: auto;
-  height: 30px;
-}
-
-.Item,
-.ItemTitle {
-  height: auto;
-  padding: var(--layout-ss);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 0.5px solid var(--color-gray);
-}
-
-.Item > *,
-.ItemTitle > * {
-  width: 15%;
-  text-align: center;
-}
-
-.Item > *:nth-child(2),
-.ItemTitle > *:nth-child(2) {
-  width: 7.5%;
-}
-
-.Item_AnimalNo {
-  font-size: var(--font-s);
-  text-align: left;
-}
-
-.Info_Group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.Info_Group > *:first-child {
-  margin-bottom: 10px;
-}
-
-.Item_Info {
-  font-size: var(--font-ss);
-}
-
-@media only screen and (max-width: 700px) {
-  .Nav {
-    display: none;
-  }
-
-  .ContentDiv {
-    padding: 0 var(--layout-ss);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .TabTitle {
-    padding: var(--layout-ss);
-    justify-content: right;
-    font-size: var(--font-l);
-    flex-shrink: 0;
-  }
-
-  .Input {
-    /*display: none;*/
-    width: 100px;
-    flex-grow: 1;
-  }
-
-  .ItemTitle > *,
-  .Item > * {
-    display: none;
-  }
-
-  .ItemTitle > a,
-  .ItemTitle > span:first-of-type,
-  .Item > a,
-  .Item > span:first-of-type {
-    display: flex;
-    width: 50%;
-  }
-  .Modal {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  .Modal_Window {
-    width: 90%;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-  }
-
-  .Modal_Content {
-    margin: 10%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .Modal_Title {
-    font-size: var(--font-m);
-    margin-bottom: 20px;
-  }
-
-  .Modal_Info_Title {
-    font-size: var(--font-s);
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-
-  .Modal_Group {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .Modal_Info {
-    font-size: var(--font-ss);
-    margin-right: 30px;
-  }
+.Nav > * {
+  width: 33%;
+  height: 100%;
 }

@@ -1,7 +1,7 @@
 class MainUI {
   $mainDiv = null;
   $tabs = {
-    $cowTab: null,
+    $outlineTab: null,
     $houseTab: null,
     $vaccinTab: null,
   };
@@ -16,24 +16,31 @@ class MainUI {
     //fetch("http://myeonu.cafe24app.com/load")
     fetch("load")
       .then((res) => res.json())
-      .then((res) => (this.data = res))
+      .then((res) => {
+        this.data = res;
+        console.log;
+      })
       .then((res) => {
         console.log(this.data);
         for (let i of this.data) {
-          i.birthDate = i.birthDate.slice(0, 10);
-          if (i.famDate == "0000-00-00") {
+          if (i.birthDate == null) {
+            i.birthDate = "";
+          } else {
+            i.birthDate = i.birthDate.slice(0, 10);
+          }
+          if (i.famDate == null) {
             i.famDate = "";
           } else {
             i.famDate = i.famDate.slice(0, 10);
           }
 
-          if (i.bruDate == "0000-00-00") {
+          if (i.bruDate == null) {
             i.bruDate = "";
           } else {
             i.bruDate = i.bruDate.slice(0, 10);
           }
 
-          if (i.tubeDate == "0000-00-00") {
+          if (i.tubeDate == null) {
             i.tubeDate = "";
           } else {
             i.tubeDate = i.tubeDate.slice(0, 10);
@@ -48,15 +55,17 @@ class MainUI {
   getColor(color) {
     switch (color) {
       case "choose":
-        return "#ff0000";
+        return "#444444";
       case "unchoose":
-        return "#f5f5dc";
+        return "#bbbbbb";
     }
   }
 
   hideAllTab($buttonList) {
-    $buttonList.forEach((button) => (button.style.fontWeight = "normal"));
-    this.$tabs.$cowTab.hide();
+    $buttonList.forEach(
+      (button) => (button.style.color = this.getColor("unchoose"))
+    );
+    this.$tabs.$outlineTab.hide();
     this.$tabs.$houseTab.hide();
     this.$tabs.$vaccinTab.hide();
   }
@@ -65,19 +74,16 @@ class MainUI {
     return new Promise(() => {
       setTimeout(() => {
         console.log(this.data);
-        this.$tabs.$cowTab = new CowTab($contentDiv, this.data);
-        this.$tabs.$houseTab = new HouseTab($contentDiv, this.data.parsedData);
-        this.$tabs.$vaccinTab = new VaccinTab(
-          $contentDiv,
-          this.data.parsedData
-        );
+        this.$tabs.$outlineTab = new Outline($contentDiv, this.data);
+        this.$tabs.$houseTab = new HouseTab($contentDiv, this.data);
+        this.$tabs.$vaccinTab = new VaccinTab($contentDiv, this.data);
 
         this.hideAllTab($buttonList);
-        $buttonList[0].style.fontWeight = "bold";
-        this.$tabs.$cowTab.show();
+        $buttonList[0].style.color = this.getColor("choose");
+        this.$tabs.$outlineTab.show();
 
         const $tabList = [
-          this.$tabs.$cowTab,
+          this.$tabs.$outlineTab,
           this.$tabs.$houseTab,
           this.$tabs.$vaccinTab,
         ];
@@ -100,44 +106,45 @@ class MainUI {
     $title.className = "Title";
     $title.innerText = "Cow_Manager";
 
+    // contentDiv
+    const $contentDiv = document.createElement("div");
+    $contentDiv.className = "ContentDiv";
+
+    // section1
+    const $section = document.createElement("div");
+    $section.className = "Section";
+
     // nav
     const $nav = document.createElement("nav");
     $nav.className = "Nav";
 
     // navBtn
-    const $cowBtn = document.createElement("button");
+    const $outlineBtn = document.createElement("button");
     const $houseBtn = document.createElement("button");
     const $vaccinBtn = document.createElement("button");
-    $cowBtn.innerText = "Cow";
+    $outlineBtn.innerText = "Cow";
     $houseBtn.innerText = "House";
     $vaccinBtn.innerText = "Vaccin";
 
-    const $buttonList = [$cowBtn, $houseBtn, $vaccinBtn];
+    const $buttonList = [$outlineBtn, $houseBtn, $vaccinBtn];
 
     $buttonList.forEach((button) => {
       button.className = "Button";
       button.addEventListener("click", () => {
         this.hideAllTab($buttonList);
-        button.style.fontWeight = "bold";
+        button.style.color = this.getColor("choose");
       });
     });
 
-    const $tool = document.createElement("span");
-    $tool.className = "Tool";
-
-    // contentDiv
-    const $contentDiv = document.createElement("div");
-    $contentDiv.className = "ContentDiv";
-
     // append
+    $contentDiv.appendChild($header);
+    $contentDiv.appendChild($section);
     $header.appendChild($title);
-    $nav.appendChild($cowBtn);
+    $nav.appendChild($outlineBtn);
     $nav.appendChild($houseBtn);
     $nav.appendChild($vaccinBtn);
-    $header.appendChild($nav);
-    $header.appendChild($tool);
-    this.$mainDiv.appendChild($header);
     this.$mainDiv.appendChild($contentDiv);
+    this.$mainDiv.appendChild($nav);
 
     await this.setTabs($contentDiv, $buttonList);
   }

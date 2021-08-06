@@ -4,7 +4,6 @@ class CowTab extends Tab {
 
   constructor($target, data) {
     super($target, data);
-    console.log(data);
     this.data = data;
 
     const $mainDiv = document.createElement("div");
@@ -75,7 +74,6 @@ class CowTab extends Tab {
     }
     */
     for (let item of this.data) {
-      console.log(item.sex);
       if (item.id.includes(value)) {
         $article.appendChild(this.getData(item));
       }
