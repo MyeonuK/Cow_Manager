@@ -64,4 +64,17 @@ router.get("/load", function (req, res) {
   });
 });
 
+router.get("/outline", function (req, res) {
+  let sql = "SELECT COUNT(*) FROM cowList";
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(rows);
+      res.status(200).json(rows[0]["COUNT(*)"]);
+    }
+  });
+});
+
 module.exports = router;

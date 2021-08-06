@@ -4,7 +4,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 // 연결할 DB 정보입력
-/*
+
 const connection = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-*/
+/*
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -20,7 +20,7 @@ const connection = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-
+*/
 const sql_create =
   "CREATE TABLE cowList(id varchar(15) not null, birthDate date, sex varchar(3), famInfo varchar(5) not null, famDate date, bruInfo varchar(5) not null, bruDate date, tubeInfo varchar(5) not null, tubeDate date)";
 const sql_add = "ALTER TABLE cowList MODIFY COLUMN id varchar(15) PRIMARY KEY";
@@ -31,6 +31,7 @@ const sql_drop = "DROP TABLE cowList";
 const sql_open = "GRANT ALL ON *.* TO gusdn0217@'%'";
 const sql_flush = "FLUSH PRIVILEGES";
 const sql_update = "UPDATE cowList SET id =";
+const sql_addColumn = "ALTER TABLE cowList ADD room int(2) AFTER house";
 
 // 데이터베이스 연결
 connection.connect(function (err) {
@@ -131,7 +132,7 @@ connection.query(sql_select, (error, results, fields) => {
 */
 
 // update all data
-
+/*
 for (let i of numbers) {
   readData(i).then((res) => {
     let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
@@ -150,19 +151,38 @@ for (let i of numbers) {
     });
   });
 }
+*/
 
 /*
 connection.query(
-  "ALTER TABLE cowList MODIFY birthDate DATE",
+  "ALTER TABLE cowList ADD house varchar(2) AFTER id",
   (error, results, fields) => {
     if (error) console.log(error.sql);
     else console.log(results);
-    //id = results[0].id;
   }
 );
+
+connection.query(
+  "ALTER TABLE cowList ADD room int(2) AFTER house",
+  (error, results, fields) => {
+    if (error) console.log(error.sql);
+    else console.log(results);
+  }
+);
+
+// add house room
+for (let i = 0; i < numbers.length; i++) {
+  connection.query(
+    `UPDATE cowList SET house='b', room='${i / 4}' WHERE id='${numbers[i]}'`,
+    (error, results, fields) => {
+      if (error) console.log(error.sql);
+      else console.log(results);
+    }
+  );
+}
 */
 // 연결 종료
-//connection.end();
+connection.end();
 
 async function readData(animalNo) {
   return await getHTML(animalNo)

@@ -9,14 +9,14 @@
 
   /* font size */
   --font-l: 30px;
-  --font-m: 25px;
-  --font-s: 18px;
+  --font-m: 23px;
+  --font-s: 13px;
   --font-ss: 15px;
 
   /* layout size */
   --layout-m: 50px;
-  --layout-s: 30px;
-  --layout-ss: 20px;
+  --layout-s: 20px;
+  --layout-ss: 15px;
 }
 
 html {
@@ -53,7 +53,9 @@ button {
 }
 
 .ContentDiv {
-  padding: var(--layout-ss);
+  height: calc(100% - 70px);
+  padding: var(--layout-s);
+  overflow-y: scroll;
 }
 
 .Header {
@@ -62,11 +64,10 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: solid red 1px;
 }
 
-.Section {
-  background-color: #478e77;
+.Header .Title {
+  font-size: var(--font-m);
 }
 
 .Nav {
@@ -84,4 +85,28 @@ button {
 .Nav > * {
   width: 33%;
   height: 100%;
+}
+
+.SectionDiv {
+  padding: var(--layout-s);
+  margin: var(--layout-ss) 0;
+  border-radius: 5px;
+  background-color: #478e77;
+  display: flex;
+  flex-direction: column;
+}
+
+.SectionDiv .Title {
+  margin-bottom: var(--layout-ss);
+  font-size: var(--font-s);
+}
+
+.SectionDiv .RowContentDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.SectionDiv .BigElement {
+  font-size: var(--font-m);
 }

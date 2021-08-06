@@ -5,7 +5,6 @@ class MainUI {
     $houseTab: null,
     $vaccinTab: null,
   };
-  data = null;
 
   constructor($target) {
     const $mainDiv = document.createElement("div");
@@ -13,40 +12,7 @@ class MainUI {
 
     this.$mainDiv = $mainDiv;
     $target.appendChild(this.$mainDiv);
-    //fetch("http://myeonu.cafe24app.com/load")
-    fetch("load")
-      .then((res) => res.json())
-      .then((res) => {
-        this.data = res;
-        console.log;
-      })
-      .then((res) => {
-        console.log(this.data);
-        for (let i of this.data) {
-          if (i.birthDate == null) {
-            i.birthDate = "";
-          } else {
-            i.birthDate = i.birthDate.slice(0, 10);
-          }
-          if (i.famDate == null) {
-            i.famDate = "";
-          } else {
-            i.famDate = i.famDate.slice(0, 10);
-          }
 
-          if (i.bruDate == null) {
-            i.bruDate = "";
-          } else {
-            i.bruDate = i.bruDate.slice(0, 10);
-          }
-
-          if (i.tubeDate == null) {
-            i.tubeDate = "";
-          } else {
-            i.tubeDate = i.tubeDate.slice(0, 10);
-          }
-        }
-      });
     //.then((res) => console.log(this.data));
 
     this.render();
@@ -73,10 +39,9 @@ class MainUI {
   setTabs($contentDiv, $buttonList) {
     return new Promise(() => {
       setTimeout(() => {
-        console.log(this.data);
-        this.$tabs.$outlineTab = new Outline($contentDiv, this.data);
-        this.$tabs.$houseTab = new HouseTab($contentDiv, this.data);
-        this.$tabs.$vaccinTab = new VaccinTab($contentDiv, this.data);
+        this.$tabs.$outlineTab = new OutlineTab($contentDiv);
+        this.$tabs.$houseTab = new HouseTab($contentDiv);
+        this.$tabs.$vaccinTab = new VaccinTab($contentDiv);
 
         this.hideAllTab($buttonList);
         $buttonList[0].style.color = this.getColor("choose");
@@ -92,27 +57,14 @@ class MainUI {
             $tabList[i].show();
           });
         }
-      }, 300);
+      }, 100);
     });
   }
 
   async render() {
-    // header
-    const $header = document.createElement("header");
-    $header.className = "Header";
-
-    // title
-    const $title = document.createElement("h1");
-    $title.className = "Title";
-    $title.innerText = "Cow_Manager";
-
     // contentDiv
     const $contentDiv = document.createElement("div");
     $contentDiv.className = "ContentDiv";
-
-    // section1
-    const $section = document.createElement("div");
-    $section.className = "Section";
 
     // nav
     const $nav = document.createElement("nav");
@@ -137,9 +89,6 @@ class MainUI {
     });
 
     // append
-    $contentDiv.appendChild($header);
-    $contentDiv.appendChild($section);
-    $header.appendChild($title);
     $nav.appendChild($outlineBtn);
     $nav.appendChild($houseBtn);
     $nav.appendChild($vaccinBtn);

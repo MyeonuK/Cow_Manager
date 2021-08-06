@@ -1,8 +1,9 @@
 class Tab {
+  $target = null;
   $mainDiv = null;
   data = null;
 
-  constructor($target, data) {
+  constructor($target) {
     /*
     super($target, data);
     console.log("Tab");
