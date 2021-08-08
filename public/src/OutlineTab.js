@@ -5,6 +5,7 @@ class OutlineTab extends Tab {
 
   constructor($target) {
     super($target);
+
     this.$target = $target;
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
@@ -32,7 +33,6 @@ class OutlineTab extends Tab {
     const $section1 = document.createElement("div");
     $section1.className = "SectionDiv";
     $section1.addEventListener("click", () => {
-      this.hide();
       new CowList(this.$target);
     });
 

@@ -37,6 +37,16 @@ router.get("/newpage", function (req, res) {
 
 router.get("/update", function (req, res) {
   // db.update(req, res, conn);
+  sql = `SELECT * FROM cowList`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+  console.log("updqte");
 });
 /*
 router.get("/load", function (req, res) {

@@ -1,16 +1,72 @@
 class CowList {
+  $target = null;
+  $prev = null;
   $mainDiv = null;
   data = null;
 
-  constructor($target) {
-    //fetch("http://myeonu.cafe24app.com/load")
-    fetch("load")
+  constructor($prev) {
+    this.$target = document.getElementsByClassName("MainDiv")[0];
+    this.$prev = $prev;
+    this.$prev.style.display = "none";
+
+    this.fetchUrl("load");
+
+    const $mainDiv = document.createElement("div");
+    $mainDiv.className = "CowList";
+
+    this.$mainDiv = $mainDiv;
+    this.$target.appendChild(this.$mainDiv);
+
+    setTimeout(() => {
+      this.render();
+    }, 300);
+  }
+
+  renderItems() {
+    const $itemDiv = document.createElement("div");
+    $itemDiv.className = "ItemDiv";
+
+    let arr = Object.keys(this.data);
+
+    for (let i of arr) {
+      const $item = document.createElement("div");
+      $item.className = "Item";
+
+      const $itemTitle = document.createElement("span");
+      $itemTitle.className = "ItemTitle";
+      $itemTitle.innerText = this.data[i].id;
+
+      const $house = document.createElement("span");
+      $house.className = "ItemDetail";
+      $house.innerText = `${this.data[i].house}동 ${this.data[i].room}호`;
+
+      const $birth = document.createElement("span");
+      $birth.className = "ItemDetail";
+      $birth.innerText = `${this.data[i].birthDate}\n${this.data[i].age}개월`;
+
+      $item.appendChild($itemTitle);
+
+      $item.appendChild($house);
+      $item.appendChild($birth);
+      $itemDiv.appendChild($item);
+    }
+
+    return $itemDiv;
+  }
+
+  hide() {
+    this.$target.removeChild(this.$mainDiv);
+    this.$prev.style.display = "block";
+  }
+
+  async fetchUrl(order) {
+    //fetch(`http://myeonu.cafe24app.com/${order}`)
+    fetch(order)
       .then((res) => res.json())
       .then((res) => {
         this.data = res;
       })
       .then((res) => {
-        console.log(this.data);
         for (let i of this.data) {
           if (i.birthDate == null) {
             i.birthDate = "";
@@ -35,61 +91,39 @@ class CowList {
             i.tubeDate = i.tubeDate.slice(0, 10);
           }
         }
+      })
+      .then((res) => {
+        return res;
       });
-
-    const $mainDiv = document.createElement("div");
-    $mainDiv.className = "OutlineDiv";
-
-    this.$mainDiv = $mainDiv;
-    $target.appendChild(this.$mainDiv);
-
-    setTimeout(() => {
-      this.render();
-    }, 300);
-  }
-
-  show() {
-    this.$mainDiv.style.display = "block";
-  }
-
-  hide() {
-    this.$mainDiv.style.display = "none";
   }
 
   render() {
+    const $toolBar = document.createElement("div");
+    $toolBar.className = "ToolBar";
+
     const $backButton = document.createElement("button");
+    $backButton.className = "Button";
+    $backButton.innerText = "back";
     $backButton.addEventListener("click", () => {
-      delete this;
+      this.hide();
     });
 
-    let arr = Object.keys(this.data);
+    const $updateButton = document.createElement("button");
+    $updateButton.className = "Button";
+    $updateButton.innerText = "update";
+    $updateButton.addEventListener("click", () => {
+      this.fetchUrl("update").then((res) => {
+        this.$mainDiv.removeChild(
+          document.getElementsByClassName("ItemDiv")[0]
+        );
+        console.log("onggg");
+        this.$mainDiv.appendChild(this.renderItems());
+      });
+    });
 
-    for (let i of arr) {
-      console.log(this.data[i]);
-      const $item = document.createElement("div");
-      $item.className = "ItemDiv";
-
-      const $itemTitle = document.createElement("span");
-      $itemTitle.className = "ItemTitle";
-      $itemTitle.innerText = this.data[i].id;
-
-      const $itemContent = document.createElement("span");
-      $itemContent.className = "ItemContent";
-
-      const $house = document.createElement("span");
-      $house.className = "ItemDetail";
-      $house.innerText = this.data[i].house;
-
-      const $room = document.createElement("span");
-      $room.className = "ItemDetail";
-      $room.innerText = this.data[i].room;
-
-      $itemContent.appendChild($house);
-      $itemContent.appendChild($room);
-
-      $item.appendChild($itemTitle);
-      $item.appendChild($itemContent);
-      this.$mainDiv.appendChild($item);
-    }
+    this.$mainDiv.appendChild($toolBar);
+    $toolBar.appendChild($backButton);
+    $toolBar.appendChild($updateButton);
+    this.$mainDiv.appendChild(this.renderItems());
   }
 }

@@ -5,7 +5,8 @@
   --color-beige: beige;
   --color-navy: #323c57;
   --color-font: white;
-  --color-lightgray: #bbbbbb;
+  --color-lightgray: #ebebeb;
+  --color-green: #478e77;
 
   /* font size */
   --font-l: 30px;
@@ -35,6 +36,7 @@ button {
   border: none;
   outline: none;
   background-color: transparent;
+  color: black;
 }
 * {
   padding: 0;
@@ -49,11 +51,11 @@ button {
 }
 
 .MainDiv {
-  height: 95%;
+  height: calc(100% - 70px);
 }
 
 .ContentDiv {
-  height: calc(100% - 70px);
+  height: calc(100% - var(--layout-s) * 2);
   padding: var(--layout-s);
   overflow-y: scroll;
 }
@@ -74,6 +76,7 @@ button {
   width: 100%;
   height: 70px;
   background-color: var(--color-white);
+  border-top: solid var(--color-lightgray) 0.5px;
   position: fixed;
   bottom: 0;
   display: flex;
@@ -109,4 +112,36 @@ button {
 
 .SectionDiv .BigElement {
   font-size: var(--font-m);
+}
+
+.CowList {
+  background-color: var(--color-white);
+}
+
+.ToolBar {
+  background-color: var(--color-green);
+  padding: var(--layout-s);
+}
+
+.ItemDiv {
+  padding: var(--layout-s);
+  display: flex;
+  flex-direction: column;
+}
+
+.Item {
+  padding: var(--layout-ss) 0;
+  border-bottom: solid var(--color-lightgray) 0.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Item * {
+  font-size: var(--font-s);
+  color: black;
+}
+
+.Item > :last-child {
+  text-align: right;
 }
