@@ -40,3 +40,7 @@ tubeDate - date
 
 
 전환 : index.js, web.js, CowList.js, OutlineTab.js
+
+
+commit
+CowList -> sex 추가

@@ -73,7 +73,7 @@ class CowList {
 
       const $house = document.createElement("span");
       $house.className = "ItemDetail";
-      $house.innerText = `${this.data[i].house}동 ${this.data[i].room}호`;
+      $house.innerText = `${this.data[i].house}동 ${this.data[i].room}호\n${this.data[i].sex}`;
 
       const $birth = document.createElement("span");
       $birth.className = "ItemDetail";
@@ -105,6 +105,10 @@ class CowList {
       this.hide();
     });
 
+    const $title = document.createElement("span");
+    $title.className = "Title";
+    $title.innerText = "전체 소 목록";
+
     const $updateButton = document.createElement("button");
     $updateButton.className = "Button";
     $updateButton.innerText = "update";
@@ -118,6 +122,7 @@ class CowList {
 
     this.$mainDiv.appendChild($toolBar);
     $toolBar.appendChild($backButton);
+    $toolBar.appendChild($title);
     $toolBar.appendChild($updateButton);
     this.$mainDiv.appendChild(this.renderItems());
   }

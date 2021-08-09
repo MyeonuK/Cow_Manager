@@ -9,10 +9,10 @@
   --color-green: #478e77;
 
   /* font size */
-  --font-l: 30px;
-  --font-m: 23px;
-  --font-s: 13px;
-  --font-ss: 15px;
+  --font-l: 23px;
+  --font-m: 15px;
+  --font-s: 14px;
+  --font-ss: 10px;
 
   /* layout size */
   --layout-m: 50px;
@@ -69,12 +69,12 @@ button {
 }
 
 .Header .Title {
-  font-size: var(--font-m);
+  font-size: var(--font-l);
 }
 
 .Nav {
   width: 100%;
-  height: 70px;
+  height: 60px;
   background-color: var(--color-white);
   border-top: solid var(--color-lightgray) 0.5px;
   position: fixed;
@@ -116,11 +116,13 @@ button {
 
 .ToolBar {
   width: calc(100% - var(--layout-s) * 2);
+  height: 60px;
   background-color: var(--color-green);
-  padding: var(--layout-s);
+  padding: 0 var(--layout-s);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
 }
@@ -146,17 +148,17 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: top;
 }
 
 .Item * {
   font-size: var(--font-s);
   color: black;
+  text-align: right;
 }
 
 .Item .ItemTitle {
   font-size: var(--font-m);
-}
-
-.Item > :last-child {
-  text-align: right;
+  padding: 0;
+  height: auto;
 }

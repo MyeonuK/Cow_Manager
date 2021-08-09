@@ -1,5 +1,6 @@
 class MainUI {
   $mainDiv = null;
+  $contentDiv = null;
   $tabs = {
     $outlineTab: null,
     $houseTab: null,
@@ -54,6 +55,16 @@ class MainUI {
         ];
         for (let i = 0; i < $buttonList.length; i++) {
           $buttonList[i].addEventListener("click", () => {
+            let childs = this.$mainDiv.childNodes;
+
+            if (childs.length > 2) {
+              for (let j = 2; j < childs.length; j++) {
+                this.$mainDiv.removeChild(childs[j]);
+              }
+
+              this.$contentDiv.style.display = "block";
+            }
+
             $tabList[i].show();
           });
         }
@@ -63,8 +74,8 @@ class MainUI {
 
   async render() {
     // contentDiv
-    const $contentDiv = document.createElement("div");
-    $contentDiv.className = "ContentDiv";
+    this.$contentDiv = document.createElement("div");
+    this.$contentDiv.className = "ContentDiv";
 
     // nav
     const $nav = document.createElement("nav");
@@ -92,9 +103,9 @@ class MainUI {
     $nav.appendChild($outlineBtn);
     $nav.appendChild($houseBtn);
     $nav.appendChild($vaccinBtn);
-    this.$mainDiv.appendChild($contentDiv);
+    this.$mainDiv.appendChild(this.$contentDiv);
     this.$mainDiv.appendChild($nav);
 
-    await this.setTabs($contentDiv, $buttonList);
+    await this.setTabs(this.$contentDiv, $buttonList);
   }
 }
