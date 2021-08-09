@@ -153,6 +153,10 @@ button {
   color: black;
 }
 
+.Item .ItemTitle {
+  font-size: var(--font-m);
+}
+
 .Item > :last-child {
   text-align: right;
 }

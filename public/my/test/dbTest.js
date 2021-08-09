@@ -4,7 +4,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 // 연결할 DB 정보입력
-/*
+
 const connection = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -12,8 +12,8 @@ const connection = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-*/
 
+/*
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -21,7 +21,7 @@ const connection = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-
+*/
 const sql_create =
   "CREATE TABLE cowList(id varchar(15) not null, birthDate date, sex varchar(3), famInfo varchar(5) not null, famDate date, bruInfo varchar(5) not null, bruDate date, tubeInfo varchar(5) not null, tubeDate date)";
 const sql_add = "ALTER TABLE cowList MODIFY COLUMN id varchar(15) PRIMARY KEY";
@@ -131,9 +131,8 @@ connection.query(sql_select, (error, results, fields) => {
   //id = results[0].id;
 });
 */
-
 // update all data
-
+/*
 let numbers = [];
 
 connection.query(`SELECT id FROM cowList`, (error, results, fields) => {
@@ -162,10 +161,10 @@ connection.query(`SELECT id FROM cowList`, (error, results, fields) => {
     }
   }
 });
-
+*/
 /*
 connection.query(
-  "ALTER TABLE cowList ADD house varchar(2) AFTER id",
+  "ALTER TABLE cowList ADD age int(2) AFTER birthDate",
   (error, results, fields) => {
     if (error) console.log(error.sql);
     else console.log(results);
@@ -192,7 +191,7 @@ for (let i = 0; i < numbers.length; i++) {
 }
 */
 // 연결 종료
-//connection.end();
+connection.end();
 
 async function readData(animalNo) {
   return await getHTML(animalNo)

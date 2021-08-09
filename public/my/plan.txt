@@ -37,3 +37,6 @@ bruInfo - string
 bruDate - date
 tubeInfo - string
 tubeDate - date
+
+
+전환 : index.js, web.js, CowList.js, OutlineTab.js
