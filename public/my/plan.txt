@@ -43,4 +43,3 @@ tubeDate - date
 
 
 commit
-CowList -> sex 추가

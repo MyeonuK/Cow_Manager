@@ -57,10 +57,7 @@ class CowList {
       });
   }
 
-  renderItems() {
-    const $itemDiv = document.createElement("div");
-    $itemDiv.className = "ItemDiv";
-
+  renderItems($itemDiv) {
     let arr = Object.keys(this.data);
 
     for (let i of arr) {
@@ -85,8 +82,6 @@ class CowList {
       $item.appendChild($birth);
       $itemDiv.appendChild($item);
     }
-
-    return $itemDiv;
   }
 
   hide() {
@@ -120,10 +115,48 @@ class CowList {
       });
     });
 
+    const $searchDiv = document.createElement("div");
+    $searchDiv.className = "SearchDiv";
+
+    const $itemDiv = document.createElement("div");
+    $itemDiv.className = "ItemDiv";
+
+    const $searchBar = document.createElement("input");
+    $searchBar.className = "Input";
+    $searchBar.type = "number";
+    $searchBar.oninput = function () {
+      const $itemArr = document.getElementsByClassName("Item");
+      let inputValue = $searchBar.value.replace(/(\s*)/g, "");
+      let count = 0;
+
+      for (let item of $itemArr) {
+        let itemValue = item
+          .getElementsByClassName("ItemTitle")[0]
+          .innerText.replace(/(\s*)/g, "");
+
+        if (itemValue.includes(inputValue)) {
+          item.style.display = "flex";
+          count++;
+        } else {
+          item.style.display = "none";
+        }
+      }
+
+      /*
+        if (count == 0) {
+          $itemDiv.innerText = "검색결과가 없습니다.";
+        } else {
+          $itemDiv.removeAttribute("innerText");
+        }*/
+    };
+
     this.$mainDiv.appendChild($toolBar);
     $toolBar.appendChild($backButton);
     $toolBar.appendChild($title);
     $toolBar.appendChild($updateButton);
-    this.$mainDiv.appendChild(this.renderItems());
+    this.$mainDiv.appendChild($searchDiv);
+    $searchDiv.appendChild($searchBar);
+    this.$mainDiv.appendChild($itemDiv);
+    this.renderItems($itemDiv);
   }
 }

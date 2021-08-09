@@ -17,7 +17,7 @@
   /* layout size */
   --layout-m: 50px;
   --layout-s: 20px;
-  --layout-ss: 15px;
+  --layout-ss: 10px;
 }
 
 html {
@@ -114,6 +114,13 @@ button {
   font-size: var(--font-m);
 }
 
+.CowList {
+  min-height: 100%;
+  background-color: var(--color-white);
+  padding-bottom: 60px;
+  color: black;
+}
+
 .ToolBar {
   width: calc(100% - var(--layout-s) * 2);
   height: 60px;
@@ -131,15 +138,29 @@ button {
   color: white;
 }
 
-.CowList {
+.SearchDiv {
+  padding: var(--layout-ss) var(--layout-s);
+  border-bottom: solid var(--color-lightgray) 0.5px;
+  position: sticky;
+  top: 60px;
   background-color: var(--color-white);
-  overflow-y: none;
+}
+
+.Input {
+  width: 100%;
+  height: 35px;
+  padding: 0 20px;
+  border: solid 1px var(--color-lightgray);
+  border-radius: 17px;
+  color: black;
 }
 
 .ItemDiv {
-  padding: var(--layout-s);
+  padding: 0 var(--layout-s);
   display: flex;
   flex-direction: column;
+  overflow: scroll;
+  color: black;
 }
 
 .Item {
