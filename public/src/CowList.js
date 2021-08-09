@@ -22,6 +22,41 @@ class CowList {
     }, 300);
   }
 
+  async fetchUrl(order) {
+    //fetch(`http://myeonu.cafe24app.com/${order}`)
+    fetch(order)
+      .then((res) => res.json())
+      .then((res) => {
+        this.data = res;
+      })
+      .then((res) => {
+        for (let i of this.data) {
+          if (i.birthDate == null) {
+            i.birthDate = "";
+          } else {
+            i.birthDate = i.birthDate.slice(0, 10);
+          }
+          if (i.famDate == null) {
+            i.famDate = "";
+          } else {
+            i.famDate = i.famDate.slice(0, 10);
+          }
+
+          if (i.bruDate == null) {
+            i.bruDate = "";
+          } else {
+            i.bruDate = i.bruDate.slice(0, 10);
+          }
+
+          if (i.tubeDate == null) {
+            i.tubeDate = "";
+          } else {
+            i.tubeDate = i.tubeDate.slice(0, 10);
+          }
+        }
+      });
+  }
+
   renderItems() {
     const $itemDiv = document.createElement("div");
     $itemDiv.className = "ItemDiv";
@@ -59,44 +94,6 @@ class CowList {
     this.$prev.style.display = "block";
   }
 
-  async fetchUrl(order) {
-    //fetch(`http://myeonu.cafe24app.com/${order}`)
-    fetch(order)
-      .then((res) => res.json())
-      .then((res) => {
-        this.data = res;
-      })
-      .then((res) => {
-        for (let i of this.data) {
-          if (i.birthDate == null) {
-            i.birthDate = "";
-          } else {
-            i.birthDate = i.birthDate.slice(0, 10);
-          }
-          if (i.famDate == null) {
-            i.famDate = "";
-          } else {
-            i.famDate = i.famDate.slice(0, 10);
-          }
-
-          if (i.bruDate == null) {
-            i.bruDate = "";
-          } else {
-            i.bruDate = i.bruDate.slice(0, 10);
-          }
-
-          if (i.tubeDate == null) {
-            i.tubeDate = "";
-          } else {
-            i.tubeDate = i.tubeDate.slice(0, 10);
-          }
-        }
-      })
-      .then((res) => {
-        return res;
-      });
-  }
-
   render() {
     const $toolBar = document.createElement("div");
     $toolBar.className = "ToolBar";
@@ -112,12 +109,10 @@ class CowList {
     $updateButton.className = "Button";
     $updateButton.innerText = "update";
     $updateButton.addEventListener("click", () => {
+      this.$mainDiv.removeChild(document.getElementsByClassName("ItemDiv")[0]);
       this.fetchUrl("update").then((res) => {
-        this.$mainDiv.removeChild(
-          document.getElementsByClassName("ItemDiv")[0]
-        );
-        console.log("onggg");
         this.$mainDiv.appendChild(this.renderItems());
+        window.scrollTo(0, 0);
       });
     });
 

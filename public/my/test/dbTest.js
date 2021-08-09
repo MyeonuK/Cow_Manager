@@ -4,7 +4,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 // 연결할 DB 정보입력
-
+/*
 const connection = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -12,7 +12,8 @@ const connection = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-/*
+*/
+
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -20,7 +21,7 @@ const connection = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-*/
+
 const sql_create =
   "CREATE TABLE cowList(id varchar(15) not null, birthDate date, sex varchar(3), famInfo varchar(5) not null, famDate date, bruInfo varchar(5) not null, bruDate date, tubeInfo varchar(5) not null, tubeDate date)";
 const sql_add = "ALTER TABLE cowList MODIFY COLUMN id varchar(15) PRIMARY KEY";
@@ -37,7 +38,7 @@ const sql_addColumn = "ALTER TABLE cowList ADD room int(2) AFTER house";
 connection.connect(function (err) {
   if (err) console.error("connection error: " + err);
   else console.log("connected successfuelly!");
-});
+}); /*
 const numbers = [
   "002 1467 1543 2",
   "002 1465 4674 5",
@@ -106,7 +107,7 @@ const numbers = [
   "002 1465 4806 4",
   "002 1465 4761 5",
 ];
-let id;
+*/
 
 // insert numbers
 /*
@@ -132,26 +133,35 @@ connection.query(sql_select, (error, results, fields) => {
 */
 
 // update all data
-/*
-for (let i of numbers) {
-  readData(i).then((res) => {
-    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
 
-    if (res.bruDate != null) {
-      sql_update += `, bruDate='${res.bruDate}'`;
-    }
-    if (res.tubeDate != null) {
-      sql_update += `, tubeDate='${res.tubeDate}'`;
-    }
-    sql_update += `WHERE id='${res.id}'`;
+let numbers = [];
 
-    connection.query(sql_update, (error, results, fields) => {
-      if (error) console.log(error);
-      else console.log(results);
-    });
-  });
-}
-*/
+connection.query(`SELECT id FROM cowList`, (error, results, fields) => {
+  if (error) console.log(error);
+  else {
+    for (let i = 0; i < results.length; i++) {
+      numbers.push(results[i].id);
+    }
+    for (let i of numbers) {
+      readData(i).then((res) => {
+        let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+
+        if (res.bruDate != null) {
+          sql_update += `, bruDate='${res.bruDate}'`;
+        }
+        if (res.tubeDate != null) {
+          sql_update += `, tubeDate='${res.tubeDate}'`;
+        }
+        sql_update += `WHERE id='${res.id}'`;
+
+        connection.query(sql_update, (error, results, fields) => {
+          if (error) console.log(error);
+          //else console.log(results);
+        });
+      });
+    }
+  }
+});
 
 /*
 connection.query(
@@ -182,7 +192,7 @@ for (let i = 0; i < numbers.length; i++) {
 }
 */
 // 연결 종료
-connection.end();
+//connection.end();
 
 async function readData(animalNo) {
   return await getHTML(animalNo)
@@ -206,16 +216,27 @@ async function readData(animalNo) {
       return stringList;
     })
     .then((res) => {
+      console.log(res.length);
       let myData = {};
       // res로부터 파싱
       let id = res[0].title;
       let birthDate = res[1].title;
+
       let sex = res[3].title;
       let fam = res[10].title;
       let bruDate = res[11].title;
       let bruInfo = res[12].title;
       let tubeDate = res[13].title;
       let tubeInfo = res[14].title;
+
+      if (res.length > 15) {
+        sex = res[4].title;
+        fam = res[11].title;
+        bruDate = res[12].title;
+        bruInfo = res[13].title;
+        tubeDate = res[14].title;
+        tubeInfo = res[15].title;
+      }
 
       // 개체번호, 생년월일, 성별
       myData.id = id;
@@ -225,7 +246,7 @@ async function readData(animalNo) {
       myData.birthDate = birthDate.slice(0, birthDate.indexOf(" "));
       myData.age = birthDate.slice(
         birthDate.indexOf("(") + 1,
-        birthDate.length - 4
+        birthDate.indexOf(")") - 3
       );
 
       // 구제역

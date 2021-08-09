@@ -114,13 +114,24 @@ button {
   font-size: var(--font-m);
 }
 
-.CowList {
-  background-color: var(--color-white);
-}
-
 .ToolBar {
+  width: calc(100% - var(--layout-s) * 2);
   background-color: var(--color-green);
   padding: var(--layout-s);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.Button {
+  color: white;
+}
+
+.CowList {
+  background-color: var(--color-white);
+  overflow-y: none;
 }
 
 .ItemDiv {
