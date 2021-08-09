@@ -23,8 +23,8 @@ class CowList {
   }
 
   async fetchUrl(order) {
-    //fetch(`http://myeonu.cafe24app.com/${order}`)
-    fetch(order)
+    fetch(`http://myeonu.cafe24app.com/${order}`)
+      //fetch(order)
       .then((res) => res.json())
       .then((res) => {
         this.data = res;
@@ -124,6 +124,7 @@ class CowList {
     const $searchBar = document.createElement("input");
     $searchBar.className = "Input";
     $searchBar.type = "number";
+    $searchBar.min = "0";
     $searchBar.oninput = function () {
       const $itemArr = document.getElementsByClassName("Item");
       let inputValue = $searchBar.value.replace(/(\s*)/g, "");
