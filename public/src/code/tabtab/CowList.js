@@ -110,7 +110,9 @@ class CowList {
     $updateButton.addEventListener("click", () => {
       this.$mainDiv.removeChild(document.getElementsByClassName("ItemDiv")[0]);
       this.fetchUrl("update").then((res) => {
-        this.$mainDiv.appendChild(this.renderItems());
+        const $itemDiv = document.createElement("div");
+        $itemDiv.className = "ItemDiv";
+        this.$mainDiv.appendChild(this.renderItems($itemDiv));
         window.scrollTo(0, 0);
       });
     });
