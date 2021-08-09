@@ -112,7 +112,8 @@ class CowList {
       this.fetchUrl("update").then((res) => {
         const $itemDiv = document.createElement("div");
         $itemDiv.className = "ItemDiv";
-        this.$mainDiv.appendChild(this.renderItems($itemDiv));
+        this.$mainDiv.appendChild($itemDiv);
+        this.renderItems($itemDiv);
         window.scrollTo(0, 0);
       });
     });
