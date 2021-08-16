@@ -10,8 +10,8 @@ class OutlineTab extends Tab {
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    fetch(`http://myeonu.cafe24app.com/outline`)
-      //fetch("outline")
+    //fetch(`http://myeonu.cafe24app.com/outline`)
+    fetch("outline")
       .then((res) => res.json())
       .then((res) => (this.data = res));
 
@@ -40,6 +40,7 @@ class OutlineTab extends Tab {
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
     $sectionTitle.innerText = "소 검색하기";
+    $sectionTitle.innerHTML = `<div id="App"></div>`;
 
     const $sectionContent = document.createElement("div");
     $sectionContent.className = "RowContentDiv";

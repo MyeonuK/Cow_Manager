@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
-
+/*
 let dbInfo = {
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -13,7 +13,7 @@ let dbInfo = {
   database: "gusdn0217",
   port: "3306",
 };
-/*
+*/
 let dbInfo = {
   host: "localhost",
   user: "root",
@@ -21,7 +21,7 @@ let dbInfo = {
   database: "cowmanager",
   port: "3306",
 };
-*/
+
 const conn = mysql.createConnection(dbInfo);
 conn.connect(function (err) {
   if (err) console.error("connection error: " + err);
@@ -44,6 +44,19 @@ router.get("/outline", function (req, res) {
       res.status(200).json(rows[0]["COUNT(*)"]);
     }
   });
+});
+
+router.get("/house", function (req, res) {
+  conn.query(
+    "SELECT house, room FROM cowList GROUP BY house, room",
+    function (err, rows, fields) {
+      if (err) {
+        console.error(err);
+      } else {
+        res.status(200).json(rows);
+      }
+    }
+  );
 });
 
 router.get("/load", function (req, res) {

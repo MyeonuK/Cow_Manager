@@ -23,8 +23,8 @@ class CowList {
   }
 
   async fetchUrl(order) {
-    fetch(`http://myeonu.cafe24app.com/${order}`)
-      //fetch(order)
+    //fetch(`http://myeonu.cafe24app.com/${order}`)
+    fetch(order)
       .then((res) => res.json())
       .then((res) => {
         this.data = res;
