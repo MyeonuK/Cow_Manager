@@ -19,7 +19,6 @@ class CowSection {
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
     $sectionTitle.innerText = "소 검색하기";
-    $sectionTitle.innerHTML = `<div id="App"></div>`;
 
     const $sectionContent = document.createElement("div");
     $sectionContent.className = "RowContentDiv";
