@@ -73,7 +73,11 @@ class CowList {
 
       const $house = document.createElement("span");
       $house.className = "ItemDetail";
-      $house.innerText = `${this.data[i].house}동 ${this.data[i].room}호\n${this.data[i].sex}`;
+      if (this.data[i].house == "o") {
+        $house.innerText = `방목\n${this.data[i].sex}`;
+      } else {
+        $house.innerText = `${this.data[i].house}동 ${this.data[i].room}호\n${this.data[i].sex}`;
+      }
 
       const $birth = document.createElement("span");
       $birth.className = "ItemDetail";
