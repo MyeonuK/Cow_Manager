@@ -79,100 +79,44 @@ router.get("/load", function (req, res) {
 });
 
 router.get("/update", function (req, res) {
-  if (req.query.min == undefined) {
-    conn.query(
-      //`SELECT id FROM cowList WHERE birthDate IS NULL`,
-      `SELECT id FROM cowList`,
-      (err, rows, fields) => {
-        if (err) console.error(err);
-        else {
-          let numbers = [];
+  conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
+    if (err) console.error(err);
+    else {
+      let numbers = [];
 
-          for (let i = 0; i < rows.length; i++) {
-            numbers.push(rows[i].id);
-          }
-          console.log(numbers.length);
-
-          let num = Math.ceil(numbers.length / 20);
-
-          for (let i = 0; i < num; i++) {
-            let numm = 20;
-            if (i == num - 1) {
-              numm = numbers.length % 20;
-            }
-
-            setTimeout(() => {
-              for (let j = 0; j < numm; j++) {
-                let id = numbers[i * 20 + j];
-                readData(id).then((res) => {
-                  if (res == null) {
-                    console.log(id);
-                  } else {
-                    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
-
-                    if (res.famDate != null) {
-                      sql_update += `, famDate='${res.famDate}'`;
-                    }
-                    if (res.bruDate != null) {
-                      sql_update += `, bruDate='${res.bruDate}'`;
-                    }
-                    if (res.tubeDate != null) {
-                      sql_update += `, tubeDate='${res.tubeDate}'`;
-                    }
-                    sql_update += `WHERE id='${res.id}'`;
-
-                    conn.query(sql_update, (err, rows, fields) => {
-                      if (err) console.error(err);
-                      //else console.log(rows);
-                    });
-                  }
-                });
-              }
-            }, 500 * i);
-          }
-        }
+      for (let i = 0; i < rows.length; i++) {
+        numbers.push(rows[i].id);
       }
-    );
-  } else {
-    conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
-      if (err) console.error(err);
-      else {
-        let numbers = [];
+      console.log(numbers.length);
 
-        for (let i = 0; i < rows.length; i++) {
-          numbers.push(rows[i].id);
-        }
-        console.log(numbers.length);
+      for (let j = 0; j < 20; j++) {
+        let id = numbers[j];
+        readData(id).then((res) => {
+          if (res == null) {
+            console.log(id);
+          } else {
+            let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
 
-        for (let j = req.min; j < req.max; j++) {
-          let id = numbers[j];
-          readData(id).then((res) => {
-            if (res == null) {
-              console.log(id);
-            } else {
-              let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
-
-              if (res.famDate != null) {
-                sql_update += `, famDate='${res.famDate}'`;
-              }
-              if (res.bruDate != null) {
-                sql_update += `, bruDate='${res.bruDate}'`;
-              }
-              if (res.tubeDate != null) {
-                sql_update += `, tubeDate='${res.tubeDate}'`;
-              }
-              sql_update += `WHERE id='${res.id}'`;
-
-              conn.query(sql_update, (err, rows, fields) => {
-                if (err) console.error(err);
-                //else console.log(rows);
-              });
+            if (res.famDate != null) {
+              sql_update += `, famDate='${res.famDate}'`;
             }
-          });
-        }
+            if (res.bruDate != null) {
+              sql_update += `, bruDate='${res.bruDate}'`;
+            }
+            if (res.tubeDate != null) {
+              sql_update += `, tubeDate='${res.tubeDate}'`;
+            }
+            sql_update += `WHERE id='${res.id}'`;
+
+            conn.query(sql_update, (err, rows, fields) => {
+              if (err) console.error(err);
+              //else console.log(rows);
+            });
+          }
+        });
       }
-    });
-  }
+    }
+  });
 
   conn.query(`SELECT * FROM cowList`, function (err, rows, fields) {
     if (err) {

@@ -75,7 +75,6 @@ for (let i = 0; i < records.length; i++) {
     }
   );
 }
-
 // insert numbers
 /*
 for (let i = 0; i < numbers.length; i++) {
@@ -166,7 +165,7 @@ for (let i = 0; i < numbers.length; i++) {
   */
 
 // 연결 종료
-//connection.end();
+connection.end();
 
 async function readData(animalNo) {
   return await getHTML(animalNo).then((html) => {
