@@ -76,7 +76,7 @@ class CowList {
       if (this.data[i].house == "o") {
         $house.innerText = `방목\n${this.data[i].sex}`;
       } else {
-        $house.innerText = `${this.data[i].house}동 ${this.data[i].room}호\n${this.data[i].sex}`;
+        $house.innerText = `${this.data[i].house[0]}동 ${this.data[i].house[1]}${this.data[i].room}번\n${this.data[i].sex}`;
       }
 
       const $birth = document.createElement("span");
