@@ -67,6 +67,9 @@ class CowList {
       const $itemTitle = document.createElement("span");
       $itemTitle.className = "ItemTitle";
       $itemTitle.innerText = this.data[i].id;
+      $itemTitle.innerText = `${this.data[i].id.slice(0, 3)} ${this.data[
+        i
+      ].id.slice(3, 7)} ${this.data[i].id.slice(7, 13)}`;
 
       const $house = document.createElement("span");
       $house.className = "ItemDetail";

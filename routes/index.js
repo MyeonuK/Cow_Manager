@@ -22,6 +22,7 @@ let dbInfo = {
   port: "3306",
 };
 */
+
 const conn = mysql.createConnection(dbInfo);
 conn.connect(function (err) {
   if (err) console.error("connection error: " + err);
@@ -37,11 +38,14 @@ router.get("/newpage", function (req, res) {
 });
 
 router.get("/outline", function (req, res) {
+  let result = [];
   conn.query("SELECT COUNT(*) FROM cowList", function (err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
-      res.status(200).json(rows[0]["COUNT(*)"]);
+      result.push(rows[0]["COUNT(*)"]);
+      console.log(result);
+      res.status(200).json(result);
     }
   });
 });
@@ -75,35 +79,100 @@ router.get("/load", function (req, res) {
 });
 
 router.get("/update", function (req, res) {
-  conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
-    if (err) console.error(err);
-    else {
-      let numbers = [];
+  if (req.query.min == undefined) {
+    conn.query(
+      //`SELECT id FROM cowList WHERE birthDate IS NULL`,
+      `SELECT id FROM cowList`,
+      (err, rows, fields) => {
+        if (err) console.error(err);
+        else {
+          let numbers = [];
 
-      for (let i = 0; i < rows.length; i++) {
-        numbers.push(rows[i].id);
+          for (let i = 0; i < rows.length; i++) {
+            numbers.push(rows[i].id);
+          }
+          console.log(numbers.length);
+
+          let num = Math.ceil(numbers.length / 20);
+
+          for (let i = 0; i < num; i++) {
+            let numm = 20;
+            if (i == num - 1) {
+              numm = numbers.length % 20;
+            }
+
+            setTimeout(() => {
+              for (let j = 0; j < numm; j++) {
+                let id = numbers[i * 20 + j];
+                readData(id).then((res) => {
+                  if (res == null) {
+                    console.log(id);
+                  } else {
+                    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+
+                    if (res.famDate != null) {
+                      sql_update += `, famDate='${res.famDate}'`;
+                    }
+                    if (res.bruDate != null) {
+                      sql_update += `, bruDate='${res.bruDate}'`;
+                    }
+                    if (res.tubeDate != null) {
+                      sql_update += `, tubeDate='${res.tubeDate}'`;
+                    }
+                    sql_update += `WHERE id='${res.id}'`;
+
+                    conn.query(sql_update, (err, rows, fields) => {
+                      if (err) console.error(err);
+                      //else console.log(rows);
+                    });
+                  }
+                });
+              }
+            }, 500 * i);
+          }
+        }
       }
-      console.log(rows.length);
-      for (let i of numbers) {
-        readData(i).then((res) => {
-          let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', famDate='${res.famDate}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+    );
+  } else {
+    conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
+      if (err) console.error(err);
+      else {
+        let numbers = [];
 
-          if (res.bruDate != null) {
-            sql_update += `, bruDate='${res.bruDate}'`;
-          }
-          if (res.tubeDate != null) {
-            sql_update += `, tubeDate='${res.tubeDate}'`;
-          }
-          sql_update += `WHERE id='${res.id}'`;
+        for (let i = 0; i < rows.length; i++) {
+          numbers.push(rows[i].id);
+        }
+        console.log(numbers.length);
 
-          conn.query(sql_update, (err, rows, fields) => {
-            if (rows) console.error(err);
-            //else console.log(rows);
+        for (let j = req.min; j < req.max; j++) {
+          let id = numbers[j];
+          readData(id).then((res) => {
+            if (res == null) {
+              console.log(id);
+            } else {
+              let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+
+              if (res.famDate != null) {
+                sql_update += `, famDate='${res.famDate}'`;
+              }
+              if (res.bruDate != null) {
+                sql_update += `, bruDate='${res.bruDate}'`;
+              }
+              if (res.tubeDate != null) {
+                sql_update += `, tubeDate='${res.tubeDate}'`;
+              }
+              sql_update += `WHERE id='${res.id}'`;
+
+              conn.query(sql_update, (err, rows, fields) => {
+                if (err) console.error(err);
+                //else console.log(rows);
+              });
+            }
           });
-        });
+        }
       }
-    }
-  });
+    });
+  }
 
   conn.query(`SELECT * FROM cowList`, function (err, rows, fields) {
     if (err) {
@@ -118,27 +187,41 @@ async function readData(animalNo) {
   return await getHTML(animalNo)
     .then((html) => {
       // 크롤링
-      let stringList = [];
-      const $ = cheerio.load(html.data);
+      if (html == undefined) {
+        //console.log(animalNo);
+        return null;
+      } else {
+        let stringList = [];
 
-      const bodyList = $("div.infTb")
-        .children("table")
-        .children("tbody")
-        .children("tr")
-        .children("td");
+        const $ = cheerio.load(html.data);
 
-      bodyList.each(function (i, elem) {
-        stringList[i] = {
-          title: $(this).text(),
-        };
-      });
-      //console.log(stringList);
-      return stringList;
+        const bodyList = $("div.infTb")
+          .children("table")
+          .children("tbody")
+          .children("tr")
+          .children("td");
+
+        bodyList.each(function (i, elem) {
+          stringList[i] = {
+            title: $(this).text(),
+          };
+        });
+        return stringList;
+      }
     })
     .then((res) => {
       let myData = {};
+      let id;
       // res로부터 파싱
-      let id = res[0].title;
+      try {
+        id =
+          res[0].title.slice(0, 3) +
+          res[0].title.slice(4, 8) +
+          res[0].title.slice(9, 13) +
+          res[0].title.slice(14, 15);
+      } catch (error) {
+        return null;
+      }
       let birthDate = res[1].title;
 
       let sex = res[3].title;
@@ -160,7 +243,9 @@ async function readData(animalNo) {
       // 개체번호, 생년월일, 성별
       myData.id = id;
       myData.sex = sex;
-
+      if (myData.sex.length > 2) {
+        myData.sex = myData.sex.slice(0, 2);
+      }
       // 생년월일, 나이
       myData.birthDate = birthDate.slice(0, birthDate.indexOf(" "));
       myData.age = birthDate.slice(
@@ -175,9 +260,19 @@ async function readData(animalNo) {
           break;
         }
       }
-      myData.famDate =
-        "20" + fam.slice(0, 2) + "-" + fam.slice(3, 5) + "-" + fam.slice(6, 8);
-      myData.famInfo = fam.slice(fam.indexOf("(") + 1, fam.indexOf(")"));
+      myData.famInfo = fam.slice(0, 3);
+      if (myData.famInfo == "미접종") {
+        myData.famDate = null;
+      } else {
+        myData.famInfo = fam.slice(fam.indexOf("(") + 1, fam.indexOf(")"));
+        myData.famDate =
+          "20" +
+          fam.slice(0, 2) +
+          "-" +
+          fam.slice(3, 5) +
+          "-" +
+          fam.slice(6, 8);
+      }
 
       // 브루셀라
       myData.bruInfo = bruInfo;
@@ -226,10 +321,14 @@ async function readData(animalNo) {
 
 async function getHTML(animalNo) {
   try {
-    return await axios.get(
+    //console.log(total++);
+
+    let url = encodeURI(
       `https://www.mtrace.go.kr/mtracesearch/cattleNoSearch.do?btsProgNo=0109008401&btsActionMethod=SELECT&cattleNo=${animalNo}`
     );
+    return await axios.get(url);
   } catch (error) {
+    console.log("getHTML");
     console.error(error);
   }
 }

@@ -13,11 +13,12 @@ class OutlineTab extends Tab {
     fetch(`http://myeonu.cafe24app.com/outline`)
       //fetch("outline")
       .then((res) => res.json())
-      .then((res) => (this.data = res));
+      .then((res) => (this.data = res))
+      .then((res) => console.log(this.data));
 
     setTimeout(() => {
       this.render();
-    }, 100);
+    }, 200);
   }
 
   render() {
@@ -30,31 +31,11 @@ class OutlineTab extends Tab {
     $title.className = "Title";
     $title.innerText = "Cow_Manager";
 
-    // section
-    const $section1 = document.createElement("div");
-    $section1.className = "SectionDiv";
-    $section1.addEventListener("click", () => {
-      new CowList(this.$target);
-    });
-
-    const $sectionTitle = document.createElement("div");
-    $sectionTitle.className = "Title";
-    $sectionTitle.innerText = "소 검색하기";
-    $sectionTitle.innerHTML = `<div id="App"></div>`;
-
-    const $sectionContent = document.createElement("div");
-    $sectionContent.className = "RowContentDiv";
-
-    const $numOfCow = document.createElement("span");
-    $numOfCow.className = "BigElement";
-    $numOfCow.innerText = this.data + "마리";
-
     this.$mainDiv.appendChild($header);
     $header.appendChild($title);
-    this.$mainDiv.appendChild($section1);
-    $section1.appendChild($sectionTitle);
-    $section1.appendChild($sectionContent);
-    $sectionContent.appendChild($numOfCow);
+    //$section1.render();
+    // section
+    const $section1 = new CowSection(this.$mainDiv, this.data);
 
     this.$target.appendChild(this.$mainDiv);
   }

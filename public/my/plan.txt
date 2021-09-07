@@ -4,23 +4,31 @@
 - 통계
 축사별로, 칸별로 평균 개월수 나타냈으면 좋겠음(출하 대충 어느정도에 잡아야하는지 예측가능)
 
-- db 맥일 수 있는지
-- 모바일 pc 구분
-
-
-- css 올 수정
-
-등록번호
-축사 및 우리
-성별 및 생년월일
-구제역
-브루셀라
-결핵
-
 
 CREATE TABLE cowList(id varchar(15) not null, birthDate date, sex varchar(3), famInfo varchar(5) not null, famDate date, bruInfo varchar(5) not null, bruDate date, tubeInfo varchar(5) not null, tubeDate date)
 
 ALTER TABLE `cowlist` ADD `id` VARCHAR(15) NOT NULL, ADD `birthDate` DATE NULL AFTER `id`, ADD `sex` VARCHAR(3) NOT NULL AFTER `birthDate`, ADD `famInfo` VARCHAR(5) NOT NULL AFTER `sex`, ADD `famDate` DATE NULL AFTER `famInfo`, ADD `bruInfo` VARCHAR(5) NOT NULL AFTER `famDate`, ADD `bruDate` DATE NULL AFTER `bruInfo`, ADD `tubeInfo` VARCHAR(5) NOT NULL AFTER `bruDate`, ADD `tubeDate` DATE NULL AFTER `tubeInfo`, ADD PRIMARY KEY (`id`);
+
+--출하--
+소 출하때는 한 차에 약 8마리~10마리씩 실어서 출하
+
+일자별로 도체중 평균, 평균 낙찰가격, 총 낙찰가격
+
+
+--축사-- 
+축사 + 방 그림(소 숫자 표시)-> 방 클릭 시 속한 소들 리스트업
+
+
+
+--outline--
+<비육기 전환 시점>
+젖먹이 > 어린송아지 > 육성기 > 비육기
+개월수로 나이를 표현하는데
+농장마다 몇개월에 육성기를 들어간다
+이게 다르다
+한우는
+13개월부터 비육기 사료를 먹고
+12개월까지는 육성기를 먹어
 
 
 
