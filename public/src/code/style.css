@@ -112,14 +112,14 @@ button {
 
 .SectionDiv .ColContentDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .SectionDiv .BigElement {
-  width: 40%;
+  padding: 0 40px;
   font-size: var(--font-m);
 }
 
