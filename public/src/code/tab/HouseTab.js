@@ -10,26 +10,28 @@ class HouseTab extends Tab {
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    //fetch(`http://myeonu.cafe24app.com/house`)
-    fetch("house")
+    fetch(`http://myeonu.cafe24app.com/house`)
+      //fetch("house")
       .then((res) => res.json())
       .then((res) => this.setData(res));
 
     setTimeout(() => {
+      console.log(this.data);
       this.render();
     }, 100);
   }
 
   setData(data) {
     this.data = {};
-    let houses = Array.from(new Set(data.map((a) => a.house)));
+    let houses = Array.from(new Set(data.map((a) => a.house[0])));
     for (let house of houses) {
-      let rooms = data.map((item) => {
-        let arr = [];
-        if (item.house == house) {
-          return item.room;
-        }
-      });
+      let rooms = data
+        .map((item) => {
+          if (item.house[0] == house) {
+            return `${item.house[1]}${item.room}`;
+          }
+        })
+        .filter((elem, i) => elem != undefined);
 
       this.data[house] = rooms;
     }
@@ -45,7 +47,7 @@ class HouseTab extends Tab {
 
       const $sectionTitle = document.createElement("div");
       $sectionTitle.className = "Title";
-      $sectionTitle.innerText = `${house}번 축사`;
+      $sectionTitle.innerText = `${house} 축사`;
 
       const $sectionContent = document.createElement("div");
       $sectionContent.className = "ColContentDiv";

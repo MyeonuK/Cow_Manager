@@ -114,10 +114,12 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .SectionDiv .BigElement {
+  width: 40%;
   font-size: var(--font-m);
 }
 

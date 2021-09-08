@@ -1,7 +1,5 @@
 const mysql = require("mysql");
 const express = require("express");
-//const db = require("./database");
-//const crawler = require("./crawler");
 const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
@@ -22,7 +20,6 @@ let dbInfo = {
   port: "3306",
 };
 */
-
 const conn = mysql.createConnection(dbInfo);
 conn.connect(function (err) {
   if (err) console.error("connection error: " + err);
@@ -79,100 +76,97 @@ router.get("/load", function (req, res) {
 });
 
 router.get("/update", function (req, res) {
-  if (req.query.min == undefined) {
-    conn.query(
-      //`SELECT id FROM cowList WHERE birthDate IS NULL`,
-      `SELECT id FROM cowList`,
-      (err, rows, fields) => {
-        if (err) console.error(err);
-        else {
-          let numbers = [];
+  // cafe24 server
+  conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
+    if (err) console.error(err);
+    else {
+      let numbers = [];
 
-          for (let i = 0; i < rows.length; i++) {
-            numbers.push(rows[i].id);
-          }
-          console.log(numbers.length);
+      for (let i = 0; i < rows.length; i++) {
+        numbers.push(rows[i].id);
+      }
+      console.log(numbers.length);
 
-          let num = Math.ceil(numbers.length / 20);
+      let num = Math.ceil(numbers.length / 20);
 
-          for (let i = 0; i < num; i++) {
-            let numm = 20;
-            if (i == num - 1) {
-              numm = numbers.length % 20;
-            }
+      for (let i = 0; i < num; i++) {
+        let numm = 20;
+        if (i == num - 1) {
+          numm = numbers.length % 20;
+        }
 
-            setTimeout(() => {
-              for (let j = 0; j < numm; j++) {
-                let id = numbers[i * 20 + j];
-                readData(id).then((res) => {
-                  if (res == null) {
-                    console.log(id);
-                  } else {
-                    let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+        setTimeout(() => {
+          for (let j = 0; j < numm; j++) {
+            let id = numbers[i * 20 + j];
+            readData(id).then((res) => {
+              if (res == null) {
+                console.log(id);
+              } else {
+                let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
 
-                    if (res.famDate != null) {
-                      sql_update += `, famDate='${res.famDate}'`;
-                    }
-                    if (res.bruDate != null) {
-                      sql_update += `, bruDate='${res.bruDate}'`;
-                    }
-                    if (res.tubeDate != null) {
-                      sql_update += `, tubeDate='${res.tubeDate}'`;
-                    }
-                    sql_update += `WHERE id='${res.id}'`;
+                if (res.famDate != null) {
+                  sql_update += `, famDate='${res.famDate}'`;
+                }
+                if (res.bruDate != null) {
+                  sql_update += `, bruDate='${res.bruDate}'`;
+                }
+                if (res.tubeDate != null) {
+                  sql_update += `, tubeDate='${res.tubeDate}'`;
+                }
+                sql_update += `WHERE id='${res.id}'`;
 
-                    conn.query(sql_update, (err, rows, fields) => {
-                      if (err) console.error(err);
-                      //else console.log(rows);
-                    });
-                  }
+                conn.query(sql_update, (err, rows, fields) => {
+                  if (err) console.error(err);
                 });
               }
-            }, 500 * i);
+            });
           }
-        }
+        }, 500 * i);
       }
-    );
-  } else {
-    conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
-      if (err) console.error(err);
-      else {
-        let numbers = [];
+    }
+  });
 
-        for (let i = 0; i < rows.length; i++) {
-          numbers.push(rows[i].id);
-        }
-        console.log(numbers.length);
+  // local server
+  /*
+  conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
+    if (err) console.error(err);
+    else {
+      let numbers = [];
 
-        for (let j = req.min; j < req.max; j++) {
-          let id = numbers[j];
-          readData(id).then((res) => {
-            if (res == null) {
-              console.log(id);
-            } else {
-              let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
+      for (let i = 0; i < rows.length; i++) {
+        numbers.push(rows[i].id);
+      }
+      console.log(numbers.length);
 
-              if (res.famDate != null) {
-                sql_update += `, famDate='${res.famDate}'`;
-              }
-              if (res.bruDate != null) {
-                sql_update += `, bruDate='${res.bruDate}'`;
-              }
-              if (res.tubeDate != null) {
-                sql_update += `, tubeDate='${res.tubeDate}'`;
-              }
-              sql_update += `WHERE id='${res.id}'`;
+      for (let j = req.min; j < req.max; j++) {
+        let id = numbers[j];
+        readData(id).then((res) => {
+          if (res == null) {
+            console.log(id);
+          } else {
+            let sql_update = `UPDATE cowList SET birthDate='${res.birthDate}', age='${res.age}', sex='${res.sex}', famInfo='${res.famInfo}', bruInfo='${res.bruInfo}', tubeInfo='${res.tubeInfo}'`;
 
-              conn.query(sql_update, (err, rows, fields) => {
-                if (err) console.error(err);
-                //else console.log(rows);
-              });
+            if (res.famDate != null) {
+              sql_update += `, famDate='${res.famDate}'`;
             }
-          });
-        }
+            if (res.bruDate != null) {
+              sql_update += `, bruDate='${res.bruDate}'`;
+            }
+            if (res.tubeDate != null) {
+              sql_update += `, tubeDate='${res.tubeDate}'`;
+            }
+            sql_update += `WHERE id='${res.id}'`;
+
+            conn.query(sql_update, (err, rows, fields) => {
+              if (err) console.error(err);
+              //else console.log(rows);
+            });
+          }
+        });
       }
-    });
-  }
+    }
+  });
+  */
 
   conn.query(`SELECT * FROM cowList`, function (err, rows, fields) {
     if (err) {
@@ -188,7 +182,6 @@ async function readData(animalNo) {
     .then((html) => {
       // 크롤링
       if (html == undefined) {
-        //console.log(animalNo);
         return null;
       } else {
         let stringList = [];
@@ -212,7 +205,7 @@ async function readData(animalNo) {
     .then((res) => {
       let myData = {};
       let id;
-      // res로부터 파싱
+
       try {
         id =
           res[0].title.slice(0, 3) +
@@ -312,23 +305,17 @@ async function readData(animalNo) {
       let today = new Date();
       myData.update = today.toLocaleString();
 
-      //console.log(myData);
       return myData;
     });
-
-  //return this;
 }
 
 async function getHTML(animalNo) {
   try {
-    //console.log(total++);
-
     let url = encodeURI(
       `https://www.mtrace.go.kr/mtracesearch/cattleNoSearch.do?btsProgNo=0109008401&btsActionMethod=SELECT&cattleNo=${animalNo}`
     );
     return await axios.get(url);
   } catch (error) {
-    console.log("getHTML");
     console.error(error);
   }
 }
