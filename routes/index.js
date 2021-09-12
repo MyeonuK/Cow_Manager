@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
-/*
+
 let dbInfo = {
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -11,7 +11,7 @@ let dbInfo = {
   database: "gusdn0217",
   port: "3306",
 };
-*/
+/*
 let dbInfo = {
   host: "localhost",
   user: "root",
@@ -19,7 +19,7 @@ let dbInfo = {
   database: "cowmanager",
   port: "3306",
 };
-
+*/
 const conn = mysql.createConnection(dbInfo);
 conn.connect(function (err) {
   if (err) console.error("connection error: " + err);

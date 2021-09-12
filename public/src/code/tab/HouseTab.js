@@ -10,8 +10,8 @@ class HouseTab extends Tab {
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    //fetch(`http://myeonu.cafe24app.com/house`)
-    fetch("house")
+    fetch(`http://myeonu.cafe24app.com/house`)
+      //fetch("house")
       .then((res) => res.json())
       .then((res) => this.setData(res));
 
