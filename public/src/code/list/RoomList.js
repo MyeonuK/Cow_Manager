@@ -103,7 +103,7 @@ class RoomList extends List {
     this.$mainDiv.appendChild($itemDiv);
     setTimeout(() => {
       this.renderItems($itemDiv);
-    }, 200);
+    }, 500);
     this.$target.appendChild(this.$mainDiv);
   }
 }
