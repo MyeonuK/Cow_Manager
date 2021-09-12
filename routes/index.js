@@ -76,17 +76,29 @@ router.get("/load", function (req, res) {
 });
 
 router.get("/rooms", function (req, res) {
-  console.log(req.query.house);
   let sql = `SELECT DISTINCT house, room FROM cowList WHERE house LIKE '${req.query.house}%'`;
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
-      console.log(rows);
+      let rooms = rows;
+
+      let sql = "SELECT";
+      for (let room of rooms) {
+        sql += `, COUNT(CASE WHEN house='${room.house}' AND room='${room.room}' THEN 1 END) AS '${room.house}${room.room}'`;
+      }
+      sql = sql.slice(0, 6) + sql.slice(7) + ` FROM cowList`;
+
+      conn.query(sql, function (err, rows, fields) {
+        if (err) {
+          console.error(err);
+        } else {
+          res.status(200).json(rows);
+        }
+      });
     }
   });
-  res.status(200).json(rows);
 });
 
 router.get("/update", function (req, res) {

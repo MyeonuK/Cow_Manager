@@ -14,7 +14,7 @@ class HouseSection {
     this.$mainDiv.addEventListener("click", () => {
       let $roomList = new RoomList(this.house);
 
-      $roomList.render(document.getElementsByClassName("ContentDiv")[0]);
+      $roomList.render();
     });
 
     const $sectionTitle = document.createElement("div");

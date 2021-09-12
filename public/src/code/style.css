@@ -123,7 +123,7 @@ button {
   font-size: var(--font-m);
 }
 
-.CowList {
+.List {
   min-height: 100%;
   background-color: var(--color-white);
   padding-bottom: 60px;
@@ -191,4 +191,37 @@ button {
   font-size: var(--font-m);
   padding: 0;
   height: auto;
+}
+
+.ItemDiv .HouseDiv {
+  display: flex;
+  flex-direction: row;
+  padding: var(--layout-s) 0;
+}
+
+.HouseDiv .RoomsDiv {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-s);
+}
+
+.HouseDiv .RoomsDiv:nth-child(2) {
+  width: 20%;
+}
+
+.HouseDiv .RoomsDiv .Room {
+  border: var(--color-lightgray) 0.5px solid;
+  padding: var(--layout-ss);
+}
+
+.RoomsDiv .Room .RoomTitle {
+  font-size: var(--font-m);
+  color: var(--color-gray);
+}
+
+.RoomsDiv .Room .RoomContent {
+  font-size: var(--font-s);
+  color: var(--color-gray);
+  text-align: right;
 }

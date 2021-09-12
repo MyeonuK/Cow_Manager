@@ -12,7 +12,7 @@ class CowList {
     this.fetchUrl("load");
 
     const $mainDiv = document.createElement("div");
-    $mainDiv.className = "CowList";
+    $mainDiv.className = "List";
 
     this.$mainDiv = $mainDiv;
     this.$target.appendChild(this.$mainDiv);
