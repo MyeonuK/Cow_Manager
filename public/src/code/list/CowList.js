@@ -19,12 +19,12 @@ class CowList {
 
     setTimeout(() => {
       this.render();
-    }, 300);
+    }, 200);
   }
 
   async fetchUrl(order) {
-    fetch(`http://myeonu.cafe24app.com/${order}`)
-      //fetch(order)
+    //fetch(`http://myeonu.cafe24app.com/${order}`)
+    fetch(order)
       .then((res) => res.json())
       .then((res) => {
         this.data = res;

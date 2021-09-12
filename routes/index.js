@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
-
+/*
 let dbInfo = {
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -11,7 +11,7 @@ let dbInfo = {
   database: "gusdn0217",
   port: "3306",
 };
-/*
+*/
 let dbInfo = {
   host: "localhost",
   user: "root",
@@ -19,7 +19,7 @@ let dbInfo = {
   database: "cowmanager",
   port: "3306",
 };
-*/
+
 const conn = mysql.createConnection(dbInfo);
 conn.connect(function (err) {
   if (err) console.error("connection error: " + err);
@@ -73,6 +73,20 @@ router.get("/load", function (req, res) {
       res.status(200).json(rows);
     }
   });
+});
+
+router.get("/rooms", function (req, res) {
+  console.log(req.query.house);
+  let sql = `SELECT DISTINCT house, room FROM cowList WHERE house LIKE '${req.query.house}%'`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(rows);
+    }
+  });
+  res.status(200).json(rows);
 });
 
 router.get("/update", function (req, res) {

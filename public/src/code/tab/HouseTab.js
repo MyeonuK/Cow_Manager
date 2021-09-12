@@ -10,8 +10,8 @@ class HouseTab extends Tab {
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    fetch(`http://myeonu.cafe24app.com/house`)
-      //fetch("house")
+    //fetch(`http://myeonu.cafe24app.com/house`)
+    fetch("house")
       .then((res) => res.json())
       .then((res) => this.setData(res));
 
@@ -40,28 +40,10 @@ class HouseTab extends Tab {
   renderSections() {
     // section
     let houses = Object.keys(this.data);
+
     for (let house of houses) {
-      const $section = document.createElement("div");
-      $section.className = "SectionDiv";
-      $section.addEventListener("click", () => {});
-
-      const $sectionTitle = document.createElement("div");
-      $sectionTitle.className = "Title";
-      $sectionTitle.innerText = `${house} 축사`;
-
-      const $sectionContent = document.createElement("div");
-      $sectionContent.className = "ColContentDiv";
-
-      for (let room of this.data[house]) {
-        const $roomT = document.createElement("div");
-        $roomT.classList = "BigElement";
-        $roomT.innerText = `${room}번 칸`;
-        $sectionContent.appendChild($roomT);
-      }
-
-      this.$mainDiv.appendChild($section);
-      $section.appendChild($sectionTitle);
-      $section.appendChild($sectionContent);
+      let $houseSection = new HouseSection(house, this.data[house]);
+      $houseSection.render(this.$mainDiv);
     }
   }
 
@@ -77,6 +59,7 @@ class HouseTab extends Tab {
 
     this.$mainDiv.appendChild($header);
     $header.appendChild($title);
+
     this.renderSections();
     this.$target.appendChild(this.$mainDiv);
   }
