@@ -15,8 +15,9 @@ class RoomList extends List {
   async getData(house) {
     //await fetchUrl(`rooms?house=${house}`)
     fetch(`rooms?house=${house}`)
-      .then((res) => (this.data = res.json()))
+      .then((res) => res.json())
       .then((res) => {
+        this.data = res;
         console.log(this.data);
         let arr = new Array(32);
         arr.fill(0);
