@@ -16,7 +16,7 @@ class RoomList extends List {
     //await fetchUrl(`rooms?house=${house}`)
     fetch(`rooms?house=${house}`)
       .then((res) => res.json())
-      .then((res) => (this.data = res))
+      .then((res) => (this.data = res[0]))
       .then((res) => {
         console.log(this.data);
         let arr = new Array(32);
@@ -69,7 +69,6 @@ class RoomList extends List {
         $room.appendChild($roomTitle);
         $room.appendChild($roomContent);
       }
-      console.log("wfwewe");
       $houseDiv.appendChild($roomsDiv);
     }
     $target.appendChild($houseDiv);
