@@ -11,7 +11,7 @@ class HouseTab extends Tab {
     this.$mainDiv.className = "Tab";
 
     this.getData();
-    //fetch(`http://myeonu.cafe24app.com/house`)
+    //fetch(`http://myeonu.cafe24app.com/houseList`)
     /*fetch("house")
       .then((res) => res.json())
       .then((res) => this.setData(res));
@@ -23,7 +23,7 @@ class HouseTab extends Tab {
   }
 
   async getData() {
-    fetch("house")
+    fetch("houseList")
       .then((res) => res.json())
       .then((res) => (this.data = res));
   }

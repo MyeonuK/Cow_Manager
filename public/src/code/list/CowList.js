@@ -2,14 +2,15 @@ class CowList {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  data = null;
+  data = [];
 
   constructor($prev) {
     this.$target = document.getElementsByClassName("MainDiv")[0];
     this.$prev = $prev;
     this.$prev.style.display = "none";
 
-    this.fetchUrl("load");
+    this.getData();
+    //this.fetchUrl("cow_house");
 
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "List";
@@ -22,37 +23,36 @@ class CowList {
     }, 200);
   }
 
-  async fetchUrl(order) {
+  async getData() {
     //fetch(`http://myeonu.cafe24app.com/${order}`)
-    fetch(order)
+
+    let fetchData;
+    await fetch("cow_house")
       .then((res) => res.json())
       .then((res) => {
-        this.data = res;
+        fetchData = res;
       })
       .then((res) => {
-        for (let i of this.data) {
-          if (i.birthDate == null) {
-            i.birthDate = "";
-          } else {
-            i.birthDate = i.birthDate.slice(0, 10);
-          }
-          if (i.famDate == null) {
-            i.famDate = "";
-          } else {
-            i.famDate = i.famDate.slice(0, 10);
-          }
+        for (let fd of fetchData) {
+          let cow = {};
 
-          if (i.bruDate == null) {
-            i.bruDate = "";
-          } else {
-            i.bruDate = i.bruDate.slice(0, 10);
-          }
+          cow.id = fd.id;
+          cow.house = fd.house;
+          cow.side = fd.side ? fd.side : null;
+          cow.room = fd.room ? fd.room : null;
 
-          if (i.tubeDate == null) {
-            i.tubeDate = "";
-          } else {
-            i.tubeDate = i.tubeDate.slice(0, 10);
-          }
+          fetch(`cow_profile?id=${cow.id}`)
+            .then((res) => res.json())
+            .then((res) => {
+              console.log(cow.id + res[0]);
+              cow.birthDate = res[0].birthDate
+                ? res[0].birthDate.slice(0, 10)
+                : null;
+              cow.age = res[0].age ? res[0].age : null;
+              cow.sex = res[0].sex ? res[0].sex : null;
+            });
+
+          this.data.push(cow);
         }
       });
   }
@@ -73,10 +73,10 @@ class CowList {
 
       const $house = document.createElement("span");
       $house.className = "ItemDetail";
-      if (this.data[i].house == "o") {
+      if (this.data[i].house == "O") {
         $house.innerText = `방목\n${this.data[i].sex}`;
       } else {
-        $house.innerText = `${this.data[i].house[0]}동 ${this.data[i].house[1]}${this.data[i].room}번\n${this.data[i].sex}`;
+        $house.innerText = `${this.data[i].house[0]}동 ${this.data[i].room}번\n${this.data[i].sex}`;
       }
 
       const $birth = document.createElement("span");
@@ -97,6 +97,7 @@ class CowList {
   }
 
   render() {
+    console.log(this.data);
     const $toolBar = document.createElement("div");
     $toolBar.className = "ToolBar";
 
@@ -115,6 +116,7 @@ class CowList {
     $updateButton.className = "Button";
     $updateButton.innerText = "update";
     $updateButton.addEventListener("click", () => {
+      /*
       this.$mainDiv.removeChild(document.getElementsByClassName("ItemDiv")[0]);
       this.fetchUrl("update").then((res) => {
         const $itemDiv = document.createElement("div");
@@ -123,6 +125,7 @@ class CowList {
         this.renderItems($itemDiv);
         window.scrollTo(0, 0);
       });
+      */
     });
 
     const $searchDiv = document.createElement("div");
@@ -147,18 +150,18 @@ class CowList {
 
         if (itemValue.includes(inputValue)) {
           item.style.display = "flex";
-          count++;
+          count += 1;
         } else {
           item.style.display = "none";
         }
       }
-
       /*
-        if (count == 0) {
-          $itemDiv.innerText = "검색결과가 없습니다.";
-        } else {
-          $itemDiv.removeAttribute("innerText");
-        }*/
+      if (count == 0) {
+        $itemDiv.innerText = "검색결과가 없습니다.";
+      } else {
+        $itemDiv.innerText = "";
+      }
+      */
     };
 
     this.$mainDiv.appendChild($toolBar);

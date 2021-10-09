@@ -41,6 +41,11 @@ connection.connect(function (err) {
   if (err) writeLog("connection error: " + err);
   else console.log("connected successfulley!");
 });
+
+connection.query("DROP TABLE renewDate", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("drop table renewdate success");
+});
 /*
 // 테이블 삭제
 connection.query("DROP TABLE House", (err, results, fields) => {
@@ -136,7 +141,7 @@ for (let i = 0; i < ids.length; i++) {
 */
 
 // 파싱 후 데이터베이스 입력
-
+/*
 connection.query(`SELECT id FROM cowList`, (err, rows, fields) => {
   if (err) writeLog(err);
   else {
@@ -333,3 +338,4 @@ async function getHTML(animalNo) {
     console.error(error);
   }
 }
+*/

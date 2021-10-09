@@ -4,7 +4,8 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
-
+const { runInContext } = require("vm");
+/*
 const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -12,7 +13,7 @@ const conn = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-/*
+*/
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -20,7 +21,7 @@ const conn = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-*/
+
 function writeLog(message) {
   log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
@@ -44,7 +45,7 @@ router.get("/newpage", function (req, res) {
 
 router.get("/outline", function (req, res) {
   let result = [];
-  conn.query("SELECT COUNT(*) FROM cowList", function (err, rows, fields) {
+  conn.query("SELECT COUNT(*) FROM House", function (err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
@@ -55,9 +56,9 @@ router.get("/outline", function (req, res) {
   });
 });
 
-router.get("/house", function (req, res) {
+router.get("/houseList", function (req, res) {
   conn.query(
-    "SELECT house, COUNT(*) FROM cowList GROUP BY house",
+    "SELECT house, COUNT(*) FROM House GROUP BY house",
     function (err, rows, fields) {
       if (err) {
         console.error(err);
@@ -68,11 +69,41 @@ router.get("/house", function (req, res) {
   );
 });
 
-router.get("/load", function (req, res) {
-  let sql = `SELECT * FROM cowList WHERE id="${req.query.id}"`;
+router.get("/cow_house", function (req, res) {
+  let sql = `SELECT * FROM House WHERE id="${req.query.id}"`;
 
   if (req.query.id == undefined) {
-    sql = `SELECT * FROM cowList`;
+    sql = `SELECT * FROM House`;
+  }
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
+router.get("/cow_profile", function (req, res) {
+  let sql = `SELECT * FROM Profile WHERE id="${req.query.id}"`;
+
+  if (req.query.id == undefined) {
+    sql = `SELECT * FROM Profile`;
+  }
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
+router.get("/cow_vaccin", function (req, res) {
+  let sql = `SELECT * FROM Vaccin WHERE id="${req.query.id}"`;
+
+  if (req.query.id == undefined) {
+    sql = `SELECT * FROM Vaccin`;
   }
   conn.query(sql, function (err, rows, fields) {
     if (err) {
