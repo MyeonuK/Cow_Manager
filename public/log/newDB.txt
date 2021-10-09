@@ -1,62 +1,1380 @@
-=========Sat Oct 09 2021 15:29:20 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
--> res == null
+=========Sat Oct 09 2021 18:14:17 GMT+0900 (대한민국 표준시)=========
+283
 
-=========Sat Oct 09 2021 15:30:05 GMT+0900 (대한민국 표준시)=========
-connection.query(SELECT id FROM cowList...
+=========Sat Oct 09 2021 18:14:18 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM House`...
 -> res == null
-id = 002146535419
+id = 00213920034
 
-=========Sat Oct 09 2021 15:30:46 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
+=========Sat Oct 09 2021 21:04:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE House' at line 1
+
+=========Sat Oct 09 2021 21:04:43 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE Profile' at line 1
+
+=========Sat Oct 09 2021 21:04:43 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE Vaccin' at line 1
+
+=========Sat Oct 09 2021 21:07:25 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:25 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
 -> res == null
-id = 002146535419
+id = 002142414717
 
-=========Sat Oct 09 2021 15:32:26 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145619826
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146540450
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145619674
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145815439
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146709240
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145619818
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145216362
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535908
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146705873
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146706673
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535965
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145215136
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535949
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535480
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145624082
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146534204
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145814817
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146540441
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145813654
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146705881
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146707109
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146707094
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146541143
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535295
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535885
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146537448
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002148015358
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145215072
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146542951
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002148015340
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146535300
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145815455
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145619834
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146537753
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145215089
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146843464
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145625979
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146543411
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146537761
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146837827
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145813898
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145216379
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002145624120
+
+=========Sat Oct 09 2021 21:07:37 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002146709231
+
+=========Sat Oct 09 2021 21:08:29 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 00﻿2159089671
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002158179474
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_FIELD_ERROR: Unknown column 'O' in 'field list'
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_FIELD_ERROR: Unknown column 'O' in 'field list'
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_FIELD_ERROR: Unknown column 'O' in 'field list'
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_FIELD_ERROR: Unknown column 'O' in 'field list'
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_FIELD_ERROR: Unknown column 'O' in 'field list'
+
+=========Sat Oct 09 2021 21:08:30 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_FIELD_ERROR: Unknown column 'O' in 'field list'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 00﻿2159089671
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002158179474
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2157898511' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2157898511' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159096960' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159096960' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159096960' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159101540' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159101540' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159101540' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2139203944' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2139203944' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2139203944' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142413169' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142413169' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142413169' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2157566520' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2157566520' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160712310' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160712310' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160712310' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2166449888' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2166449888' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2166449888' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2137088683' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2137088683' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2137088683' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2156281123' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2156281123' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2156281123' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159101156' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159101156' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159101156' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160706660' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160706660' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160706660' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142415724' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142415724' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142415724' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142415716' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142415716' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2142415716' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2134345335' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2134345335' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2134345335' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2156881737' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2156881737' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2156881737' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160713819' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160713819' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160713819' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107511' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107511' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107511' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107064' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107064' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107064' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159100838' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159100838' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159100838' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2154677431' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2154677431' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107499' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107499' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159107499' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2136601966' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2136601966' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2136601966' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160706651' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160706651' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2160706651' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159089559' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159089559' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2155892870' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2155892870' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159084431' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159084431' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159104200' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159104200' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:09:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2159104200' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:14:54 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002151160563
+
+=========Sat Oct 09 2021 21:14:54 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = 002151147445
+
+=========Sat Oct 09 2021 21:15:38 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
 -> res == null
 id = 002146546497
 
-=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
+=========Sat Oct 09 2021 21:15:39 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
 -> res == null
-id = 00﻿2159089671
+id = 002146535419
 
-=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
+=========Sat Oct 09 2021 21:15:39 GMT+0900 (대한민국 표준시)=========
+readData() -> html == undefined
+
+=========Sat Oct 09 2021 21:15:39 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
 -> res == null
-id = 002151160563
+id = 002146845755
 
-=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838933' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
 -> res == null
-id = 002151147445
+id = 002146546497
 
-=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
 -> res == null
-id = 002158179474
+id = 002146535419
 
-=========Sat Oct 09 2021 15:34:08 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
--> res == null
-id = 00﻿2159089671
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838933' for key 'PRIMARY'
 
-=========Sat Oct 09 2021 15:34:08 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
--> res == null
-id = 002158179474
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838933' for key 'PRIMARY'
 
-=========Sat Oct 09 2021 15:34:09 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
--> res == null
-id = 002151160563
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146709522' for key 'PRIMARY'
 
-=========Sat Oct 09 2021 15:34:09 GMT+0900 (대한민국 표준시)=========
-connection.query(`SELECT id FROM cowList`...
--> res == null
-id = 002151147445
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146709522' for key 'PRIMARY'
 
-=====================================================================Sat Oct 09 2021 15:53:56 GMT+0900 (대한민국 표준시)=========
-Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'renewDate House' at line 1
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146709522' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625091' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625091' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625091' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542978' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542978' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542978' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624816' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624816' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624816' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2139200034' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2139200034' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2139200034' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145623535' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145623535' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145623535' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536509' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536509' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536509' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145814921' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145814921' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145814921' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2148971304' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2148971304' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2148971304' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811564' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811564' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811564' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146539224' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146539224' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146539224' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145816541' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145816541' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145816541' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811351' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811351' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811351' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706657' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706657' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706657' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838941' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838941' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838941' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815981' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815981' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815981' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535037' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535037' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535037' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536873' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536873' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536873' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146707939' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146707939' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146707939' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145015477' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145015477' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145015477' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143368788' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143368788' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143368788' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706114' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706114' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706114' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146534614' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146534614' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146534614' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535414' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535414' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535414' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811100' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811100' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145811100' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146840794' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146840794' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146840794' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535045' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535045' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535045' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706673' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706673' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706673' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838851' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838851' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838851' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815973' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815973' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815973' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146543411' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146543411' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146543411' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624082' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624082' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624082' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535480' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535480' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535480' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619826' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619826' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:41 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619826' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624120' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624120' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624120' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146537753' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146537753' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146537753' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815932' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815932' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815932' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625979' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625979' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625979' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536031' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536031' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536031' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542269' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542269' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542269' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535908' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535908' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535908' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145215136' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145215136' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145215136' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542951' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542951' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542951' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843464' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843464' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843464' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843456' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843456' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:16:42 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843456' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146709231' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146709231' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146709231' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535949' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535949' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535949' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625979' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625979' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145625979' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146707109' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146707109' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146707109' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843464' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843464' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843464' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706673' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706673' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146706673' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535908' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535908' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535908' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146540441' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146540441' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146540441' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146543411' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146543411' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146543411' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146540450' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146540450' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146540450' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2148015358' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2148015358' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2148015358' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145215136' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145215136' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145215136' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146845755' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146845755' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146845755' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535480' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535480' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535480' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815973' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815973' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815973' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146537753' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146537753' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146537753' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535295' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535295' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146535295' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146541143' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146541143' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146541143' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542269' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542269' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542269' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624082' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624082' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624082' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542951' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542951' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146542951' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815932' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815932' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145815932' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145814817' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145814817' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145814817' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536031' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536031' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146536031' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843456' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843456' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146843456' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624120' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624120' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145624120' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838851' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838851' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2143838851' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146534204' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146534204' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2146534204' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619826' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619826' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619826' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
+
+=========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
 

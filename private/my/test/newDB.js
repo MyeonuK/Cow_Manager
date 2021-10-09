@@ -12,16 +12,16 @@ const records = parse(csv.toString());
 
 // 연결할 DB 정보입력
 /*
-const connection = mysql.createConnection({
+const conn = mysql.createconn({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
   password: "Dbdb4783!",
   database: "gusdn0217",
   port: "3306",
 });
-*/
 
-const connection = mysql.createConnection({
+*/
+const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root",
@@ -37,32 +37,56 @@ function writeLog(message) {
   });
 }
 
-connection.connect(function (err) {
-  if (err) writeLog("connection error: " + err);
+conn.connect(function (err) {
+  if (err) writeLog("conn error: " + err);
   else console.log("connected successfulley!");
 });
-
-connection.query("DROP TABLE renewDate", (err, results, fields) => {
+/*
+conn.query("DROP TABLE renewDate", (err, results, fields) => {
   if (err) writeLog(err);
   else console.log("drop table renewdate success");
 });
+
+conn.query("DROP TABLE cowList", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("drop table cowlist success");
+});
+*/
 /*
 // 테이블 삭제
-connection.query("DROP TABLE House", (err, results, fields) => {
+conn.query("DROP TABLE House", (err, results, fields) => {
   if (err) writeLog(err);
   else console.log("drop table house success");
 });
-connection.query("DROP TABLE Profile", (err, results, fields) => {
+conn.query("DROP TABLE Profile", (err, results, fields) => {
   if (err) writeLog(err);
   else console.log("drop table profile success");
 });
-connection.query("DROP TABLE Vaccin", (err, results, fields) => {
+conn.query("DROP TABLE Vaccin", (err, results, fields) => {
   if (err) writeLog(err);
   else console.log("drop table vaccin success");
 });
+*/
 
+// 테이블 비우기
+/*
+conn.query("DELETE FROM House", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("delete table house success");
+});
+conn.query("DELETE FROM Profile", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("delete table profile success");
+});
+conn.query("DELETE FROM Vaccin", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("delete table vaccin success");
+});
+*/
+
+/*
 // 테이블 생성
-connection.query(
+conn.query(
   "CREATE TABLE House (id VARCHAR(15) NOT NULL, house VARCHAR(1) NOT NULL, side VARCHAR(1), room INT(2), PRIMARY KEY(id))",
   (err, results, fields) => {
     if (err) writeLog(err);
@@ -70,7 +94,7 @@ connection.query(
   }
 );
 
-connection.query(
+conn.query(
   "CREATE TABLE Profile (id VARCHAR(15) NOT NULL, birthDate DATE, age INT(3), sex VARCHAR(3), PRIMARY KEY(id))",
   (err, results, fields) => {
     if (err) writeLog(err);
@@ -78,7 +102,7 @@ connection.query(
   }
 );
 
-connection.query(
+conn.query(
   "CREATE TABLE Vaccin (id VARCHAR(15) NOT NULL, famInfo VARCHAR(5), famDate DATE, bruInfo VARCHAR(5), bruDate DATE, tubeInfo VARCHAR(5), tubeDate DATE, PRIMARY KEY(id))",
   (err, results, fields) => {
     if (err) writeLog(err);
@@ -98,19 +122,19 @@ for (let i = 0; i < records.length; i++) {
     records[i][1] = "0" + records[i][1];
   }
   info.id = "00" + records[i][0] + records[i][1];
-  ids.push(info.id);
 
   if (records[i][2] == "out") {
-    info.house = "O";
+    info.house = `'O'`;
     info.side = `null`;
     info.room = `null`;
   } else {
-    info.house = records[i][2][0];
+    info.house = `'${records[i][2][0]}'`;
     info.side = `'${records[i][2][1]}'`;
     info.room = `'${records[i][2].slice(2)}'`;
   }
+  ids.push(info.id);
 
-  connection.query(
+  conn.query(
     `INSERT INTO House(id, house, side, room) VALUES('${info.id}', '${info.house}', ${info.side}, ${info.room})`,
     (err, results, fields) => {
       if (err) writeLog(err);
@@ -120,7 +144,7 @@ for (let i = 0; i < records.length; i++) {
 }
 
 for (let i = 0; i < ids.length; i++) {
-  connection.query(
+  conn.query(
     `INSERT INTO Profile(id) VALUES('${ids[i]}')`,
     (err, results, fields) => {
       if (err) writeLog(err);
@@ -130,7 +154,7 @@ for (let i = 0; i < ids.length; i++) {
 }
 
 for (let i = 0; i < ids.length; i++) {
-  connection.query(
+  conn.query(
     `INSERT INTO Vaccin(id) VALUES('${ids[i]}')`,
     (err, results, fields) => {
       if (err) writeLog(err);
@@ -139,10 +163,64 @@ for (let i = 0; i < ids.length; i++) {
   );
 }
 */
-
 // 파싱 후 데이터베이스 입력
+
+let count = 0;
+
+let a = 260;
+let b = records.length;
+
+for (let i = a; i < b; i++) {
+  let info = {};
+
+  for (let l = 0; l < 5 - records[i][1].length; l++) {
+    records[i][1] = "0" + records[i][1];
+  }
+  info.id = "00" + records[i][0] + records[i][1];
+
+  if (records[i][2] == "out") {
+    info.house = `'O'`;
+    info.side = `null`;
+    info.room = `null`;
+  } else {
+    info.house = `'${records[i][2][0]}'`;
+    info.side = `'${records[i][2][1]}'`;
+    info.room = `'${records[i][2].slice(2)}'`;
+  }
+
+  readData(info.id).then((res) => {
+    if (res == null) {
+      writeLog(
+        "conn.query(`SELECT id FROM House`...\n-> res == null\nid = " + info.id
+      );
+    } else {
+      let sql_house_insert = `INSERT INTO House(id, house, side, room) VALUES(${info.id}, ${info.house}, ${info.side}, ${info.room})`;
+
+      let sql_profile_insert = `INSERT INTO Profile(id, birthDate, age, sex) VALUES(${info.id}, ${res.birthDate}, ${res.age}, ${res.sex})`;
+
+      let sql_vaccin_insert = `INSERT INTO Vaccin(id, famInfo, famDate, bruInfo, bruDate, tubeInfo, tubeDate) VALUES(${info.id}, ${res.famInfo}, ${res.famDate}, ${res.bruInfo}, ${res.bruDate}, ${res.tubeInfo}, ${res.tubeDate})`;
+
+      conn.query(sql_house_insert, (err, rows, fields) => {
+        if (err) writeLog(err);
+        //else console.log(rows);
+      });
+
+      conn.query(sql_profile_insert, (err, rows, fields) => {
+        if (err) writeLog(err);
+        //else console.log(rows);
+      });
+
+      conn.query(sql_vaccin_insert, (err, rows, fields) => {
+        if (err) writeLog(err);
+        //else console.log(rows);
+      });
+      console.log(`${++count}/${b - a}`);
+    }
+  });
+}
+
 /*
-connection.query(`SELECT id FROM cowList`, (err, rows, fields) => {
+conn.query(`SELECT id FROM House`, (err, rows, fields) => {
   if (err) writeLog(err);
   else {
     let numbers = [];
@@ -151,9 +229,10 @@ connection.query(`SELECT id FROM cowList`, (err, rows, fields) => {
       numbers.push(rows[i].id);
     }
     console.log(numbers.length);
+    writeLog(numbers.length);
 
     let a = 0;
-    let b = numbers.length;
+    let b = 20;
     let count = 0;
 
     for (let j = a; j < b; j++) {
@@ -161,23 +240,20 @@ connection.query(`SELECT id FROM cowList`, (err, rows, fields) => {
       readData(id).then((res) => {
         if (res == null) {
           writeLog(
-            "connection.query(`SELECT id FROM cowList`...\n-> res == null\nid = " +
+            "conn.query(`SELECT id FROM House`...\n-> res == null\nid = " +
               id
           );
         } else {
           let sql_profile_update = `UPDATE Profile SET birthDate=${res.birthDate}, age=${res.age}, sex=${res.sex} WHERE id=${res.id}`;
           let sql_vaccin_update = `UPDATE Vaccin SET famInfo=${res.famInfo}, famDate=${res.famDate}, bruInfo=${res.bruInfo}, bruDate=${res.bruDate}, tubeInfo=${res.tubeInfo}, tubeDate=${res.tubeDate} WHERE id=${res.id}`;
 
-          connection.query(sql_profile_update, (err, rows, fields) => {
+          conn.query(sql_profile_update, (err, rows, fields) => {
             if (err) writeLog(err);
             //else console.log(rows);
           });
 
-          connection.query(sql_vaccin_update, (err, rows, fields) => {
-            if (err) {
-              writeLog(err);
-              console.log(sql_vaccin_update);
-            }
+          conn.query(sql_vaccin_update, (err, rows, fields) => {
+            if (err) writeLog(err);
             //else console.log(rows);
           });
           console.log(`${++count}/${b - a}`);
@@ -186,7 +262,7 @@ connection.query(`SELECT id FROM cowList`, (err, rows, fields) => {
     }
   }
 });
-
+*/
 async function readData(animalNo) {
   return await getHTML(animalNo)
     .then((html) => {
@@ -338,4 +414,3 @@ async function getHTML(animalNo) {
     console.error(error);
   }
 }
-*/

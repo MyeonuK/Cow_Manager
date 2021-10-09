@@ -9,7 +9,6 @@ class CowList {
     this.$prev = $prev;
     this.$prev.style.display = "none";
 
-    this.getData();
     //this.fetchUrl("cow_house");
 
     const $mainDiv = document.createElement("div");
@@ -18,9 +17,11 @@ class CowList {
     this.$mainDiv = $mainDiv;
     this.$target.appendChild(this.$mainDiv);
 
+    this.getData();
+
     setTimeout(() => {
       this.render();
-    }, 200);
+    }, 500);
   }
 
   async getData() {
@@ -44,7 +45,6 @@ class CowList {
           fetch(`cow_profile?id=${cow.id}`)
             .then((res) => res.json())
             .then((res) => {
-              console.log(cow.id + res[0]);
               cow.birthDate = res[0].birthDate
                 ? res[0].birthDate.slice(0, 10)
                 : null;
