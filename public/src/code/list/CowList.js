@@ -21,7 +21,7 @@ class CowList {
 
     setTimeout(() => {
       this.render();
-    }, 500);
+    }, 1000);
   }
 
   async getData() {
