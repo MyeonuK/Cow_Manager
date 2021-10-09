@@ -5,7 +5,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-/*
 const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -13,7 +12,7 @@ const conn = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-*/
+/*
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -21,7 +20,7 @@ const conn = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-
+*/
 function writeLog(message) {
   log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
