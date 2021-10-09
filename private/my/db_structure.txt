@@ -1,0 +1,25 @@
+1. 
+id
+house
+room
+birthDate
+age
+sex
+famInfo
+famDate
+bruInfo
+bruDate
+tubeInfo
+tubeDate
+
+
+1. 축사별 개체 House
+    id house side room
+
+2. 개체 정보 Profile
+    id birthDate age sex
+
+3. 투약 정보 Vaccin
+    id famInfo famDate bruInfo bruDate tubeInfo tubeDate
+
+
