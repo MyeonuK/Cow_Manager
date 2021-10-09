@@ -1408,3 +1408,107 @@ conn.query(`SELECT id FROM House`...
 -> res == null
 id = '002146546497'
 
+=========Sun Oct 10 2021 00:40:21 GMT+0900 (대한민국 표준시)=========
+conn error: Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:40 GMT+0900 (대한민국 표준시)=========
+conn error: Error: ER_HOST_NOT_PRIVILEGED: Host '223.33.180.157' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:40 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '223.33.180.157' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:40 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '223.33.180.157' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:40:40 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '223.33.180.157' is not allowed to connect to this MySQL server
+
+=========Sun Oct 10 2021 00:44:55 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '00﻿2159089671'
+
+=========Sun Oct 10 2021 00:45:18 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '00﻿2159089671'
+
+=========Sun Oct 10 2021 00:45:18 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002136601966' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:18 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002158179474'
+
+=========Sun Oct 10 2021 00:45:18 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002136601966' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:18 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002136601966' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:19 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002159084431' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:20 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002159084431' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:20 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002159084431' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:20 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002157898511' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:20 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002157898511' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:20 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002157898511' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:23 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002160712310' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:23 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002160712310' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:23 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002160712310' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:24 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002159089559' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:24 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002159089559' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:45:24 GMT+0900 (대한민국 표준시)=========
+Error: ER_DUP_ENTRY: Duplicate entry '002159089559' for key 'PRIMARY'
+
+=========Sun Oct 10 2021 00:46:33 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002151160563'
+
+=========Sun Oct 10 2021 00:46:33 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002151147445'
+
+=========Sun Oct 10 2021 00:46:43 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002146546497'
+
+=========Sun Oct 10 2021 00:46:44 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002146535419'
+

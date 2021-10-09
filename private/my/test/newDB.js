@@ -11,8 +11,8 @@ const csv = fs.readFileSync("private/data/dataInput.csv");
 const records = parse(csv.toString());
 
 // 연결할 DB 정보입력
-/*
-const conn = mysql.createconn({
+
+const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
   password: "Dbdb4783!",
@@ -20,7 +20,7 @@ const conn = mysql.createconn({
   port: "3306",
 });
 
-*/
+/*
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -28,7 +28,7 @@ const conn = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-
+*/
 function writeLog(message) {
   log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
@@ -166,8 +166,8 @@ for (let i = 0; i < ids.length; i++) {
 
 let count = 0;
 
-let a = 220;
-let b = 260;
+let a = 250;
+let b = records.length;
 
 for (let i = a; i < b; i++) {
   let info = {};
