@@ -83,7 +83,6 @@ conn.query("DELETE FROM Vaccin", (err, results, fields) => {
   else console.log("delete table vaccin success");
 });
 */
-
 /*
 // 테이블 생성
 conn.query(
@@ -167,8 +166,8 @@ for (let i = 0; i < ids.length; i++) {
 
 let count = 0;
 
-let a = 260;
-let b = records.length;
+let a = 220;
+let b = 260;
 
 for (let i = a; i < b; i++) {
   let info = {};
@@ -176,7 +175,7 @@ for (let i = a; i < b; i++) {
   for (let l = 0; l < 5 - records[i][1].length; l++) {
     records[i][1] = "0" + records[i][1];
   }
-  info.id = "00" + records[i][0] + records[i][1];
+  info.id = `'00${records[i][0]}${records[i][1]}'`;
 
   if (records[i][2] == "out") {
     info.house = `'O'`;
@@ -188,7 +187,7 @@ for (let i = a; i < b; i++) {
     info.room = `'${records[i][2].slice(2)}'`;
   }
 
-  readData(info.id).then((res) => {
+  readData(info.id.slice(1, info.id.length - 1)).then((res) => {
     if (res == null) {
       writeLog(
         "conn.query(`SELECT id FROM House`...\n-> res == null\nid = " + info.id
@@ -263,6 +262,7 @@ conn.query(`SELECT id FROM House`, (err, rows, fields) => {
   }
 });
 */
+
 async function readData(animalNo) {
   return await getHTML(animalNo)
     .then((html) => {

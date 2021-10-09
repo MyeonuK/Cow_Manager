@@ -1378,3 +1378,33 @@ Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
 =========Sat Oct 09 2021 21:17:26 GMT+0900 (대한민국 표준시)=========
 Error: ER_DUP_ENTRY: Duplicate entry '2145619674' for key 'PRIMARY'
 
+=========Sun Oct 10 2021 00:30:47 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '00﻿2159089671'
+
+=========Sun Oct 10 2021 00:30:47 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002158179474'
+
+=========Sun Oct 10 2021 00:31:26 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002151160563'
+
+=========Sun Oct 10 2021 00:31:26 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002151147445'
+
+=========Sun Oct 10 2021 00:31:41 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002146535419'
+
+=========Sun Oct 10 2021 00:31:41 GMT+0900 (대한민국 표준시)=========
+conn.query(`SELECT id FROM House`...
+-> res == null
+id = '002146546497'
+
