@@ -147,8 +147,8 @@ connection.query(`SELECT id FROM cowList`, (err, rows, fields) => {
     }
     console.log(numbers.length);
 
-    let a = 90;
-    let b = 140;
+    let a = 0;
+    let b = numbers.length;
     let count = 0;
 
     for (let j = a; j < b; j++) {

@@ -12,3 +12,49 @@ connection.query(`SELECT id FROM cowList`...
 -> res == null
 id = 002146535419
 
+=========Sat Oct 09 2021 15:32:26 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002146546497
+
+=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 00﻿2159089671
+
+=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002151160563
+
+=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002151147445
+
+=========Sat Oct 09 2021 15:33:06 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002158179474
+
+=========Sat Oct 09 2021 15:34:08 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 00﻿2159089671
+
+=========Sat Oct 09 2021 15:34:08 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002158179474
+
+=========Sat Oct 09 2021 15:34:09 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002151160563
+
+=========Sat Oct 09 2021 15:34:09 GMT+0900 (대한민국 표준시)=========
+connection.query(`SELECT id FROM cowList`...
+-> res == null
+id = 002151147445
+
+============================================================
