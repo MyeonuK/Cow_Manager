@@ -109,7 +109,11 @@ class RoomList extends List {
     $toolbar.appendChild($title);
     this.$mainDiv.appendChild($itemDiv);
     setTimeout(() => {
-      this.renderItems($itemDiv);
+      if (this.house == "O") {
+        new CowList(this.$mainDiv, "OOOO");
+      } else {
+        this.renderItems($itemDiv);
+      }
     }, 200);
     this.$target.appendChild(this.$mainDiv);
   }

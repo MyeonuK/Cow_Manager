@@ -110,7 +110,9 @@ router.get("/cow_house", function (req, res) {
 
   if (req.query.id != undefined) {
     sql = `SELECT * FROM House WHERE id=${req.query.id}`;
-  } else if (req.query.house != "undefined") {
+  } else if (req.query.house == `'O'`) {
+    sql = `SELECT * FROM House WHERE house=${req.query.house}`;
+  } else if (req.query.house != undefined) {
     sql = `SELECT * FROM House WHERE house=${req.query.house} AND side=${req.query.side} AND room=${req.query.room}`;
   }
 

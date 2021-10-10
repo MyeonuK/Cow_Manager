@@ -19,7 +19,7 @@ class CowList {
     if (roomInfo == undefined) {
       this.getData();
     } else {
-      this.title = `${roomInfo} 소 목록`;
+      this.title = `${roomInfo == "OOOO" ? "방목" : roomInfo} 소 목록`;
       this.getData(roomInfo);
     }
 
@@ -31,12 +31,20 @@ class CowList {
   async getData(roomInfo) {
     let houseData;
     let profileData;
+    let api;
+    console.log(roomInfo);
 
-    await fetch(
-      `cow_house?house='${roomInfo[0]}'&side='${
+    if (roomInfo === undefined) {
+      api = `cow_house`;
+    } else {
+      api = `cow_house?house='${roomInfo[0]}'&side='${
         roomInfo[1]
-      }'&room='${roomInfo.slice(2)}'`
-    )
+      }'&room='${roomInfo.slice(2)}'`;
+    }
+
+    console.log(api);
+
+    await fetch(api)
       .then((res) => res.json())
       .then((res) => {
         houseData = res;
