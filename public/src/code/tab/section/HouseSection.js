@@ -1,11 +1,11 @@
 class HouseSection {
   $mainDiv = null;
   house = null;
-  rooms = null;
+  count = null;
 
-  constructor(house, rooms) {
+  constructor(house, count) {
     this.house = house;
-    this.rooms = rooms;
+    this.count = count;
   }
 
   render($target) {
@@ -19,20 +19,22 @@ class HouseSection {
 
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
-    $sectionTitle.innerText = `${this.house} 축사`;
+    if (this.house == "O") {
+      $sectionTitle.innerText = "방 목";
+    } else {
+      $sectionTitle.innerText = `${this.house} 축사`;
+    }
 
     const $sectionContent = document.createElement("div");
     $sectionContent.className = "ColContentDiv";
 
-    for (let room of this.rooms) {
-      const $roomT = document.createElement("div");
-      $roomT.classList = "BigElement";
-      $roomT.innerText = `${room}번 칸`;
-      $sectionContent.appendChild($roomT);
-    }
+    const $infoDiv = document.createElement("div");
+    $infoDiv.classList = "BigElement";
+    $infoDiv.innerText = `${this.count}마리`;
 
     this.$mainDiv.appendChild($sectionTitle);
     this.$mainDiv.appendChild($sectionContent);
+    $sectionContent.appendChild($infoDiv);
 
     $target.appendChild(this.$mainDiv);
   }

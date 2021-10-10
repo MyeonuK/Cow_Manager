@@ -3,7 +3,6 @@ class RoomList extends List {
 
   constructor(house) {
     super();
-    console.log(house);
     this.house = house;
     this.getData(house);
 
@@ -13,8 +12,7 @@ class RoomList extends List {
   }
 
   async getData(house) {
-    //await fetchUrl(`rooms?house=${house}`)
-    await fetch(`rooms?house=${house}`)
+    await fetch(`house_room?house=${house}`)
       .then((res) => res.json())
       .then((res) => (this.data = res[0]))
       .then((res) => {

@@ -55,7 +55,7 @@ router.get("/outline", function (req, res) {
   });
 });
 
-router.get("/houseList", function (req, res) {
+router.get("/house", function (req, res) {
   conn.query(
     "SELECT house, COUNT(*) FROM House GROUP BY house",
     function (err, rows, fields) {
@@ -68,7 +68,43 @@ router.get("/houseList", function (req, res) {
   );
 });
 
-router.get("/cow_house", function (req, res) {
+router.get("/house_room", function (req, res) {
+  let sql = `SELECT DISTINCT house, side, room FROM House WHERE house LIKE '${req.query.house}%'`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      let sql = "SELECT";
+      for (let r of rows) {
+        sql += `, COUNT(CASE WHEN house='${r.house}' AND side='${r.side}' AND room='${r.room}' THEN 1 END) AS '${r.house}${r.side}${r.room}'`;
+      }
+      sql = sql.slice(0, 6) + sql.slice(7) + ` FROM House`;
+
+      conn.query(sql, function (err, rows, fields) {
+        if (err) {
+          console.error(err);
+        } else {
+          res.status(200).json(rows);
+        }
+      });
+    }
+  });
+});
+
+router.get("/room_cow", function (req, res) {
+  let sql = `SELECT id FROM House WHERE house=${req.query.house}, side=${req.query.side}, room=${req.query.room}`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
+router.get("/room_cow", function (req, res) {
   let sql = `SELECT * FROM House WHERE id="${req.query.id}"`;
 
   if (req.query.id == undefined) {

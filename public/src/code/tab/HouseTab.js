@@ -11,11 +11,7 @@ class HouseTab extends Tab {
     this.$mainDiv.className = "Tab";
 
     this.getData();
-    //fetch(`http://myeonu.cafe24app.com/houseList`)
-    /*fetch("house")
-      .then((res) => res.json())
-      .then((res) => this.setData(res));
-*/
+
     setTimeout(() => {
       console.log(this.data);
       this.render();
@@ -23,33 +19,15 @@ class HouseTab extends Tab {
   }
 
   async getData() {
-    fetch("houseList")
+    fetch("house")
       .then((res) => res.json())
       .then((res) => (this.data = res));
   }
 
-  setData(data) {
-    this.data = {};
-    let houses = Array.from(new Set(data.map((a) => a.house[0])));
-    for (let house of houses) {
-      let rooms = data
-        .map((item) => {
-          if (item.house[0] == house) {
-            return `${item.house[1]}${item.room}`;
-          }
-        })
-        .filter((elem, i) => elem != undefined);
-
-      this.data[house] = rooms;
-    }
-  }
-
   renderSections() {
     // section
-    let houses = Object.keys(this.data);
-
-    for (let house of houses) {
-      let $houseSection = new HouseSection(house, this.data[house]);
+    for (let d of this.data) {
+      let $houseSection = new HouseSection(d.house, d["COUNT(*)"]);
       $houseSection.render(this.$mainDiv);
     }
   }
