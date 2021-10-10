@@ -1,3 +1,8 @@
-let text = "abc";
+class Test {
+  constructor(a, b) {
+    console.log(a);
+    console.log(b);
+  }
+}
 
-console.log(text.slice(0, 6).length);
+new Test("helelel");

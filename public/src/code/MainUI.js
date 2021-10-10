@@ -56,14 +56,12 @@ class MainUI {
         for (let i = 0; i < $buttonList.length; i++) {
           $buttonList[i].addEventListener("click", () => {
             let childs = this.$mainDiv.childNodes;
+            console.log(childs);
 
-            if (childs.length > 2) {
-              for (let j = 2; j < childs.length; j++) {
-                this.$mainDiv.removeChild(childs[j]);
-              }
-
-              this.$contentDiv.style.display = "block";
+            while (childs.length > 2) {
+              this.$mainDiv.removeChild(childs[2]);
             }
+            this.$contentDiv.style.display = "block";
 
             $tabList[i].show();
           });

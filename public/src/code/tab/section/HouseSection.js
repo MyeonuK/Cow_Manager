@@ -13,7 +13,6 @@ class HouseSection {
     this.$mainDiv.className = "SectionDiv";
     this.$mainDiv.addEventListener("click", () => {
       let $roomList = new RoomList(this.house);
-
       $roomList.render();
     });
 

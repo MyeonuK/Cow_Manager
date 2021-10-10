@@ -1,4 +1,7 @@
 class RoomList extends List {
+  $target = null;
+  $prev = null;
+  $mainDiv = null;
   house = null;
 
   constructor(house) {
@@ -62,6 +65,13 @@ class RoomList extends List {
         const $roomContent = document.createElement("div");
         $roomContent.className = "RoomContent";
         $roomContent.innerText = `${this.data[i * 16 + j]}마리`;
+
+        $room.addEventListener("click", () => {
+          new CowList(
+            this.$mainDiv,
+            i == 0 ? this.house + "L" + (j + 1) : this.house + "R" + (j + 1)
+          );
+        });
 
         $roomsDiv.appendChild($room);
         $room.appendChild($roomTitle);

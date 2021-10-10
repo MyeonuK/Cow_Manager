@@ -2,9 +2,10 @@ class CowList {
   $target = null;
   $prev = null;
   $mainDiv = null;
+  title = "전체 소 목록";
   data = [];
 
-  constructor($prev) {
+  constructor($prev, roomInfo) {
     this.$target = document.getElementsByClassName("MainDiv")[0];
     this.$prev = $prev;
     this.$prev.style.display = "none";
@@ -15,18 +16,27 @@ class CowList {
     this.$mainDiv = $mainDiv;
     this.$target.appendChild(this.$mainDiv);
 
-    this.getData();
+    if (roomInfo == undefined) {
+      this.getData();
+    } else {
+      this.title = `${roomInfo} 소 목록`;
+      this.getData(roomInfo);
+    }
 
     setTimeout(() => {
       this.render();
     }, 300);
   }
 
-  async getData() {
+  async getData(roomInfo) {
     let houseData;
     let profileData;
 
-    await fetch("cow_house")
+    await fetch(
+      `cow_house?house='${roomInfo[0]}'&side='${
+        roomInfo[1]
+      }'&room='${roomInfo.slice(2)}'`
+    )
       .then((res) => res.json())
       .then((res) => {
         houseData = res;
@@ -106,7 +116,7 @@ class CowList {
 
     const $title = document.createElement("span");
     $title.className = "Title";
-    $title.innerText = "전체 소 목록";
+    $title.innerText = this.title;
 
     const $updateButton = document.createElement("button");
     $updateButton.className = "Button";

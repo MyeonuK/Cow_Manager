@@ -93,7 +93,7 @@ router.get("/house_room", function (req, res) {
 });
 
 router.get("/room_cow", function (req, res) {
-  let sql = `SELECT id FROM House WHERE house=${req.query.house}, side=${req.query.side}, room=${req.query.room}`;
+  let sql = `SELECT id FROM House WHERE house=${req.query.house} AND side=${req.query.side} AND room=${req.query.room}`;
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {
@@ -104,12 +104,16 @@ router.get("/room_cow", function (req, res) {
   });
 });
 
-router.get("/room_cow", function (req, res) {
-  let sql = `SELECT * FROM House WHERE id="${req.query.id}"`;
+router.get("/cow_house", function (req, res) {
+  let sql = `SELECT * FROM House`;
+  console.log(req.query.house);
 
-  if (req.query.id == undefined) {
-    sql = `SELECT * FROM House`;
+  if (req.query.id != undefined) {
+    sql = `SELECT * FROM House WHERE id=${req.query.id}`;
+  } else if (req.query.house != "undefined") {
+    sql = `SELECT * FROM House WHERE house=${req.query.house} AND side=${req.query.side} AND room=${req.query.room}`;
   }
+
   conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
