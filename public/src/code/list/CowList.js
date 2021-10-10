@@ -21,13 +21,47 @@ class CowList {
 
     setTimeout(() => {
       this.render();
-    }, 1000);
+    }, 300);
   }
 
   async getData() {
     //fetch(`http://myeonu.cafe24app.com/${order}`)
 
-    let fetchData;
+    let houseData;
+    let profileData;
+
+    await fetch("cow_house")
+      .then((res) => res.json())
+      .then((res) => {
+        houseData = res;
+        console.log(houseData);
+      })
+      .then((res) => {
+        fetch("cow_profile")
+          .then((res) => res.json())
+          .then((res) => {
+            profileData = res;
+          })
+          .then((res) => {
+            console.log(profileData);
+            for (let hd of houseData) {
+              let cow = {};
+              let pd = profileData.filter((x) => x.id == hd.id)[0];
+              console.log(pd);
+              cow.id = hd.id;
+              cow.house = hd.house;
+              cow.side = hd.side ? hd.side : null;
+              cow.room = hd.room ? hd.room : null;
+              cow.birthDate = pd.birthDate ? pd.birthDate.slice(0, 10) : null;
+              cow.age = pd.age ? pd.age : null;
+              cow.sex = pd.sex ? pd.sex : null;
+
+              this.data.push(cow);
+            }
+          });
+      });
+
+    /*
     await fetch("cow_house")
       .then((res) => res.json())
       .then((res) => {
@@ -55,6 +89,7 @@ class CowList {
           this.data.push(cow);
         }
       });
+      */
   }
 
   renderItems($itemDiv) {
