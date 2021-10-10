@@ -10,7 +10,6 @@ class OutlineTab extends Tab {
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    //fetch(`http://myeonu.cafe24app.com/outline`)
     fetch("outline")
       .then((res) => res.json())
       .then((res) => (this.data = res))

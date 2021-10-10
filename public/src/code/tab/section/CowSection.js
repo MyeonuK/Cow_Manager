@@ -15,7 +15,6 @@ class CowSection {
   }
 
   render() {
-    console.log(this.data);
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
     $sectionTitle.innerText = "소 검색하기";

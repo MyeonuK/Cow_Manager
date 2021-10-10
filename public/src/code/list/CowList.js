@@ -9,8 +9,6 @@ class CowList {
     this.$prev = $prev;
     this.$prev.style.display = "none";
 
-    //this.fetchUrl("cow_house");
-
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "List";
 
@@ -25,8 +23,6 @@ class CowList {
   }
 
   async getData() {
-    //fetch(`http://myeonu.cafe24app.com/${order}`)
-
     let houseData;
     let profileData;
 
@@ -34,7 +30,6 @@ class CowList {
       .then((res) => res.json())
       .then((res) => {
         houseData = res;
-        console.log(houseData);
       })
       .then((res) => {
         fetch("cow_profile")
@@ -43,11 +38,9 @@ class CowList {
             profileData = res;
           })
           .then((res) => {
-            console.log(profileData);
             for (let hd of houseData) {
               let cow = {};
               let pd = profileData.filter((x) => x.id == hd.id)[0];
-              console.log(pd);
               cow.id = hd.id;
               cow.house = hd.house;
               cow.side = hd.side ? hd.side : null;
@@ -60,36 +53,6 @@ class CowList {
             }
           });
       });
-
-    /*
-    await fetch("cow_house")
-      .then((res) => res.json())
-      .then((res) => {
-        fetchData = res;
-      })
-      .then((res) => {
-        for (let fd of fetchData) {
-          let cow = {};
-
-          cow.id = fd.id;
-          cow.house = fd.house;
-          cow.side = fd.side ? fd.side : null;
-          cow.room = fd.room ? fd.room : null;
-
-          fetch(`cow_profile?id=${cow.id}`)
-            .then((res) => res.json())
-            .then((res) => {
-              cow.birthDate = res[0].birthDate
-                ? res[0].birthDate.slice(0, 10)
-                : null;
-              cow.age = res[0].age ? res[0].age : null;
-              cow.sex = res[0].sex ? res[0].sex : null;
-            });
-
-          this.data.push(cow);
-        }
-      });
-      */
   }
 
   renderItems($itemDiv) {
@@ -119,7 +82,6 @@ class CowList {
       $birth.innerText = `${this.data[i].birthDate}\n${this.data[i].age}개월`;
 
       $item.appendChild($itemTitle);
-
       $item.appendChild($house);
       $item.appendChild($birth);
       $itemDiv.appendChild($item);
@@ -132,7 +94,6 @@ class CowList {
   }
 
   render() {
-    console.log(this.data);
     const $toolBar = document.createElement("div");
     $toolBar.className = "ToolBar";
 
