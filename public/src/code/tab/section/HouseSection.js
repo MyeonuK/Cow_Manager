@@ -2,10 +2,12 @@ class HouseSection {
   $mainDiv = null;
   house = null;
   count = null;
+  age = null;
 
-  constructor(house, count) {
-    this.house = house;
-    this.count = count;
+  constructor(d) {
+    this.house = d.house;
+    this.count = d.cnt;
+    this.age = d.age;
   }
 
   render($target) {
@@ -29,7 +31,7 @@ class HouseSection {
 
     const $infoDiv = document.createElement("div");
     $infoDiv.classList = "BigElement";
-    $infoDiv.innerText = `${this.count}마리`;
+    $infoDiv.innerText = `${this.count}마리 (${this.age}개월)`;
 
     this.$mainDiv.appendChild($sectionTitle);
     this.$mainDiv.appendChild($sectionContent);

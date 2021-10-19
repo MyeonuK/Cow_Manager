@@ -202,7 +202,8 @@ button {
 .HouseDiv .RoomsDiv {
   width: 40%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
+  align-items: center;
   gap: var(--layout-s);
 }
 
@@ -211,6 +212,8 @@ button {
 }
 
 .HouseDiv .RoomsDiv .Room {
+  width: 80%;
+  height: 61px;
   border: var(--color-lightgray) 0.5px solid;
   padding: var(--layout-ss);
 }
@@ -224,4 +227,8 @@ button {
   font-size: var(--font-s);
   color: var(--color-gray);
   text-align: right;
+}
+
+.RoomsDiv .EntranceImg {
+  width: 50%;
 }

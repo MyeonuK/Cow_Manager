@@ -27,7 +27,7 @@ class HouseTab extends Tab {
   renderSections() {
     // section
     for (let d of this.data) {
-      let $houseSection = new HouseSection(d.house, d["COUNT(*)"]);
+      let $houseSection = new HouseSection(d);
       $houseSection.render(this.$mainDiv);
     }
   }

@@ -4,7 +4,7 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
-
+/*
 const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -12,7 +12,8 @@ const conn = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-/*
+*/
+
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -20,7 +21,7 @@ const conn = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-*/
+
 function writeLog(message) {
   log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
@@ -57,7 +58,7 @@ router.get("/outline", function (req, res) {
 
 router.get("/house", function (req, res) {
   conn.query(
-    "SELECT house, COUNT(*) FROM House GROUP BY house",
+    "SELECT house, COUNT(*) AS cnt, ROUND(AVG(age), 1) AS age FROM Profile AS p JOIN House As h ON p.id = h.id GROUP BY house",
     function (err, rows, fields) {
       if (err) {
         console.error(err);
@@ -69,7 +70,17 @@ router.get("/house", function (req, res) {
 });
 
 router.get("/house_room", function (req, res) {
-  let sql = `SELECT DISTINCT house, side, room FROM House WHERE house LIKE '${req.query.house}%'`;
+  let sql = `SELECT side, room, COUNT(*) AS cnt, ROUND(AVG(age), 1) AS age FROM House As h JOIN Profile As p ON h.id = p.id WHERE house='${req.query.house}' GROUP BY side, room`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+  /*
+  let sql = `SELECT DISTINCT house, side, room FROM House WHERE house=${req.query.house}`;
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {
@@ -90,6 +101,7 @@ router.get("/house_room", function (req, res) {
       });
     }
   });
+  */
 });
 
 router.get("/room_cow", function (req, res) {

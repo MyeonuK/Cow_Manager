@@ -1,22 +1,10 @@
-- 모바일에서 정보 더 표시
-- 사료 체크
-지금은 한우 기준으로 12개월까지 육성우사료 먹이고 그 이후부터 비육우사료먹는데(사료가 2가지) 그걸 개월수로 나눌순없고 내가 언제부터 먹였다 라는걸 체크해주면 얼마 기간동안 먹었는지
-- 통계
-축사별로, 칸별로 평균 개월수 나타냈으면 좋겠음(출하 대충 어느정도에 잡아야하는지 예측가능)
 
 
-CREATE TABLE cowList(id varchar(15) not null, birthDate date, sex varchar(3), famInfo varchar(5) not null, famDate date, bruInfo varchar(5) not null, bruDate date, tubeInfo varchar(5) not null, tubeDate date)
-
-ALTER TABLE `cowlist` ADD `id` VARCHAR(15) NOT NULL, ADD `birthDate` DATE NULL AFTER `id`, ADD `sex` VARCHAR(3) NOT NULL AFTER `birthDate`, ADD `famInfo` VARCHAR(5) NOT NULL AFTER `sex`, ADD `famDate` DATE NULL AFTER `famInfo`, ADD `bruInfo` VARCHAR(5) NOT NULL AFTER `famDate`, ADD `bruDate` DATE NULL AFTER `bruInfo`, ADD `tubeInfo` VARCHAR(5) NOT NULL AFTER `bruDate`, ADD `tubeDate` DATE NULL AFTER `tubeInfo`, ADD PRIMARY KEY (`id`);
-
---출하--
-소 출하때는 한 차에 약 8마리~10마리씩 실어서 출하
-
-일자별로 도체중 평균, 평균 낙찰가격, 총 낙찰가격
 
 
 --축사-- 
-축사 + 방 그림(소 숫자 표시)-> 방 클릭 시 속한 소들 리스트업
+v 축사 + 방 그림(소 숫자 표시)-> 방 클릭 시 속한 소들 리스트업
+축사별로, 칸별로 평균 개월수 나타냈으면 좋겠음(출하 대충 어느정도에 잡아야하는지 예측가능)
 
 
 
@@ -30,24 +18,12 @@ ALTER TABLE `cowlist` ADD `id` VARCHAR(15) NOT NULL, ADD `birthDate` DATE NULL A
 13개월부터 비육기 사료를 먹고
 12개월까지는 육성기를 먹어
 
+- 사료 체크
+지금은 한우 기준으로 12개월까지 육성우사료 먹이고 그 이후부터 비육우사료먹는데(사료가 2가지) 그걸 개월수로 나눌순없고 내가 언제부터 먹였다 라는걸 체크해주면 얼마 기간동안 먹었는지
 
 
 
-id - string
-(house - number
-(room - number
-birthDate - date
-age - number
-sex - string
-famInfo - string
-famDate - date
-bruInfo - string
-bruDate - date
-tubeInfo - string
-tubeDate - date
+--출하--
+소 출하때는 한 차에 약 8마리~10마리씩 실어서 출하
 
-
-전환 : index.js, web.js, CowList.js, OutlineTab.js
-
-
-commit
+일자별로 도체중 평균, 평균 낙찰가격, 총 낙찰가격

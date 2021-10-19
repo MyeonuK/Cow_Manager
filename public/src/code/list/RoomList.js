@@ -2,6 +2,7 @@ class RoomList extends List {
   $target = null;
   $prev = null;
   $mainDiv = null;
+  data = [];
   house = null;
 
   constructor(house) {
@@ -17,22 +18,21 @@ class RoomList extends List {
   async getData(house) {
     await fetch(`house_room?house=${house}`)
       .then((res) => res.json())
-      .then((res) => (this.data = res[0]))
       .then((res) => {
-        console.log(this.data);
-        let arr = new Array(32);
-        arr.fill(0);
+        let left = new Array(19);
+        let right = new Array(19);
 
-        for (let item in this.data) {
-          let index = Number(item.slice(2)) - 1;
-          if (item[1] == "R") {
-            index += 16;
+        for (let room of res) {
+          if (room.side == "L") {
+            left[room.room] = room;
+          } else {
+            right[room.room] = room;
           }
-
-          arr[index] = this.data[item];
         }
-        this.data = arr;
-        console.log(arr);
+
+        this.data.push(left);
+        this.data.push(right);
+        console.log(this.data);
       });
   }
 
@@ -45,26 +45,34 @@ class RoomList extends List {
     const $houseDiv = document.createElement("div");
     $houseDiv.className = "HouseDiv";
 
+    let roomNum = 16;
+
+    if (this.house == "B") {
+      roomNum = 9;
+    } else if (this.house == "C") {
+      roomNum = 19;
+    }
+
     for (let i = 0; i < 2; i++) {
-      if (i == 1) {
-        let $roomsDiv = document.createElement("div");
-        $roomsDiv.className = "RoomsDiv";
-        $houseDiv.appendChild($roomsDiv);
-      }
       const $roomsDiv = document.createElement("div");
       $roomsDiv.className = "RoomsDiv";
+      $houseDiv.appendChild($roomsDiv);
 
-      for (let j = 0; j < 16; j++) {
+      for (let j = 0; j < roomNum; j++) {
         const $room = document.createElement("div");
         $room.className = "Room";
 
         const $roomTitle = document.createElement("div");
         $roomTitle.className = "RoomTitle";
-        $roomTitle.innerText = `${i == 0 ? "L" : "R"}${j + 1} `;
+        $roomTitle.innerText = j + 1;
 
         const $roomContent = document.createElement("div");
         $roomContent.className = "RoomContent";
-        $roomContent.innerText = `${this.data[i * 16 + j]}마리`;
+        $roomContent.innerText =
+          this.data[i][j] == undefined
+            ? "-"
+            : `${this.data[i][j].cnt}마리
+            평균 ${this.data[i][j].age}개월`;
 
         $room.addEventListener("click", () => {
           new CowList(
@@ -77,8 +85,20 @@ class RoomList extends List {
         $room.appendChild($roomTitle);
         $room.appendChild($roomContent);
       }
-      $houseDiv.appendChild($roomsDiv);
+
+      if (i == 0) {
+        let $roomsDiv = document.createElement("div");
+        $roomsDiv.className = "RoomsDiv";
+
+        let $entranceImg = document.createElement("img");
+        $entranceImg.className = "EntranceImg";
+        $entranceImg.src = "src/images/arrowImg.png";
+
+        $houseDiv.appendChild($roomsDiv);
+        $roomsDiv.appendChild($entranceImg);
+      }
     }
+
     $target.appendChild($houseDiv);
   }
 
