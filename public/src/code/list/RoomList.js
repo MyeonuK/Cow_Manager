@@ -130,10 +130,13 @@ class RoomList extends List {
     this.$mainDiv.appendChild($itemDiv);
     setTimeout(() => {
       if (this.house == "O") {
-        new CowList(this.$mainDiv, "OOOO");
+        this.hide();
+        new CowList(document.getElementsByClassName("ContentDiv")[0], "OOOO");
       } else {
         this.renderItems($itemDiv);
       }
+
+      document.body.scrollTop = document.body.scrollHeight;
     }, 200);
     this.$target.appendChild(this.$mainDiv);
   }
