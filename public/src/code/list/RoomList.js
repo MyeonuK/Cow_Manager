@@ -32,7 +32,6 @@ class RoomList extends List {
 
         this.data.push(left);
         this.data.push(right);
-        console.log(this.data);
       });
   }
 
@@ -129,15 +128,15 @@ class RoomList extends List {
     $toolbar.appendChild($title);
     this.$mainDiv.appendChild($itemDiv);
     setTimeout(() => {
-      if (this.house == "O") {
-        this.hide();
-        new CowList(document.getElementsByClassName("ContentDiv")[0], "OOOO");
-      } else {
-        this.renderItems($itemDiv);
-      }
-
+      this.renderItems($itemDiv);
       document.body.scrollTop = document.body.scrollHeight;
     }, 200);
+
     this.$target.appendChild(this.$mainDiv);
+
+    if (this.house == "O") {
+      this.hide();
+      new CowList(document.getElementsByClassName("ContentDiv")[0], "OOOO");
+    }
   }
 }
