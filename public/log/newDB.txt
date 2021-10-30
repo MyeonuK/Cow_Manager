@@ -1512,3 +1512,12 @@ conn.query(`SELECT id FROM House`...
 -> res == null
 id = '002146535419'
 
+=========Sat Oct 30 2021 21:01:02 GMT+0900 (대한민국 표준시)=========
+Error: ER_KEY_COLUMN_DOES_NOT_EXITS: Key column 'id' doesn't exist in table
+
+=========Sat Oct 30 2021 21:08:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY(address) REFERENCES Territory(address))' at line 1
+
+=========Sat Oct 30 2021 22:17:20 GMT+0900 (대한민국 표준시)=========
+Error: ER_ROW_IS_REFERENCED_2: Cannot delete or update a parent row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+

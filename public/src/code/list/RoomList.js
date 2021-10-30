@@ -67,18 +67,19 @@ class RoomList extends List {
 
         const $roomContent = document.createElement("div");
         $roomContent.className = "RoomContent";
-        $roomContent.innerText =
-          this.data[i][j] == undefined
-            ? "-"
-            : `${this.data[i][j].cnt}마리
+        if (this.data[i][j] == undefined) {
+          $roomContent.innerText = "-";
+        } else {
+          $roomContent.innerText = `${this.data[i][j].cnt}마리
             평균 ${this.data[i][j].age}개월`;
 
-        $room.addEventListener("click", () => {
-          new CowList(
-            this.$mainDiv,
-            i == 0 ? this.house + "L" + (j + 1) : this.house + "R" + (j + 1)
-          );
-        });
+          $room.addEventListener("click", () => {
+            new CowList(
+              this.$mainDiv,
+              i == 0 ? this.house + "L" + (j + 1) : this.house + "R" + (j + 1)
+            );
+          });
+        }
 
         $roomsDiv.appendChild($room);
         $room.appendChild($roomTitle);

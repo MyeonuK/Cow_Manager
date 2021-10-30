@@ -83,7 +83,7 @@ conn.query("DELETE FROM Vaccin", (err, results, fields) => {
   else console.log("delete table vaccin success");
 });
 */
-/*
+
 // 테이블 생성
 conn.query(
   "CREATE TABLE House (id VARCHAR(15) NOT NULL, house VARCHAR(1) NOT NULL, side VARCHAR(1), room INT(2), PRIMARY KEY(id))",
@@ -108,7 +108,6 @@ conn.query(
     else console.log("create table vaccin success");
   }
 );
-*/
 
 // db에 소 번호, 축사 정보 입력
 /*
@@ -162,6 +161,8 @@ for (let i = 0; i < ids.length; i++) {
   );
 }
 */
+
+/*
 // 파싱 후 데이터베이스 입력
 
 let count = 0;
@@ -217,7 +218,7 @@ for (let i = a; i < b; i++) {
     }
   });
 }
-
+*/
 /*
 conn.query(`SELECT id FROM House`, (err, rows, fields) => {
   if (err) writeLog(err);
