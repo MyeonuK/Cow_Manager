@@ -53,14 +53,13 @@ conn.query(
 );
 
 conn.query(
-  "CREATE TABLE LatLng (address VARCHAR(15) NOT NULL, lat VARCHAR(20), lng VARCHAR(20), FOREIGN KEY(address) REFERENCES Territory(address))",
+  "CREATE TABLE LatLng (address VARCHAR(15) NOT NULL, number INT(2), lat VARCHAR(20), lng VARCHAR(20), PRIMARY KEY(address, number), FOREIGN KEY(address) REFERENCES Territory(address))",
   (err, results, fields) => {
     if (err) writeLog(err);
-    else console.log("create table territory success");
+    else console.log("create table latlng success");
   }
 );
 */
-
 // 테이블 비우기
 /*
 conn.query("DELETE FROM LatLng", (err, results, fields) => {
@@ -72,7 +71,17 @@ conn.query("DELETE FROM Territory", (err, results, fields) => {
   else console.log("delete table territory success");
 });
 */
+/*
+conn.query("DROP TABLE LatLng", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("drop table latlng success");
+});
 
+conn.query("DROP TABLE Territory", (err, results, fields) => {
+  if (err) writeLog(err);
+  else console.log("drop table territory success");
+});
+*/
 ///////
 
 let nameArr = [
@@ -152,9 +161,9 @@ for (let i = 0; i < nameArr.length; i++) {
 
   for (let j = 0; j < arr[i].length; j += 2) {
     conn.query(
-      `INSERT INTO LatLng(address, lat, lng) VALUES('${nameArr[i]}', '${
-        arr[i][j]
-      }', '${arr[i][j + 1]}')`,
+      `INSERT INTO LatLng(address, number, lat, lng) VALUES('${nameArr[i]}', '${
+        (j + 2) / 2
+      }', '${arr[i][j]}', '${arr[i][j + 1]}')`,
       (err, results, fields) => {
         if (err) writeLog(err);
         else

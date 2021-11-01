@@ -4,7 +4,7 @@ class MainUI {
   $tabs = {
     $outlineTab: null,
     $houseTab: null,
-    $vaccinTab: null,
+    $territoryTab: null,
   };
 
   constructor($target) {
@@ -34,7 +34,7 @@ class MainUI {
     );
     this.$tabs.$outlineTab.hide();
     this.$tabs.$houseTab.hide();
-    this.$tabs.$vaccinTab.hide();
+    this.$tabs.$territoryTab.hide();
   }
 
   setTabs($contentDiv, $buttonList) {
@@ -42,7 +42,7 @@ class MainUI {
       setTimeout(() => {
         this.$tabs.$outlineTab = new OutlineTab($contentDiv);
         this.$tabs.$houseTab = new HouseTab($contentDiv);
-        this.$tabs.$vaccinTab = new VaccinTab($contentDiv);
+        this.$tabs.$territoryTab = new TerritoryTab($contentDiv);
 
         this.hideAllTab($buttonList);
         $buttonList[0].style.color = this.getColor("choose");
@@ -51,7 +51,7 @@ class MainUI {
         const $tabList = [
           this.$tabs.$outlineTab,
           this.$tabs.$houseTab,
-          this.$tabs.$vaccinTab,
+          this.$tabs.$territoryTab,
         ];
         for (let i = 0; i < $buttonList.length; i++) {
           $buttonList[i].addEventListener("click", () => {
@@ -82,12 +82,12 @@ class MainUI {
     // navBtn
     const $outlineBtn = document.createElement("button");
     const $houseBtn = document.createElement("button");
-    const $vaccinBtn = document.createElement("button");
+    const $territoryBtn = document.createElement("button");
     $outlineBtn.innerText = "Cow";
     $houseBtn.innerText = "House";
-    $vaccinBtn.innerText = "Vaccin";
+    $territoryBtn.innerText = "Territory";
 
-    const $buttonList = [$outlineBtn, $houseBtn, $vaccinBtn];
+    const $buttonList = [$outlineBtn, $houseBtn, $territoryBtn];
 
     $buttonList.forEach((button) => {
       button.className = "Button";
@@ -100,7 +100,7 @@ class MainUI {
     // append
     $nav.appendChild($outlineBtn);
     $nav.appendChild($houseBtn);
-    $nav.appendChild($vaccinBtn);
+    $nav.appendChild($territoryBtn);
     this.$mainDiv.appendChild(this.$contentDiv);
     this.$mainDiv.appendChild($nav);
 

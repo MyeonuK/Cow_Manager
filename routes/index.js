@@ -194,6 +194,30 @@ router.get("/rooms", function (req, res) {
   });
 });
 
+router.get("/territory_status", function (req, res) {
+  let sql = `SELECT status, COUNT(*) AS cnt FROM Territory GROUP BY status`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
+router.get("/territory_latlng", function (req, res) {
+  let sql = `SELECT * FROM LatLng GROUP BY cowmanager.LatLng.lat, cowmanager.LatLng.lng, cowmanager.LatLng.number, address`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
+});
+
 router.get("/update", function (req, res) {
   conn.query(`SELECT id FROM cowList`, (err, rows, fields) => {
     if (err) writeLog(err);

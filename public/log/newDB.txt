@@ -1521,3 +1521,291 @@ Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual th
 =========Sat Oct 30 2021 22:17:20 GMT+0900 (대한민국 표준시)=========
 Error: ER_ROW_IS_REFERENCED_2: Cannot delete or update a parent row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
 
+=========Mon Nov 01 2021 22:35:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_TABLE_ERROR: Unknown table 'cowmanager.latlng'
+
+=========Mon Nov 01 2021 22:35:21 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_TABLE_ERROR: Unknown table 'cowmanager.territory'
+
+=========Mon Nov 01 2021 22:35:49 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_TABLE_ERROR: Unknown table 'cowmanager.latlng'
+
+=========Mon Nov 01 2021 22:35:49 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_TABLE_ERROR: Unknown table 'cowmanager.territory'
+
+=========Mon Nov 01 2021 22:36:15 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_TABLE_ERROR: Unknown table 'cowmanager.latlng'
+
+=========Mon Nov 01 2021 22:36:15 GMT+0900 (대한민국 표준시)=========
+Error: ER_BAD_TABLE_ERROR: Unknown table 'cowmanager.territory'
+
+=========Mon Nov 01 2021 22:37:27 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY(address) REFERENCES Territory(address))' at line 1
+
+=========Mon Nov 01 2021 22:37:57 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'territory' already exists
+
+=========Mon Nov 01 2021 22:37:57 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY(address) REFERENCES Territory(address))' at line 1
+
+=========Mon Nov 01 2021 22:38:28 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'territory' already exists
+
+=========Mon Nov 01 2021 22:38:28 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FOREIGN KEY(address) REFERENCES Territory(address))' at line 1
+
+=========Mon Nov 01 2021 22:40:08 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'territory' already exists
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.980768672422435', '126.4311310140685')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.98051374425295', '126.4320536939383')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.9809928327433', '126.43227899948788')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.981221387732774', '126.43162990492833')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.981047773904805', '126.43125707788795')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.98025546785405', '126.42954276761496')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97988599041434', '126.4305198017815')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97923324286332', '126.43018159764692')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.979417983264156', '126.4298960030444')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97951133398879', '126.42963630191488')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97946738023785', '126.42916959756215')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.979032217838224', '126.43018917267595')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97824516676088', '126.42981649590729')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.977922602658616', '126.43071406953327')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97871825847928', '126.43111824011336')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.979111032305255', '126.4290178056548')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.978617263676696', '126.42877043917714')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97833595619183', '126.42974676322541')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.979004059890606', '126.43007935713197')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97913592181866', '126.42960728836137')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97915350339303', '126.42928542329052')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97852356453171', '126.42874204405403')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97789994028387', '126.42846628245327')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97760168353005', '126.42932665864764')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97824338610933', '126.42965757256856')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.979729171844056', '126.42805125735002')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97913368019059', '126.42776776220876')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97913368019059', '126.42800486723598')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.979365964684035', '126.42855639414717')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97945043160919', '126.4288965883167')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97809893602964', '126.42723974849616')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.977290169287166', '126.42688569690527')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97701764825966', '126.42778691913662')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97776488116942', '126.42817315723575')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97721879541215', '126.42682744849634')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97648034859346', '126.4264412103972')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97607595822839', '126.42738534797287')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97697264721242', '126.42772867072766')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97642507760039', '126.4264123871189')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.976293211307414', '126.42635874293848')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.975721788251', '126.42712049030065')' at line 1
+
+=========Mon Nov 01 2021 22:40:58 GMT+0900 (대한민국 표준시)=========
+Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '34.97598552246475', '126.42730288051413')' at line 1
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
+=========Mon Nov 01 2021 22:58:03 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`address`) REFERENCES `Territory` (`address`))
+
