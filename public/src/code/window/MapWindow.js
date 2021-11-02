@@ -70,7 +70,7 @@ class MapWindow {
         );
       }
       let polygon = new naver.maps.Polygon({
-        name: this.addressArr[i],
+        adress: this.addressArr[i],
         map: map,
         paths: [polygonPath],
         fillColor: "#ff0000",
@@ -81,9 +81,11 @@ class MapWindow {
         clickable: true,
       });
 
-      naver.maps.Event.addListener(polygon, "click", function () {
-        console.log(polygon.name);
-      });
+      naver.maps.Event.addListener(
+        polygon,
+        "click",
+        this.updateStatus(polygon)
+      );
     }
 
     $target.appendChild($myMap);
@@ -92,6 +94,13 @@ class MapWindow {
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
     }, 0);
+  }
+
+  updateStatus(polygon) {
+    console.log(polygon);
+    fetch(`territory_staus_update?address=${polygon.address}`).then((res) => {
+      //console.log(res);
+    });
   }
 
   render() {

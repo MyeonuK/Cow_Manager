@@ -206,6 +206,20 @@ router.get("/territory_status", function (req, res) {
   });
 });
 
+router.post("/territory_status_update", function (req, res) {
+  let status;
+  let sql = `SELECT status FROM Territory WHERE address='${req.address}'`;
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(res.json());
+      res.status(200).json(rows);
+    }
+  });
+});
+
 router.get("/territory_latlng", function (req, res) {
   let sql = `SELECT * FROM LatLng GROUP BY cowmanager.LatLng.lat, cowmanager.LatLng.lng, cowmanager.LatLng.number, address`;
 
