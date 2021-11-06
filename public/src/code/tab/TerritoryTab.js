@@ -27,6 +27,7 @@ class TerritoryTab extends Tab {
 
   renderSections() {
     let $territoryStatusSection = new TerritoryStatusSection(this.data);
+
     $territoryStatusSection.render(this.$mainDiv);
   }
 

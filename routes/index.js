@@ -205,25 +205,23 @@ router.get("/territory_status", function (req, res) {
   });
 });
 
-router.post("/territory_status_update", function (req, res) {
-  let paramDecoded = decodeURIComponent(req.address);
-  res.send("POST request to the homepage");
-
-  let status;
-  let sql = `SELECT status FROM Territory WHERE address='${paramDecoded}'`;
+router.get("/territory_status_update", function (req, res) {
+  let sql = `UPDATE Territory SET status='${req.query.status}' WHERE code='${req.query.code}'`;
+  console.log(sql);
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {
-      writeLog(err);
+      this.writeLog(err);
     } else {
-      console.log(res.json());
+      console.log("okokopk");
       res.status(200).json(rows);
     }
   });
 });
 
 router.get("/territory_latlng", function (req, res) {
-  let sql = `SELECT * FROM LatLng GROUP BY cowmanager.LatLng.lat, cowmanager.LatLng.lng, cowmanager.LatLng.number, address`;
+  let sql = `SELECT ll.code, t.status, ll.number, ll.lat, ll.lng FROM LatLng AS ll LEFT JOIN Territory AS t ON ll.code=t.code
+  `;
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {

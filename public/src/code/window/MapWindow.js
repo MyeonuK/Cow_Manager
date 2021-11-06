@@ -2,12 +2,12 @@ class MapWindow {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  addressArr = [];
+  codeArr = [];
+  statusArr = [];
   latlngArr = [];
 
   constructor() {
     this.getData();
-
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "Window";
     this.$mainDiv = $mainDiv;
@@ -18,10 +18,11 @@ class MapWindow {
       .then((res) => res.json())
       .then((res) => {
         for (let d of res) {
-          let index = this.addressArr.indexOf(d.address);
+          let index = this.codeArr.indexOf(d.code);
 
           if (index == -1) {
-            this.addressArr.push(d.address);
+            this.codeArr.push(d.code);
+            this.statusArr.push(d.status);
             this.latlngArr.push([]);
             this.latlngArr[this.latlngArr.length - 1][d.number - 1] = [
               d.lat,
@@ -35,13 +36,19 @@ class MapWindow {
   }
 
   hide() {
+    document.getElementById(
+      "TerritoryStatus"
+    ).innerText = `완료 : ${countData[1]}
+    미완료 : ${countData[0]}`;
     this.$target.removeChild(this.$mainDiv);
     this.$prev.style.display = "block";
   }
 
   updateStatus() {
     console.log(polygon);
-    fetch(`territory_staus_update?address=${polygon.address}`).then((res) => {
+    fetch(
+      `territory_staus_update?code=${polygon.code}&status=${polygon.status}`
+    ).then((res) => {
       //console.log(res);
     });
   }
@@ -77,29 +84,51 @@ class MapWindow {
           )
         );
       }
+
+      let color;
+      if (this.statusArr[i] == 0) {
+        color = "#ff0000";
+      } else if (this.statusArr[i] == 1) {
+        color = "#0000ff";
+      }
       let polygon = new naver.maps.Polygon({
-        address: this.addressArr[i],
+        code: this.codeArr[i],
+        status: this.statusArr[i],
         map: map,
         paths: [polygonPath],
-        fillColor: "#ff0000",
+        fillColor: color,
         fillOpacity: 0.3,
-        strokeColor: "ff0000",
+        strokeColor: color,
         strokeOpacity: 0.6,
         strokeWeight: 3,
         clickable: true,
       });
 
-      console.log(polygon.address);
-
       naver.maps.Event.addListener(polygon, "click", function () {
         //this.updateStatus();
-        console.log(polygon);
+        console.log("ing");
         fetch(
-          `territory_status_update?address=${encodeURIComponent(
-            polygon.address
-          )}`
+          `territory_status_update?code=${polygon.code}&status=${
+            polygon.status == 0 ? 1 : 0
+          }`
         ).then((res) => {
-          console.log(res);
+          if (polygon.status == 0) {
+            polygon.setOptions({
+              status: 1,
+              fillColor: "#0000ff",
+              strokeColor: "#0000ff",
+            });
+            countData[0]--;
+            countData[1]++;
+          } else if (polygon.status == 1) {
+            polygon.setOptions({
+              status: 0,
+              fillColor: "#ff0000",
+              strokeColor: "#ff0000",
+            });
+            countData[0]++;
+            countData[1]--;
+          }
         });
       });
     }

@@ -4,7 +4,27 @@ class TerritoryStatusSection {
 
   constructor(data) {
     this.data = data;
-    console.log(data);
+    if (this.data[0] === undefined) {
+      countData[0] = 0;
+    } else {
+      countData[0] = this.data[0].cnt;
+    }
+
+    if (this.data[1] === undefined) {
+      countData[1] = 0;
+    } else {
+      countData[1] = this.data[1].cnt;
+    }
+  }
+
+  updateData(d) {
+    if (d == 0) {
+      countData[0]++;
+      countData[1]--;
+    } else if (d == 1) {
+      countData[0]--;
+      countData[1]++;
+    }
   }
 
   render($target) {
@@ -25,11 +45,10 @@ class TerritoryStatusSection {
     $sectionContent.className = "ColContentDiv";
 
     const $infoDiv = document.createElement("div");
-    $infoDiv.classList = "BigElement";
-    $infoDiv.innerText = `완료 : ${
-      this.data[0] === undefined ? 0 : this.data[0].cnt
-    }
-    미완료 : ${this.data[1] === undefined ? 0 : this.data[1].cnt}`;
+    $infoDiv.className = "BigElement";
+    $infoDiv.id = "TerritoryStatus";
+    $infoDiv.innerText = `완료 : ${countData[1]}
+    미완료 : ${countData[0]}`;
 
     this.$mainDiv.appendChild($sectionTitle);
     this.$mainDiv.appendChild($sectionContent);
@@ -38,3 +57,5 @@ class TerritoryStatusSection {
     $target.appendChild(this.$mainDiv);
   }
 }
+
+let countData = [0, 0];
