@@ -45,7 +45,7 @@ conn.connect(function (err) {
 // 테이블 생성
 /*
 conn.query(
-  "CREATE TABLE Territory (address VARCHAR(15) NOT NULL, status INT(1), PRIMARY KEY(address))",
+  "CREATE TABLE Territory (code INT(3) AUTO_INCREMENT, region VARCHAR(10) NOT NULL, address INT(4) NOT NULL, status INT(1) NOT NULL, PRIMARY KEY(code))",
   (err, results, fields) => {
     if (err) writeLog(err);
     else console.log("create table territory success");
@@ -53,13 +53,13 @@ conn.query(
 );
 
 conn.query(
-  "CREATE TABLE LatLng (address VARCHAR(15) NOT NULL, number INT(2), lat VARCHAR(20), lng VARCHAR(20), PRIMARY KEY(address, number), FOREIGN KEY(address) REFERENCES Territory(address))",
+  "CREATE TABLE LatLng (code INT(3) NOT NULL, number INT(2), lat VARCHAR(20), lng VARCHAR(20), PRIMARY KEY(code, number), FOREIGN KEY(code) REFERENCES Territory(code))",
   (err, results, fields) => {
     if (err) writeLog(err);
     else console.log("create table latlng success");
   }
-);
-*/
+);*/
+
 // 테이블 비우기
 /*
 conn.query("DELETE FROM LatLng", (err, results, fields) => {
@@ -149,7 +149,10 @@ let arr = [
 
 for (let i = 0; i < nameArr.length; i++) {
   conn.query(
-    `INSERT INTO Territory(address, status) VALUES('${nameArr[i]}', '0')`,
+    `INSERT INTO Territory(region, address, status) VALUES('${nameArr[i].slice(
+      0,
+      nameArr[i].indexOf(" ")
+    )}', '${nameArr[i].slice(nameArr[i].indexOf(" ") + 1)}','0')`,
     (err, results, fields) => {
       if (err) writeLog(err);
       else
@@ -161,7 +164,7 @@ for (let i = 0; i < nameArr.length; i++) {
 
   for (let j = 0; j < arr[i].length; j += 2) {
     conn.query(
-      `INSERT INTO LatLng(address, number, lat, lng) VALUES('${nameArr[i]}', '${
+      `INSERT INTO LatLng(code, number, lat, lng) VALUES('${i + 1}', '${
         (j + 2) / 2
       }', '${arr[i][j]}', '${arr[i][j + 1]}')`,
       (err, results, fields) => {

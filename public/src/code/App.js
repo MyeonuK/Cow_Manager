@@ -5,6 +5,8 @@ class App {
   data = [];
 
   constructor($target) {
+    document.cookie = "SameSite=Lax;";
+
     /*
     let pcDevice = "win16|win32|win64|mac|macintel";
 

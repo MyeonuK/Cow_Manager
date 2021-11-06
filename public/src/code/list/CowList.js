@@ -32,7 +32,6 @@ class CowList {
     let houseData;
     let profileData;
     let api;
-    console.log(roomInfo);
 
     if (roomInfo === undefined) {
       api = `cow_house`;
@@ -41,8 +40,6 @@ class CowList {
         roomInfo[1]
       }'&room='${roomInfo.slice(2)}'`;
     }
-
-    console.log(api);
 
     await fetch(api)
       .then((res) => res.json())

@@ -12,8 +12,7 @@ class OutlineTab extends Tab {
 
     fetch("outline")
       .then((res) => res.json())
-      .then((res) => (this.data = res))
-      .then((res) => console.log(this.data));
+      .then((res) => (this.data = res));
 
     setTimeout(() => {
       this.render();

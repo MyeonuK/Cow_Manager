@@ -13,7 +13,6 @@ class HouseTab extends Tab {
     this.getData();
 
     setTimeout(() => {
-      console.log(this.data);
       this.render();
     }, 100);
   }

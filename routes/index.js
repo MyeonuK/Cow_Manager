@@ -23,6 +23,7 @@ const conn = mysql.createConnection({
 });
 
 function writeLog(message) {
+  ``;
   log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
     if (err) console.error(err);
@@ -51,7 +52,6 @@ router.get("/outline", function (req, res) {
       console.error(err);
     } else {
       result.push(rows[0]["COUNT(*)"]);
-      console.log(result);
       res.status(200).json(result);
     }
   });
@@ -119,7 +119,6 @@ router.get("/room_cow", function (req, res) {
 
 router.get("/cow_house", function (req, res) {
   let sql = `SELECT * FROM House`;
-  console.log(req.query.house);
 
   if (req.query.id != undefined) {
     sql = `SELECT * FROM House WHERE id=${req.query.id}`;
@@ -207,12 +206,15 @@ router.get("/territory_status", function (req, res) {
 });
 
 router.post("/territory_status_update", function (req, res) {
+  let paramDecoded = decodeURIComponent(req.address);
+  res.send("POST request to the homepage");
+
   let status;
-  let sql = `SELECT status FROM Territory WHERE address='${req.address}'`;
+  let sql = `SELECT status FROM Territory WHERE address='${paramDecoded}'`;
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {
-      console.error(err);
+      writeLog(err);
     } else {
       console.log(res.json());
       res.status(200).json(rows);
@@ -225,7 +227,7 @@ router.get("/territory_latlng", function (req, res) {
 
   conn.query(sql, function (err, rows, fields) {
     if (err) {
-      console.error(err);
+      writeLog(err);
     } else {
       res.status(200).json(rows);
     }

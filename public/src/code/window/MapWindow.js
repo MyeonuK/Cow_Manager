@@ -39,10 +39,18 @@ class MapWindow {
     this.$prev.style.display = "block";
   }
 
+  updateStatus() {
+    console.log(polygon);
+    fetch(`territory_staus_update?address=${polygon.address}`).then((res) => {
+      //console.log(res);
+    });
+  }
+
   setMap($target) {
     const $myMap = document.createElement("div");
     $myMap.className = "Map";
     $myMap.id = "map";
+
     console.log(this.latlngArr);
 
     let map = new naver.maps.Map($myMap, {});
@@ -70,7 +78,7 @@ class MapWindow {
         );
       }
       let polygon = new naver.maps.Polygon({
-        adress: this.addressArr[i],
+        address: this.addressArr[i],
         map: map,
         paths: [polygonPath],
         fillColor: "#ff0000",
@@ -81,11 +89,19 @@ class MapWindow {
         clickable: true,
       });
 
-      naver.maps.Event.addListener(
-        polygon,
-        "click",
-        this.updateStatus(polygon)
-      );
+      console.log(polygon.address);
+
+      naver.maps.Event.addListener(polygon, "click", function () {
+        //this.updateStatus();
+        console.log(polygon);
+        fetch(
+          `territory_status_update?address=${encodeURIComponent(
+            polygon.address
+          )}`
+        ).then((res) => {
+          console.log(res);
+        });
+      });
     }
 
     $target.appendChild($myMap);
@@ -94,13 +110,6 @@ class MapWindow {
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
     }, 0);
-  }
-
-  updateStatus(polygon) {
-    console.log(polygon);
-    fetch(`territory_staus_update?address=${polygon.address}`).then((res) => {
-      //console.log(res);
-    });
   }
 
   render() {
