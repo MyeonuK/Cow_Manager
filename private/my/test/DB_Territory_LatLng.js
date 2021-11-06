@@ -11,7 +11,7 @@ const csv = fs.readFileSync("private/data/dataInput.csv");
 const records = parse(csv.toString());
 
 // 연결할 DB 정보입력
-/*
+
 const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -19,8 +19,8 @@ const conn = mysql.createConnection({
   database: "gusdn0217",
   port: "3306",
 });
-*/
 
+/*
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -28,7 +28,7 @@ const conn = mysql.createConnection({
   database: "cowmanager",
   port: "3306",
 });
-
+*/
 function writeLog(message) {
   log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
@@ -43,7 +43,7 @@ conn.connect(function (err) {
 });
 
 // 테이블 생성
-/*
+
 conn.query(
   "CREATE TABLE Territory (code INT(3) AUTO_INCREMENT, region VARCHAR(10) NOT NULL, address INT(4) NOT NULL, status INT(1) NOT NULL, PRIMARY KEY(code))",
   (err, results, fields) => {
@@ -58,7 +58,7 @@ conn.query(
     if (err) writeLog(err);
     else console.log("create table latlng success");
   }
-);*/
+);
 
 // 테이블 비우기
 /*
