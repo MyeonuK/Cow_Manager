@@ -2262,3 +2262,12 @@ Error: ER_HOST_NOT_PRIVILEGED: Host '223.39.146.250' is not allowed to connect t
 =========Sat Nov 06 2021 20:21:19 GMT+0900 (대한민국 표준시)=========
 Error: ER_HOST_NOT_PRIVILEGED: Host '223.39.146.250' is not allowed to connect to this MySQL server
 
+=========Sat Nov 06 2021 23:46:48 GMT+0900 (대한민국 표준시)=========
+connection error: Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
+=========Sat Nov 06 2021 23:46:52 GMT+0900 (대한민국 표준시)=========
+connection error: Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
+=========Sat Nov 06 2021 23:46:52 GMT+0900 (대한민국 표준시)=========
+connection error: Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
+
