@@ -21,6 +21,10 @@
       };
 
       var map = new naver.maps.Map("map", mapOptions);
+
+      setTimeout(function () {
+        window.dispatchEvent(new Event("resize"));
+      }, 0);
     </script>
   </body>
 </html>
