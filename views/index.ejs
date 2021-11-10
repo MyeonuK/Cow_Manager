@@ -78,6 +78,26 @@
       );
       map.setZoom(16);
 
+      for (let i = 0; i < arr.length; i++) {
+        let polygonPath = [];
+        for (let j = 0; j < arr[i].length; j += 2) {
+          polygonPath.push(new naver.maps.LatLng(arr[i][j], arr[i][j + 1]));
+        }
+      }
+
+      let color = "#ff0000";
+
+      let polygon = new naver.maps.Polygon({
+        map: map,
+        paths: [polygonPath],
+        fillColor: color,
+        fillOpacity: 0.3,
+        strokeColor: color,
+        strokeOpacity: 0.6,
+        strokeWeight: 3,
+        clickable: true,
+      });
+
       setTimeout(function () {
         window.dispatchEvent(new Event("resize"));
       }, 0);
