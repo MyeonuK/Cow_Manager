@@ -138,7 +138,7 @@ class MapWindow {
     // 지도 잘리는 문제 해결
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
-    }, 0);
+    }, 300);
   }
 
   render() {

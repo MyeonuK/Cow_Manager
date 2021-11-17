@@ -20,7 +20,7 @@ function writeLog(message) {
 router.get("/", function (req, res) {
   let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
   if (ip == "::1" || ip == "::ffff:127.0.0.1") {
-    const conn = mysql.createConnection({
+    conn = mysql.createConnection({
       host: "localhost",
       user: "root",
       password: "root",
@@ -36,7 +36,6 @@ router.get("/", function (req, res) {
       port: "3306",
     });
   }
-
   conn.connect(function (err) {
     if (err) writeLog("connection error: " + err);
     else console.log("connected successfuelly!");
