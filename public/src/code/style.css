@@ -18,6 +18,7 @@
   --layout-m: 50px;
   --layout-s: 20px;
   --layout-ss: 10px;
+  --layout-nav-h: 60px;
 }
 
 html {
@@ -51,7 +52,7 @@ button {
 }
 
 .MainDiv {
-  height: calc(100% - 70px);
+  height: calc(100% - var(--layout-nav-h));
 }
 
 .ContentDiv {
@@ -74,7 +75,7 @@ button {
 
 .Nav {
   width: 100%;
-  height: 60px;
+  height: var(--layout-nav-h);
   background-color: var(--color-white);
   border-top: solid var(--color-lightgray) 0.5px;
   position: fixed;
@@ -126,7 +127,6 @@ button {
 .List {
   min-height: 100%;
   background-color: var(--color-white);
-  padding-bottom: 60px;
   color: black;
 }
 
@@ -234,15 +234,14 @@ button {
 }
 
 .Window {
-  height: 100%;
+  min-height: 100%;
   background-color: var(--color-white);
-  padding-bottom: 60px;
   color: black;
 }
 
 .Window .MapContainer {
   width: 100%;
-  height: 100%;
+  height: calc(100% - var(--layout-nav-h));
 }
 
 .Window .MapContainer .Map {

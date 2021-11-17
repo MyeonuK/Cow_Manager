@@ -2271,3 +2271,351 @@ connection error: Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not a
 =========Sat Nov 06 2021 23:46:52 GMT+0900 (대한민국 표준시)=========
 connection error: Error: ER_HOST_NOT_PRIVILEGED: Host '168.131.128.120' is not allowed to connect to this MySQL server
 
+=========Thu Nov 11 2021 00:57:20 GMT+0900 (대한민국 표준시)=========
+connection error: Error: connect ECONNREFUSED 127.0.0.1:3306
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'territory' already exists
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'latlng' already exists
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:54:11 GMT+0900 (대한민국 표준시)=========
+Error: ER_NO_REFERENCED_ROW_2: Cannot add or update a child row: a foreign key constraint fails (`cowmanager`.`latlng`, CONSTRAINT `latlng_ibfk_1` FOREIGN KEY (`code`) REFERENCES `Territory` (`code`))
+
+=========Wed Nov 17 2021 23:55:18 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'territory' already exists
+
+=========Wed Nov 17 2021 23:55:18 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'latlng' already exists
+
+=========Thu Nov 18 2021 00:01:31 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'territory' already exists
+
+=========Thu Nov 18 2021 00:01:31 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'latlng' already exists
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+conn error: Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:33:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_HOST_NOT_PRIVILEGED: Host '1.249.120.163' is not allowed to connect to this MySQL server
+
+=========Thu Nov 18 2021 00:35:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'Territory' already exists
+
+=========Thu Nov 18 2021 00:35:52 GMT+0900 (대한민국 표준시)=========
+Error: ER_TABLE_EXISTS_ERROR: Table 'LatLng' already exists
+
