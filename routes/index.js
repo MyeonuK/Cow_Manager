@@ -5,8 +5,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-console.log(window.location.hostname);
-
 const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
