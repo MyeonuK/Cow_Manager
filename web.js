@@ -7,7 +7,6 @@ const indexRouter = require("./routes/index");
 
 const app = express();
 const PORT = 8001;
-console.log(window.location.hostname);
 
 // view engine setup (cafe24)
 /*
