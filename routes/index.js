@@ -5,22 +5,8 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-const conn = mysql.createConnection({
-  host: "myeonu.cafe24app.com",
-  user: "gusdn0217",
-  password: "Dbdb4783!",
-  database: "gusdn0217",
-  port: "3306",
-});
-/*
-const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "cowmanager",
-  port: "3306",
-});
-*/
+let conn = null;
+
 function writeLog(message) {
   ``;
   log = `=========${new Date()}=========\n${message}\n\n`;
@@ -31,13 +17,31 @@ function writeLog(message) {
   console.log("========= error appended =========");
 }
 
-conn.connect(function (err) {
-  if (err) writeLog("connection error: " + err);
-  else console.log("connected successfuelly!");
-});
-
 router.get("/", function (req, res) {
-  console.log(req.header("x-forwarded-for") || req.connection.remoteAddress);
+  let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
+  if (ip == "::1" || ip == "::ffff:127.0.0.1") {
+    const conn = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "root",
+      database: "cowmanager",
+      port: "3306",
+    });
+  } else {
+    conn = mysql.createConnection({
+      host: "myeonu.cafe24app.com",
+      user: "gusdn0217",
+      password: "Dbdb4783!",
+      database: "gusdn0217",
+      port: "3306",
+    });
+  }
+
+  conn.connect(function (err) {
+    if (err) writeLog("connection error: " + err);
+    else console.log("connected successfuelly!");
+  });
+
   res.render("index.ejs");
 });
 
