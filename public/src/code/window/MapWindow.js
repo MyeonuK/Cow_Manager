@@ -73,7 +73,7 @@ class MapWindow {
     //   )
     // );
     //map.setMapTypeId(naver.maps.MapTypeId.HYBRID);
-
+    /*
     for (let i = 0; i < this.latlngArr.length; i++) {
       let polygonPath = [];
       for (let j = 0; j < this.latlngArr[i].length; j++) {
@@ -131,14 +131,14 @@ class MapWindow {
           }
         });
       });
-    }
+    }*/
 
     $target.appendChild($myMap);
 
     // 지도 잘리는 문제 해결
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
-    }, 300);
+    }, 0);
   }
 
   render() {
