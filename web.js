@@ -2,8 +2,8 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 
-//const indexRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/index");
-const indexRouter = require("./routes/index");
+const indexRouter = require("/home/hosting_users/gusdn0217/apps/gusdn0217_myeonu/routes/index");
+//const indexRouter = require("./routes/index");
 
 const app = express();
 const PORT = 8001;
