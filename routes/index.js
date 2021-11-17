@@ -5,8 +5,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-console.log(req.header("x-forwarded-for") || req.connection.remoteAddress);
-
 const conn = mysql.createConnection({
   host: "myeonu.cafe24app.com",
   user: "gusdn0217",
@@ -39,6 +37,7 @@ conn.connect(function (err) {
 });
 
 router.get("/", function (req, res) {
+  console.log(req.header("x-forwarded-for") || req.connection.remoteAddress);
   res.render("index.ejs");
 });
 
