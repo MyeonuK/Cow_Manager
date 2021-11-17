@@ -52,11 +52,11 @@ button {
 }
 
 .MainDiv {
-  height: calc(100% - var(--layout-nav-h));
+  height: calc(100%);
 }
 
 .ContentDiv {
-  height: calc(100% - var(--layout-s) * 2);
+  height: calc(100% - var(--layout-nav-h) - var(--layout-s) * 2);
   padding: var(--layout-s);
   overflow-y: scroll;
 }
@@ -125,7 +125,8 @@ button {
 }
 
 .List {
-  min-height: 100%;
+  min-height: calc(100% - var(--layout-nav-h));
+  padding-bottom: var(--layout-nav-h);
   background-color: var(--color-white);
   color: black;
 }
@@ -199,12 +200,19 @@ button {
   padding: var(--layout-s) 0;
 }
 
-.HouseDiv .RoomsDiv {
+.HouseDiv .RoomsDivtemp {
   width: 40%;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   gap: var(--layout-s);
+}
+
+.HouseDiv .RoomsDiv {
+  width: 40%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
 .HouseDiv .RoomsDiv:nth-child(2) {
@@ -215,7 +223,12 @@ button {
   width: 80%;
   height: 61px;
   border: var(--color-lightgray) 0.5px solid;
+  margin-top: var(--layout-s);
   padding: var(--layout-ss);
+}
+
+.HouseDiv .RoomsDiv .Room:last-child {
+  margin-top: 0;
 }
 
 .RoomsDiv .Room .RoomTitle {
@@ -234,14 +247,14 @@ button {
 }
 
 .Window {
-  min-height: 100%;
+  min-height: calc(100% - var(--layout-nav-h));
+  padding-bottom: var(--layout-nav-h);
   background-color: var(--color-white);
   color: black;
 }
 
 .Window .MapContainer {
-  width: 100%;
-  height: calc(100% - var(--layout-nav-h));
+  height: calc(100% - var(--layout-nav-h) * 2);
 }
 
 .Window .MapContainer .Map {

@@ -109,6 +109,8 @@ class CowList {
   }
 
   render() {
+    document.body.scrollTop = 0;
+
     const $toolBar = document.createElement("div");
     $toolBar.className = "ToolBar";
 
