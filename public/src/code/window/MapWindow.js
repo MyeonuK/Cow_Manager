@@ -73,7 +73,7 @@ class MapWindow {
     //   )
     // );
     //map.setMapTypeId(naver.maps.MapTypeId.HYBRID);
-    /*
+
     for (let i = 0; i < this.latlngArr.length; i++) {
       let polygonPath = [];
       for (let j = 0; j < this.latlngArr[i].length; j++) {
@@ -131,7 +131,7 @@ class MapWindow {
           }
         });
       });
-    }*/
+    }
 
     $target.appendChild($myMap);
 
