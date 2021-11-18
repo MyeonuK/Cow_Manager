@@ -9,7 +9,7 @@ class MapWindow {
   constructor() {
     this.getData();
     const $mainDiv = document.createElement("div");
-    $mainDiv.className = "Window";
+    $mainDiv.className = "Windoww";
     this.$mainDiv = $mainDiv;
   }
 

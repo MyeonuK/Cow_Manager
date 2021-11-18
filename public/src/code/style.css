@@ -19,6 +19,7 @@
   --layout-s: 20px;
   --layout-ss: 10px;
   --layout-nav-h: 60px;
+  --test: calc(100% - var(--layout-nav-h));
 }
 
 html {
@@ -52,7 +53,7 @@ button {
 }
 
 .MainDiv {
-  height: calc(100%);
+  height: 100%;
 }
 
 .ContentDiv {
@@ -246,18 +247,18 @@ button {
   width: 50%;
 }
 
-.Window {
-  min-height: calc(100% - var(--layout-nav-h));
+.MainDiv .Windoww {
+  height: calc(100% - var(--layout-nav-h));
   padding-bottom: var(--layout-nav-h);
   background-color: var(--color-white);
   color: black;
 }
 
-.Window .MapContainer {
-  height: calc(100% - var(--layout-nav-h) * 2);
+.Windoww .MapContainer {
+  height: 100%;
 }
 
-.Window .MapContainer .Map {
+.Windoww .MapContainer .Map {
   width: 100%;
-  height: 100%;
+  height: var(--test);
 }
