@@ -24,9 +24,11 @@
 
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,6 +152,7 @@ button {
 }
 
 .SearchDiv {
+  width: calc(100% - var(--layout-s) * 2);
   padding: var(--layout-ss) var(--layout-s);
   border-bottom: solid var(--color-lightgray) 0.5px;
   position: sticky;
@@ -158,7 +161,7 @@ button {
 }
 
 .Input {
-  width: 100%;
+  width: calc(100% - 40px);
   height: 35px;
   padding: 0 20px;
   border: solid 1px var(--color-lightgray);
@@ -180,7 +183,6 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: top;
 }
 
 .Item * {
@@ -261,4 +263,52 @@ button {
 .Windoww .MapContainer .Map {
   width: 100%;
   height: var(--test);
+}
+
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal .Modal_Body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+
+  padding: var(--layout-m);
+  box-sizing: border-box;
+}
+
+.Modal .Modal_Body * {
+  color: black;
+}
+
+.Modal .Modal_Body > * {
+}
+
+.Modal .Modal_Body .Modal_Title {
+  font-size: var(--font-l);
+  margin-bottom: var(--layout-m);
+}
+
+.Modal .Modal_Body .Modal_Info_Title {
+  font-weight: bold;
+  margin-bottom: var(--layout-ss);
+}
+
+.Modal_Body .Modal_Info_Group {
+  margin-bottom: var(--layout-s);
 }

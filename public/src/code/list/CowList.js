@@ -4,6 +4,7 @@ class CowList {
   $mainDiv = null;
   title = "전체 소 목록";
   data = [];
+  temp = null;
 
   constructor($prev, roomInfo) {
     this.$target = document.getElementsByClassName("MainDiv")[0];
@@ -74,27 +75,33 @@ class CowList {
     let arr = Object.keys(this.data);
 
     for (let i of arr) {
+      let item = this.data[i];
+
       const $item = document.createElement("div");
       $item.className = "Item";
 
       const $itemTitle = document.createElement("span");
       $itemTitle.className = "ItemTitle";
-      $itemTitle.innerText = this.data[i].id;
-      $itemTitle.innerText = `${this.data[i].id.slice(0, 3)} ${this.data[
-        i
-      ].id.slice(3, 7)} ${this.data[i].id.slice(7, 13)}`;
+      $itemTitle.innerText = `${item.id.slice(0, 3)} ${item.id.slice(
+        3,
+        7
+      )} ${item.id.slice(7, 13)}`;
 
       const $house = document.createElement("span");
       $house.className = "ItemDetail";
-      if (this.data[i].house == "O") {
-        $house.innerText = `방목\n${this.data[i].sex}`;
+      if (item.house == "O") {
+        $house.innerText = `방목\n${item.sex}`;
       } else {
-        $house.innerText = `${this.data[i].house}동 ${this.data[i].side}${this.data[i].room}번\n${this.data[i].sex}`;
+        $house.innerText = `${item.house}동 ${item.side}${item.room}번\n${item.sex}`;
       }
 
       const $birth = document.createElement("span");
       $birth.className = "ItemDetail";
-      $birth.innerText = `${this.data[i].birthDate}\n${this.data[i].age}개월`;
+      $birth.innerText = `${item.birthDate}\n${item.age}개월`;
+
+      $item.addEventListener("click", function () {
+        const $itemModal = new CowModal(item.id);
+      });
 
       $item.appendChild($itemTitle);
       $item.appendChild($house);
