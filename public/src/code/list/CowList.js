@@ -157,6 +157,8 @@ class CowList {
     const $searchBar = document.createElement("input");
     $searchBar.className = "Input";
     $searchBar.type = "number";
+    $searchBar.pattern = `\d*`;
+    $searchBar.placeholder = "번호를 입력하세요";
     $searchBar.min = "0";
     $searchBar.oninput = function () {
       const $itemArr = document.getElementsByClassName("Item");
