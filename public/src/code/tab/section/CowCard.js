@@ -1,58 +1,49 @@
 class CowCard {
   $mainDiv = null;
-  title = "";
+  title = null;
   data = null;
 
-  constructor(title, request) {
+  constructor($target, title, request) {
+    this.$target = $target;
     this.title = title;
-    this.getData(request);
+
+    this.setData(request).then((res) => {
+      this.render($target);
+    });
   }
 
-  async getData(request) {
-    fetch(`cow_count?request=${request}`)
-      .then((res) => res.json())
-      .then((res) => (this.data = res));
+  async setData(request) {
+    let res = await fetch(`cow-count?request=${request}`);
+    this.data = await res.json();
   }
 
   render($target) {
-    setTimeout(() => {
-      // $mainDiv
-      const $mainDiv = document.createElement("div");
-      $mainDiv.className = "CardDiv";
-      $mainDiv.addEventListener("click", () => {
-        new CowList(document.getElementsByClassName("ContentDiv")[0]);
-      });
-      this.$mainDiv = $mainDiv;
+    // $mainDiv
+    const $mainDiv = document.createElement("div");
+    $mainDiv.className = "CardDiv";
+    $mainDiv.addEventListener("click", () => {
+      new CowList(document.getElementsByClassName("ContentDiv")[0]);
+    });
 
-      // $cardTitle
-      const $cardTitle = document.createElement("div");
-      $cardTitle.className = "Title";
-      $cardTitle.innerText = this.title;
+    // $cardTitle
+    const $cardTitle = document.createElement("div");
+    $cardTitle.className = "Title";
+    $cardTitle.innerText = this.title;
 
-      // $cardContent
-      const $cardContent = document.createElement("div");
-      $cardContent.className = "CardContentDiv";
+    // $cardContent
+    const $cardContent = document.createElement("div");
+    $cardContent.className = "CardContentDiv";
 
-      console.log(this.data);
-      const $content = document.createElement("div");
-      $content.className = "Content";
-      $content.innerText = `${this.data}마리`;
+    const $content = document.createElement("div");
+    $content.className = "Content";
+    $content.innerText = `${this.data}마리`;
 
-      $cardContent.appendChild($content);
-      /*
-      for (let c of this.data) {
-        const $content = document.createElement("div");
-        $content.className = "Content";
-        $content.innerText = c;
+    $cardContent.appendChild($content);
 
-        $cardContent.appendChild($content);
-      }*/
+    // append
+    $mainDiv.appendChild($cardTitle);
+    $mainDiv.appendChild($cardContent);
 
-      // append
-      this.$mainDiv.appendChild($cardTitle);
-      this.$mainDiv.appendChild($cardContent);
-
-      $target.appendChild(this.$mainDiv);
-    }, 200);
+    $target.appendChild($mainDiv);
   }
 }

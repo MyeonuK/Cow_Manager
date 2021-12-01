@@ -1,37 +1,32 @@
 class HouseTab extends Tab {
-  $target = null;
   $mainDiv = null;
   data = null;
 
   constructor($target) {
     super($target);
 
-    this.$target = $target;
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    this.getData();
-
-    setTimeout(() => {
-      this.render();
-    }, 100);
+    this.setData().then((res) => {
+      this.render($target);
+    });
   }
 
-  async getData() {
-    fetch("house")
-      .then((res) => res.json())
-      .then((res) => (this.data = res));
+  async setData() {
+    let res = await fetch("house-list");
+    this.data = await res.json();
   }
 
   renderSections() {
+    console.log(this.data);
     // section
     for (let d of this.data) {
-      let $houseSection = new HouseSection(d);
-      $houseSection.render(this.$mainDiv);
+      const $houseCard = new HouseCard(d);
     }
   }
 
-  render() {
+  render($target) {
     // header
     const $header = document.createElement("header");
     $header.className = "Header";
@@ -45,6 +40,6 @@ class HouseTab extends Tab {
     $header.appendChild($title);
 
     this.renderSections();
-    this.$target.appendChild(this.$mainDiv);
+    $target.appendChild(this.$mainDiv);
   }
 }

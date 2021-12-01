@@ -1,20 +1,17 @@
-class HouseSection {
+class HouseCard {
   $mainDiv = null;
+  title = null;
+  data = null;
 
-  house = null;
-  count = null;
-  age = null;
-
-  constructor(d) {
-    this.house = d.house;
-    this.count = d.cnt;
-    this.age = d.age;
+  constructor($target, title, request) {
+    this.$target = $target;
+    this.title = title;
   }
 
   render($target) {
-    this.$mainDiv = document.createElement("div");
-    this.$mainDiv.className = "SectionDiv";
-    this.$mainDiv.addEventListener("click", () => {
+    const $mainDiv = document.createElement("div");
+    $mainDiv.className = "CardDiv";
+    $mainDiv.addEventListener("click", () => {
       let $roomList = new RoomList(this.house);
       $roomList.render();
     });
@@ -34,10 +31,10 @@ class HouseSection {
     $infoDiv.classList = "BigElement";
     $infoDiv.innerText = `${this.count}마리 (${this.age}개월)`;
 
-    this.$mainDiv.appendChild($sectionTitle);
-    this.$mainDiv.appendChild($sectionContent);
+    $mainDiv.appendChild($sectionTitle);
+    $mainDiv.appendChild($sectionContent);
     $sectionContent.appendChild($infoDiv);
 
-    $target.appendChild(this.$mainDiv);
+    $target.appendChild($mainDiv);
   }
 }

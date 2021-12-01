@@ -1,30 +1,20 @@
 class OutlineTab extends Tab {
-  $target = null;
   $mainDiv = null;
 
   constructor($target) {
     super($target);
 
-    this.$target = $target;
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    this.render();
+    this.render($target);
   }
 
   renderCards($target) {
-    /*
-    const $cowSection = new CowSection(this.data);
-    console.log($target);
-    $cowSection.render($target);
-*/
-    const $totalCowCard = new CowCard("전체 개체", "total");
-    setTimeout(() => {
-      $totalCowCard.render($target);
-    }, 200);
+    const $totalCowCard = new CowCard($target, "전체 개체", "total");
   }
 
-  render() {
+  render($target) {
     // header
     const $header = document.createElement("header");
     $header.className = "Header";
@@ -39,6 +29,6 @@ class OutlineTab extends Tab {
 
     this.renderCards(this.$mainDiv);
 
-    this.$target.appendChild(this.$mainDiv);
+    $target.appendChild(this.$mainDiv);
   }
 }
