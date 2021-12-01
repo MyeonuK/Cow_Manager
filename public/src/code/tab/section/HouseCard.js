@@ -1,5 +1,6 @@
 class HouseSection {
   $mainDiv = null;
+
   house = null;
   count = null;
   age = null;

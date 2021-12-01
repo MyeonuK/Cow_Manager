@@ -94,7 +94,7 @@ button {
   height: 100%;
 }
 
-.SectionDiv {
+.CardDiv {
   padding: var(--layout-s);
   margin: var(--layout-ss) 0;
   border-radius: 5px;
@@ -103,26 +103,18 @@ button {
   flex-direction: column;
 }
 
-.SectionDiv .Title {
+.CardDiv .Title {
   margin-bottom: var(--layout-ss);
   font-size: var(--font-s);
 }
 
-.SectionDiv .RowContentDiv {
+.CardDiv .CardContentDiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.SectionDiv .ColContentDiv {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.SectionDiv .BigElement {
+.CardDiv .BigElement {
   padding: 0 40px;
   font-size: var(--font-m);
 }
@@ -246,7 +238,7 @@ button {
 }
 
 .RoomsDiv .EntranceImg {
-  width: 50%;
+  width: 30px;
 }
 
 .MainDiv .Windoww {
@@ -294,9 +286,6 @@ button {
 
 .Modal .Modal_Body * {
   color: black;
-}
-
-.Modal .Modal_Body > * {
 }
 
 .Modal .Modal_Body .Modal_Title {

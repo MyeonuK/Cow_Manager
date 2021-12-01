@@ -2619,3 +2619,6 @@ Error: ER_TABLE_EXISTS_ERROR: Table 'Territory' already exists
 =========Thu Nov 18 2021 00:35:52 GMT+0900 (대한민국 표준시)=========
 Error: ER_TABLE_EXISTS_ERROR: Table 'LatLng' already exists
 
+=========Wed Dec 01 2021 20:04:51 GMT+0900 (대한민국 표준시)=========
+connection error: Error: connect ECONNREFUSED 127.0.0.1:3306
+

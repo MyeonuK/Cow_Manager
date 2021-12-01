@@ -48,6 +48,22 @@ router.get("/newpage", function (req, res) {
   res.render("newpage.ejs");
 });
 
+router.get("/cow_count", function (req, res) {
+  let api;
+  if (req.query.request == "total") {
+    api = "SELECT COUNT(*) FROM House";
+  }
+
+  conn.query(api, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
+      //result.push(rows[0]["COUNT(*)"]);
+      res.status(200).json(rows[0]["COUNT(*)"]);
+    }
+  });
+});
+
 router.get("/outline", function (req, res) {
   let result = [];
   conn.query("SELECT COUNT(*) FROM House", function (err, rows, fields) {
