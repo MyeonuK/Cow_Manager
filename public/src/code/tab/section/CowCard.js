@@ -1,23 +1,20 @@
 class CowCard {
   $mainDiv = null;
-  title = null;
   data = null;
 
   constructor($target, title, request) {
-    this.$target = $target;
-    this.title = title;
-
-    this.setData(request).then((res) => {
-      this.render($target);
+    this.requestData(request).then((res) => {
+      this.data = res;
+      this.render($target, title);
     });
   }
 
-  async setData(request) {
-    let res = await fetch(`cow-count?request=${request}`);
-    this.data = await res.json();
+  async requestData(request) {
+    let res = await fetch(`cow/count?request=${request}`);
+    return await res.json();
   }
 
-  render($target) {
+  render($target, title) {
     // $mainDiv
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "CardDiv";
@@ -28,7 +25,7 @@ class CowCard {
     // $cardTitle
     const $cardTitle = document.createElement("div");
     $cardTitle.className = "Title";
-    $cardTitle.innerText = this.title;
+    $cardTitle.innerText = title;
 
     // $cardContent
     const $cardContent = document.createElement("div");

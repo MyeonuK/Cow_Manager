@@ -11,7 +11,7 @@ class OutlineTab extends Tab {
   }
 
   renderCards($target) {
-    const $totalCowCard = new CowCard($target, "전체 개체", "total");
+    const $totalCowCard = new CowCard($target, "전체 개체", "all");
   }
 
   render($target) {

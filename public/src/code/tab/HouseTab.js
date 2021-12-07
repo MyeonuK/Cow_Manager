@@ -14,15 +14,17 @@ class HouseTab extends Tab {
   }
 
   async setData() {
-    let res = await fetch("house-list");
+    let res = await fetch("house/title");
     this.data = await res.json();
+    console.log("here1");
   }
 
-  renderSections() {
+  renderSections($target) {
     console.log(this.data);
     // section
-    for (let d of this.data) {
-      const $houseCard = new HouseCard(d);
+    for (let house of this.data) {
+      const $houseCard = new HouseCard($target, house);
+      setTimeout(() => {}, 10);
     }
   }
 
@@ -39,7 +41,7 @@ class HouseTab extends Tab {
     this.$mainDiv.appendChild($header);
     $header.appendChild($title);
 
-    this.renderSections();
+    this.renderSections(this.$mainDiv);
     $target.appendChild(this.$mainDiv);
   }
 }

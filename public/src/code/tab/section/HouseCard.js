@@ -1,27 +1,38 @@
 class HouseCard {
   $mainDiv = null;
-  title = null;
-  data = null;
 
-  constructor($target, title, request) {
-    this.$target = $target;
-    this.title = title;
+  constructor($target, house) {
+    this.requestData(house).then((res) => {
+      this.render($target, res);
+    });
   }
 
-  render($target) {
+  async requestData(house) {
+    let data = { house: house, cnt: null, age: null };
+
+    let res = await fetch(`cow/count?request=house&&house=${house}`);
+    data.cnt = await res.json();
+
+    res = await fetch(`cow/age?request=house&&house=${house}`);
+    data.age = await res.json();
+
+    return data;
+  }
+
+  render($target, data) {
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "CardDiv";
     $mainDiv.addEventListener("click", () => {
-      let $roomList = new RoomList(this.house);
-      $roomList.render();
+      let $roomList = new RoomList(house);
+      //$roomList.render();
     });
 
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
-    if (this.house == "O") {
-      $sectionTitle.innerText = "방 목";
+    if (data.house == "O") {
+      $sectionTitle.innerText = "방  목";
     } else {
-      $sectionTitle.innerText = `${this.house} 축사`;
+      $sectionTitle.innerText = `${data.house} 축사`;
     }
 
     const $sectionContent = document.createElement("div");
@@ -29,7 +40,7 @@ class HouseCard {
 
     const $infoDiv = document.createElement("div");
     $infoDiv.classList = "BigElement";
-    $infoDiv.innerText = `${this.count}마리 (${this.age}개월)`;
+    $infoDiv.innerText = `${data.cnt}마리 (${data.age}개월)`;
 
     $mainDiv.appendChild($sectionTitle);
     $mainDiv.appendChild($sectionContent);

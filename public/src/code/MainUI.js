@@ -56,7 +56,6 @@ class MainUI {
         for (let i = 0; i < $buttonList.length; i++) {
           $buttonList[i].addEventListener("click", () => {
             let childs = this.$mainDiv.childNodes;
-            console.log(childs);
 
             while (childs.length > 2) {
               this.$mainDiv.removeChild(childs[2]);
