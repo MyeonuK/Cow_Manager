@@ -1,20 +1,25 @@
-class TerritoryStatusSection {
+class TerritoryCard {
   $mainDiv = null;
   data = null;
 
-  constructor(data) {
-    this.data = data;
-    if (this.data[0] === undefined) {
-      countData[0] = 0;
-    } else {
-      countData[0] = this.data[0].cnt;
+  constructor($target, territory) {
+    this.requestData(territory).then((res) => {
+      this.data = res;
+      this.render($target, res);
+    });
+  }
+
+  async requestData(territory) {
+    let result = [];
+
+    let res = await fetch(`territory/status`);
+    let data = await res.json();
+
+    for (let s of data) {
+      result.push(s);
     }
 
-    if (this.data[1] === undefined) {
-      countData[1] = 0;
-    } else {
-      countData[1] = this.data[1].cnt;
-    }
+    return result;
   }
 
   updateData(d) {
@@ -27,34 +32,38 @@ class TerritoryStatusSection {
     }
   }
 
-  render($target) {
-    this.$mainDiv = document.createElement("div");
-    this.$mainDiv.className = "SectionDiv";
-    this.$mainDiv.addEventListener("click", () => {
+  render($target, data) {
+    // mainDiv
+    let $mainDiv = document.createElement("div");
+    $mainDiv.className = "SectionDiv";
+    $mainDiv.addEventListener("click", () => {
       let $mapWindow = new MapWindow();
       setTimeout(() => {
         $mapWindow.render();
       }, 200);
     });
 
+    // sectionTitle
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
     $sectionTitle.innerText = "완료 여부";
 
+    // sectionContent
     const $sectionContent = document.createElement("div");
     $sectionContent.className = "ColContentDiv";
 
+    // infoDiv
     const $infoDiv = document.createElement("div");
     $infoDiv.className = "BigElement";
     $infoDiv.id = "TerritoryStatus";
-    $infoDiv.innerText = `완료 : ${countData[1]}
+    $infoDiv.innerText = `완료 : ${data[1]}
     미완료 : ${countData[0]}`;
 
-    this.$mainDiv.appendChild($sectionTitle);
-    this.$mainDiv.appendChild($sectionContent);
+    $mainDiv.appendChild($sectionTitle);
+    $mainDiv.appendChild($sectionContent);
     $sectionContent.appendChild($infoDiv);
 
-    $target.appendChild(this.$mainDiv);
+    $target.appendChild($mainDiv);
   }
 }
 

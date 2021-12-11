@@ -4,6 +4,8 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const { request } = require("http");
+const databaseConnection = require("./databaseConnection");
 
 let conn = null;
 
@@ -18,28 +20,8 @@ function writeLog(message) {
 
 router.get("/", function (req, res) {
   let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
-  if (ip == "::1" || ip == "::ffff:127.0.0.1") {
-    conn = mysql.createConnection({
-      host: "localhost",
-      user: "root",
-      password: "root",
-      database: "cowmanager",
-      port: "3306",
-    });
-  } else {
-    conn = mysql.createConnection({
-      host: "myeonu.cafe24app.com",
-      user: "gusdn0217",
-      password: "Dbdb4783!",
-      database: "gusdn0217",
-      port: "3306",
-    });
-  }
-  conn.connect(function (err) {
-    if (err) writeLog("connection error: " + err);
-    else console.log("connected successfuelly!");
-  });
 
+  conn = databaseConnection.getDatabaseConnection(ip);
   res.render("index.ejs");
 });
 
@@ -48,16 +30,16 @@ router.get("/newpage", function (req, res) {
 });
 
 router.get("/cow/count", function (req, res) {
-  let api;
-  if (req.query.request == "all") {
-    api = "SELECT COUNT(*) AS cnt FROM House";
-  } else if (req.query.request == "house") {
-    api = `SELECT COUNT(*) AS cnt FROM House WHERE house='${req.query.house}'`;
+  const { type, house, ...etc } = req.query;
+
+  let sql = `SELECT COUNT(*) AS cnt FROM House`;
+
+  if (type == "all") {
+  } else if (type == "house") {
+    sql += ` WHERE house='${house}'`;
   }
 
-  console.log(api);
-
-  conn.query(api, function (err, rows, fields) {
+  conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
@@ -67,27 +49,38 @@ router.get("/cow/count", function (req, res) {
 });
 
 router.get("/cow/age", function (req, res) {
-  let api;
-  if (req.query.request == "house") {
-    api = `SELECT ROUND(AVG(age), 1) AS age FROM Profile AS p JOIN House AS h ON p.id = h.id WHERE house='${req.query.house}'`;
+  const { request, house, ...etc } = req.query;
+
+  {
+    // service
+    if (request == "house") {
+      // type
+      // service = repo.selectHouseType
+    }
   }
 
-  conn.query(api, function (err, rows, fields) {
-    if (err) {
-      console.error(err);
-    } else {
-      res.status(200).json(rows[0].age);
-    }
-  });
+  {
+    // repo selectHouseType Method
+    const sql = `SELECT ROUND(AVG(age), 1) AS age FROM Profile AS p JOIN House AS h ON p.id = h.id WHERE house='${house}'`;
+    conn.query(sql, function (err, rows, fields) {
+      if (err) {
+        console.error(err);
+      } else {
+        res.status(200).json(rows[0].age);
+      }
+    });
+  }
 });
 
 router.get("/house/title", function (req, res) {
-  let api = "SELECT DISTINCT house FROM House ORDER BY house";
+  let sql = "SELECT DISTINCT house FROM House ORDER BY house";
 
-  conn.query(api, function (err, rows, fields) {
+  conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
+      result = rows.map((row) => row.house);
+
       let result = [];
       for (let d of rows) {
         result.push(d.house);
@@ -98,14 +91,14 @@ router.get("/house/title", function (req, res) {
 });
 
 router.get("/house/list", function (req, res) {
-  let api;
+  let sql;
   if (req.query.request == "all") {
-    api = "SELECT COUNT(*) AS cnt FROM House";
+    sql = "SELECT COUNT(*) AS cnt FROM House";
   } else if (req.query.request == "title") {
-    api = "SELECT DISTINCT house FROM House ORDER BY house";
+    sql = "SELECT DISTINCT house FROM House ORDER BY house";
   }
 
-  conn.query(api, function (err, rows, fields) {
+  conn.query(sql, function (err, rows, fields) {
     if (err) {
       console.error(err);
     } else {
@@ -115,6 +108,22 @@ router.get("/house/list", function (req, res) {
       for (let d of rows) {
         result.push(d.house);
       }
+      res.status(200).json(rows);
+    }
+  });
+});
+
+router.get("/territory/status", function (req, res) {
+  let sql;
+
+  if (!!!req.query.territory) {
+    sql = `SELECT status, COUNT(*) AS cnt FROM Territory GROUP BY status`;
+  }
+
+  conn.query(sql, function (err, rows, fields) {
+    if (err) {
+      console.error(err);
+    } else {
       res.status(200).json(rows);
     }
   });

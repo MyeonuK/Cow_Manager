@@ -1,37 +1,21 @@
 class TerritoryTab extends Tab {
-  $target = null;
   $mainDiv = null;
   data = null;
 
   constructor($target) {
     super($target);
 
-    this.$target = $target;
-
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "Tab";
 
-    this.getData();
-
-    setTimeout(() => {
-      console.log(this.data);
-      this.render();
-    }, 200);
+    this.render($target);
   }
 
-  async getData() {
-    fetch("territory_status")
-      .then((res) => res.json())
-      .then((res) => (this.data = res));
+  renderSections($target) {
+    const $territoryStatusCard = new TerritoryCard($target);
   }
 
-  renderSections() {
-    let $territoryStatusSection = new TerritoryStatusSection(this.data);
-
-    $territoryStatusSection.render(this.$mainDiv);
-  }
-
-  render() {
+  render($target) {
     // header
     const $header = document.createElement("header");
     $header.className = "Header";
@@ -44,7 +28,7 @@ class TerritoryTab extends Tab {
     this.$mainDiv.appendChild($header);
     $header.appendChild($title);
 
-    this.renderSections();
-    this.$target.appendChild(this.$mainDiv);
+    this.renderSections(this.$mainDiv);
+    $target.appendChild(this.$mainDiv);
   }
 }

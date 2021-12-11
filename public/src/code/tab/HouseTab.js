@@ -20,7 +20,6 @@ class HouseTab extends Tab {
   }
 
   renderSections($target) {
-    console.log(this.data);
     // section
     for (let house of this.data) {
       const $houseCard = new HouseCard($target, house);

@@ -6,7 +6,7 @@ class CowList {
   data = [];
   temp = null;
 
-  constructor($prev, roomInfo) {
+  constructor($prev, condition) {
     this.$target = document.getElementsByClassName("MainDiv")[0];
     this.$prev = $prev;
     this.$prev.style.display = "none";
