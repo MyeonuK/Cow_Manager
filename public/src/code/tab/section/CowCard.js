@@ -10,7 +10,9 @@ class CowCard {
   }
 
   async requestData(request) {
-    let res = await fetch(`cow/count?request=${request}`);
+    //let res = await fetch(`cow/count?request=${request}`);
+    let res = await fetch(`cow/count`);
+    console.log(res);
     return await res.json();
   }
 

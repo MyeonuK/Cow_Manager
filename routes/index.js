@@ -4,8 +4,11 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
-const { request } = require("http");
-const databaseConnection = require("./databaseConnection");
+
+//const databaseConnection = require("./databaseConnection");
+const sequelize = require("sequelize");
+
+const { Profile, Vaccin } = require("../models");
 
 let conn = null;
 
@@ -18,18 +21,51 @@ function writeLog(message) {
   console.log("========= error appended =========");
 }
 
+/*
 router.get("/", function (req, res) {
   let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
 
   conn = databaseConnection.getDatabaseConnection(ip);
   res.render("index.ejs");
 });
+*/
+
+router.get("/", async (req, res, next) => {
+  try {
+    res.render("index.ejs");
+    /*
+    Vaccin.findAll().then((user) => {
+      //console.log(user[0].dataValues);
+      //console.log(user);
+      res.json(user);
+    });
+    */
+    /*
+    Profile.findOne({ where: { id: "002134345335" } }).then((rr) => {
+      console.log(rr);
+    });
+    */
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 router.get("/newpage", function (req, res) {
   res.render("newpage.ejs");
 });
 
-router.get("/cow/count", function (req, res) {
+router.get("/cow/count", async (req, res) => {
+  try {
+    Profile.count().then((profile) => {
+      console.log(profile);
+      res.json(profile);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+/*router.get("/cow/count", function (req, res) {
   const { type, house, ...etc } = req.query;
 
   let sql = `SELECT COUNT(*) AS cnt FROM House`;
@@ -46,7 +82,7 @@ router.get("/cow/count", function (req, res) {
       res.status(200).json(rows[0].cnt);
     }
   });
-});
+});*/
 
 router.get("/cow/age", function (req, res) {
   const { request, house, ...etc } = req.query;
