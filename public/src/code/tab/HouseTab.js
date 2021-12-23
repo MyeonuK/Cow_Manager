@@ -16,14 +16,15 @@ class HouseTab extends Tab {
   async setData() {
     let res = await fetch("house/title");
     this.data = await res.json();
-    console.log("here1");
+    console.log(this.data);
   }
 
   renderSections($target) {
     // section
     for (let house of this.data) {
-      const $houseCard = new HouseCard($target, house);
-      setTimeout(() => {}, 10);
+      setTimeout(() => {
+        const $houseCard = new HouseCard($target, house);
+      }, 100);
     }
   }
 

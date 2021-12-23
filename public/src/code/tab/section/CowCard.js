@@ -2,27 +2,33 @@ class CowCard {
   $mainDiv = null;
   data = null;
 
-  constructor($target, title, request) {
-    this.requestData(request).then((res) => {
+  constructor($target, data) {
+    const { title, type, ...etc } = data;
+
+    this.setData(type).then((res) => {
       this.data = res;
       this.render($target, title);
     });
   }
 
-  async requestData(request) {
+  async setData(type) {
     //let res = await fetch(`cow/count?request=${request}`);
-    let res = await fetch(`cow/count`);
-    console.log(res);
+    let res = await fetch(`cow/count?type=all`);
     return await res.json();
+  }
+
+  setEvent($target) {
+    $target.addEventListener("click", () => {
+      new CowList({ type: "all" });
+    });
   }
 
   render($target, title) {
     // $mainDiv
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "CardDiv";
-    $mainDiv.addEventListener("click", () => {
-      new CowList(document.getElementsByClassName("ContentDiv")[0]);
-    });
+
+    this.setEvent($mainDiv);
 
     // $cardTitle
     const $cardTitle = document.createElement("div");

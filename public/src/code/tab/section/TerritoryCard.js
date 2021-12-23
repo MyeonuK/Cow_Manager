@@ -4,22 +4,14 @@ class TerritoryCard {
 
   constructor($target, territory) {
     this.requestData(territory).then((res) => {
+      console.log(res);
       this.data = res;
       this.render($target, res);
     });
   }
 
   async requestData(territory) {
-    let result = [];
-
-    let res = await fetch(`territory/status`);
-    let data = await res.json();
-
-    for (let s of data) {
-      result.push(s);
-    }
-
-    return result;
+    return await (await fetch(`territory/status`)).json();
   }
 
   updateData(d) {
@@ -35,7 +27,7 @@ class TerritoryCard {
   render($target, data) {
     // mainDiv
     let $mainDiv = document.createElement("div");
-    $mainDiv.className = "SectionDiv";
+    $mainDiv.className = "CardDiv";
     $mainDiv.addEventListener("click", () => {
       let $mapWindow = new MapWindow();
       setTimeout(() => {
@@ -57,7 +49,7 @@ class TerritoryCard {
     $infoDiv.className = "BigElement";
     $infoDiv.id = "TerritoryStatus";
     $infoDiv.innerText = `완료 : ${data[1]}
-    미완료 : ${countData[0]}`;
+    미완료 : ${data[0]}`;
 
     $mainDiv.appendChild($sectionTitle);
     $mainDiv.appendChild($sectionContent);

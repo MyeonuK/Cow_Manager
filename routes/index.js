@@ -6,14 +6,19 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 
 //const databaseConnection = require("./databaseConnection");
-const sequelize = require("sequelize");
-
-const { Profile, Vaccin } = require("../models");
+const {
+  Profile,
+  Vaccin,
+  House,
+  Territory,
+  LatLng,
+  Sequelize,
+} = require("../models");
 
 let conn = null;
 
 function writeLog(message) {
-  log = `=========${new Date()}=========\n${message}\n\n`;
+  let log = `=========${new Date()}=========\n${message}\n\n`;
   fs.appendFile("public/log/newDB.txt", log, function (err) {
     if (err) console.error(err);
     else console.log("===error===");
@@ -50,16 +55,26 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/newpage", function (req, res) {
-  res.render("newpage.ejs");
-});
-
 router.get("/cow/count", async (req, res) => {
+  const { type, house, ...etc } = req.query;
+
   try {
-    Profile.count().then((profile) => {
-      console.log(profile);
-      res.json(profile);
-    });
+    switch (type) {
+      case undefined:
+      case "all":
+        Profile.count().then((count) => {
+          res.json(count);
+        });
+        break;
+
+      case "house":
+        House.count({
+          where: { house: house },
+        }).then((count) => {
+          res.json(count);
+        });
+        break;
+    }
   } catch (err) {
     console.error(err);
   }
@@ -84,6 +99,41 @@ router.get("/cow/count", async (req, res) => {
   });
 });*/
 
+router.get("/cow/age", async (req, res) => {
+  const { type, house, ...etc } = req.query;
+
+  try {
+    switch (type) {
+      case undefined:
+      case "all":
+        break;
+
+      case "house":
+        Profile.findAll({
+          include: [
+            {
+              model: House,
+              where: { house: house },
+              attributes: [],
+            },
+          ],
+          attributes: [["age", "age"]],
+          group: ["Profile.id"],
+        }).then((result) => {
+          let averageAge =
+            result.reduce((sum, current) => sum + current.dataValues.age, 0) /
+            result.length;
+
+          averageAge = Math.round(averageAge * 10) / 10;
+          res.status(200).json(averageAge);
+        });
+        break;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+/*
 router.get("/cow/age", function (req, res) {
   const { request, house, ...etc } = req.query;
 
@@ -107,7 +157,22 @@ router.get("/cow/age", function (req, res) {
     });
   }
 });
+*/
 
+router.get("/house/title", async (req, res) => {
+  try {
+    House.findAll({
+      attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("house")), "house"]],
+      order: [["house", "ASC"]],
+    }).then((result) => {
+      res.json(result.map((r) => r.house));
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+/*
 router.get("/house/title", function (req, res) {
   let sql = "SELECT DISTINCT house FROM House ORDER BY house";
 
@@ -125,6 +190,7 @@ router.get("/house/title", function (req, res) {
     }
   });
 });
+*/
 
 router.get("/house/list", function (req, res) {
   let sql;
@@ -149,6 +215,40 @@ router.get("/house/list", function (req, res) {
   });
 });
 
+router.get("/house/title", async (req, res) => {
+  try {
+    House.findAll({
+      attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("house")), "house"]],
+      order: [["house", "ASC"]],
+    }).then((result) => {
+      res.json(result.map((r) => r.house));
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+router.get("/territory/status", async (req, res) => {
+  const { type, ...etc } = req.query;
+
+  try {
+    switch (type) {
+      case undefined:
+      case "all":
+        Territory.count({
+          group: ["status"],
+        }).then((result) => {
+          console.log(result.map((r) => r.count));
+          res.json(result.map((r) => r.count));
+        });
+        break;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+/*
 router.get("/territory/status", function (req, res) {
   let sql;
 
@@ -164,6 +264,7 @@ router.get("/territory/status", function (req, res) {
     }
   });
 });
+*/
 /////////////////////////
 
 router.get("/outline", function (req, res) {

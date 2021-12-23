@@ -10,11 +10,12 @@ class HouseCard {
   async requestData(house) {
     let data = { house: house, cnt: null, age: null };
 
-    let res = await fetch(`cow/count?request=house&&house=${house}`);
+    let res = await fetch(`cow/count?type=house&&house=${house}`);
     data.cnt = await res.json();
 
-    res = await fetch(`cow/age?request=house&&house=${house}`);
+    res = await fetch(`cow/age?type=house&&house=${house}`);
     data.age = await res.json();
+    console.log(data.cnt);
 
     return data;
   }

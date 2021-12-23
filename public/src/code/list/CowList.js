@@ -2,34 +2,36 @@ class CowList {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  title = "전체 소 목록";
+  title = null;
   data = [];
   temp = null;
 
-  constructor($prev, condition) {
-    this.$target = document.getElementsByClassName("MainDiv")[0];
-    this.$prev = $prev;
-    this.$prev.style.display = "none";
+  constructor(data) {
+    const { type, house, room, ...etc } = data;
 
-    const $mainDiv = document.createElement("div");
-    $mainDiv.className = "List";
-
-    this.$mainDiv = $mainDiv;
-    this.$target.appendChild(this.$mainDiv);
-
-    if (roomInfo == undefined) {
-      this.getData();
-    } else {
+    if (type == "all") {
+      this.setData();
+      this.title = "전체 소 목록";
+    } else if (type == "house") {
       this.title = `${roomInfo == "OOOO" ? "방목" : roomInfo} 소 목록`;
-      this.getData(roomInfo);
+      this.setData(roomInfo);
     }
 
-    setTimeout(() => {
-      this.render();
-    }, 300);
+    this.setData(type, house, room).then((res) => {
+      this.render($target, title);
+    });
   }
 
-  async getData(roomInfo) {
+  setElements() {
+    // mainDiv
+    this.$mainDiv = document.createElement("div");
+    this.$mainDiv.className = "List";
+
+    this.$target = document.getElementsByClassName("MainDiv")[0];
+    this.$prev = document.getElementsByClassName("ContentDiv")[0];
+  }
+
+  async setData(type, house, room) {
     let houseData;
     let profileData;
     let api;
@@ -71,6 +73,11 @@ class CowList {
       });
   }
 
+  hide() {
+    this.$target.removeChild(this.$mainDiv);
+    this.$prev.style.display = "block";
+  }
+
   renderItems($itemDiv) {
     let arr = Object.keys(this.data);
 
@@ -110,12 +117,10 @@ class CowList {
     }
   }
 
-  hide() {
-    this.$target.removeChild(this.$mainDiv);
-    this.$prev.style.display = "block";
-  }
-
   render() {
+    this.$prev.style.display = "none";
+
+    this.$target.appendChild(this.$mainDiv);
     document.body.scrollTop = 0;
 
     const $toolBar = document.createElement("div");
