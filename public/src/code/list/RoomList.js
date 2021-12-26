@@ -130,7 +130,6 @@ class RoomList extends List {
     this.$mainDiv.appendChild($itemDiv);
     setTimeout(() => {
       this.renderItems($itemDiv);
-      document.body.scrollTop = document.body.scrollHeight;
     }, 200);
 
     this.$target.appendChild(this.$mainDiv);

@@ -159,6 +159,33 @@ router.get("/cow/age", function (req, res) {
 });
 */
 
+router.get("/cow/list", async (req, res) => {
+  const { type, house, room, ...etc } = req.query;
+  try {
+    switch (type) {
+      case "all":
+      default:
+        Profile.findAll({
+          include: [
+            {
+              model: House,
+            },
+          ],
+          attributes: [
+            ["id", "id"],
+            ["birthDate", "birthDate"],
+            ["age", "age"],
+            ["sex", "sex"],
+          ],
+          order: ["id", "age", "sex"],
+          group: ["Profile.id"],
+        }).then((result) => {
+          res.json(result);
+        });
+    }
+  } catch (err) {}
+});
+
 router.get("/house/title", async (req, res) => {
   try {
     House.findAll({
@@ -213,19 +240,6 @@ router.get("/house/list", function (req, res) {
       res.status(200).json(rows);
     }
   });
-});
-
-router.get("/house/title", async (req, res) => {
-  try {
-    House.findAll({
-      attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("house")), "house"]],
-      order: [["house", "ASC"]],
-    }).then((result) => {
-      res.json(result.map((r) => r.house));
-    });
-  } catch (err) {
-    console.error(err);
-  }
 });
 
 router.get("/territory/status", async (req, res) => {

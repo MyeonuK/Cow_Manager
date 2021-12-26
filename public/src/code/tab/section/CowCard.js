@@ -1,6 +1,6 @@
 class CowCard {
   $mainDiv = null;
-  data = null;
+  data = {};
 
   constructor($target, data) {
     const { title, type, ...etc } = data;
@@ -19,7 +19,7 @@ class CowCard {
 
   setEvent($target) {
     $target.addEventListener("click", () => {
-      new CowList({ type: "all" });
+      new CowList({ title: "전체 소 목록", type: "all" });
     });
   }
 
