@@ -1,9 +1,13 @@
 class HouseCard {
+  $target = null;
   $mainDiv = null;
+  data = null;
 
   constructor($target, house) {
+    this.$target = $target;
     this.requestData(house).then((res) => {
-      this.render($target, res);
+      //this.render($target, res);
+      this.data = res;
     });
   }
 
@@ -15,25 +19,35 @@ class HouseCard {
 
     res = await fetch(`cow/age?type=house&&house=${house}`);
     data.age = await res.json();
-    console.log(data.cnt);
 
     return data;
   }
 
-  render($target, data) {
+  //render($target, data) {
+  render() {
+    //const { house, cnt, age, ...etc } = this.data;
     const $mainDiv = document.createElement("div");
     $mainDiv.className = "CardDiv";
     $mainDiv.addEventListener("click", () => {
-      let $roomList = new RoomList(house);
+      switch (this.data.house) {
+        case "O":
+          const $cowList = new CowList({
+            title: "방목 소 목록",
+            type: "house",
+            house: this.data.house,
+          });
+        default:
+          let $roomList = new RoomList({ house: this.data.house });
+      }
       //$roomList.render();
     });
 
     const $sectionTitle = document.createElement("div");
     $sectionTitle.className = "Title";
-    if (data.house == "O") {
+    if (this.data.house == "O") {
       $sectionTitle.innerText = "방  목";
     } else {
-      $sectionTitle.innerText = `${data.house} 축사`;
+      $sectionTitle.innerText = `${this.data.house} 축사`;
     }
 
     const $sectionContent = document.createElement("div");
@@ -41,12 +55,13 @@ class HouseCard {
 
     const $infoDiv = document.createElement("div");
     $infoDiv.classList = "BigElement";
-    $infoDiv.innerText = `${data.cnt}마리 (${data.age}개월)`;
+    $infoDiv.innerText = `${this.data.cnt}마리 (${this.data.age}개월)`;
 
     $mainDiv.appendChild($sectionTitle);
     $mainDiv.appendChild($sectionContent);
     $sectionContent.appendChild($infoDiv);
 
-    $target.appendChild($mainDiv);
+    this.$target.appendChild($mainDiv);
+    console.log(this.data.house);
   }
 }

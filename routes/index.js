@@ -38,18 +38,6 @@ router.get("/", function (req, res) {
 router.get("/", async (req, res, next) => {
   try {
     res.render("index.ejs");
-    /*
-    Vaccin.findAll().then((user) => {
-      //console.log(user[0].dataValues);
-      //console.log(user);
-      res.json(user);
-    });
-    */
-    /*
-    Profile.findOne({ where: { id: "002134345335" } }).then((rr) => {
-      console.log(rr);
-    });
-    */
   } catch (err) {
     console.error(err);
   }
@@ -74,30 +62,32 @@ router.get("/cow/count", async (req, res) => {
           res.json(count);
         });
         break;
+
+      case "room":
+        House.count({
+          where: { house: house },
+          group: ["side", "room"],
+        }).then((result) => {
+          console.log(result);
+          let resultArr = new Array(2);
+          resultArr[0] = new Array(19);
+          resultArr[1] = new Array(19);
+
+          for (let item of result) {
+            if (item.side == "L") {
+              resultArr[0][item.room - 1] = item.count;
+            } else {
+              resultArr[1][item.room - 1] = item.count;
+            }
+          }
+          res.json(resultArr);
+        });
+        break;
     }
   } catch (err) {
     console.error(err);
   }
 });
-
-/*router.get("/cow/count", function (req, res) {
-  const { type, house, ...etc } = req.query;
-
-  let sql = `SELECT COUNT(*) AS cnt FROM House`;
-
-  if (type == "all") {
-  } else if (type == "house") {
-    sql += ` WHERE house='${house}'`;
-  }
-
-  conn.query(sql, function (err, rows, fields) {
-    if (err) {
-      console.error(err);
-    } else {
-      res.status(200).json(rows[0].cnt);
-    }
-  });
-});*/
 
 router.get("/cow/age", async (req, res) => {
   const { type, house, ...etc } = req.query;
@@ -128,36 +118,25 @@ router.get("/cow/age", async (req, res) => {
           res.status(200).json(averageAge);
         });
         break;
+
+      case "room":
+        House.findAll({
+          include: [
+            { model: Profile, where: { house: house }, attributes: ["age"] },
+          ],
+          attributes: [
+            [
+              Sequelize.fn("ROUND", Sequelize.fn("AVG", Sequelize.col("age"))),
+              "age",
+            ],
+          ],
+        });
+        break;
     }
   } catch (err) {
     console.error(err);
   }
 });
-/*
-router.get("/cow/age", function (req, res) {
-  const { request, house, ...etc } = req.query;
-
-  {
-    // service
-    if (request == "house") {
-      // type
-      // service = repo.selectHouseType
-    }
-  }
-
-  {
-    // repo selectHouseType Method
-    const sql = `SELECT ROUND(AVG(age), 1) AS age FROM Profile AS p JOIN House AS h ON p.id = h.id WHERE house='${house}'`;
-    conn.query(sql, function (err, rows, fields) {
-      if (err) {
-        console.error(err);
-      } else {
-        res.status(200).json(rows[0].age);
-      }
-    });
-  }
-});
-*/
 
 router.get("/cow/list", async (req, res) => {
   const { type, house, room, ...etc } = req.query;
@@ -199,26 +178,6 @@ router.get("/house/title", async (req, res) => {
   }
 });
 
-/*
-router.get("/house/title", function (req, res) {
-  let sql = "SELECT DISTINCT house FROM House ORDER BY house";
-
-  conn.query(sql, function (err, rows, fields) {
-    if (err) {
-      console.error(err);
-    } else {
-      result = rows.map((row) => row.house);
-
-      let result = [];
-      for (let d of rows) {
-        result.push(d.house);
-      }
-      res.status(200).json(result);
-    }
-  });
-});
-*/
-
 router.get("/house/list", function (req, res) {
   let sql;
   if (req.query.request == "all") {
@@ -242,6 +201,22 @@ router.get("/house/list", function (req, res) {
   });
 });
 
+router.get("/house/room", function (req, res) {
+  const { house, ...etc } = req.query;
+
+  try {
+    House.findAll({
+      attributes: [[Sequelize.fn("COUNT", Sequelize.col("room")), "room"]],
+      order: [["room", "ASC"]],
+      where: { house: house },
+    }).then((result) => {
+      res.json(result);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 router.get("/territory/status", async (req, res) => {
   const { type, ...etc } = req.query;
 
@@ -262,23 +237,6 @@ router.get("/territory/status", async (req, res) => {
   }
 });
 
-/*
-router.get("/territory/status", function (req, res) {
-  let sql;
-
-  if (!!!req.query.territory) {
-    sql = `SELECT status, COUNT(*) AS cnt FROM Territory GROUP BY status`;
-  }
-
-  conn.query(sql, function (err, rows, fields) {
-    if (err) {
-      console.error(err);
-    } else {
-      res.status(200).json(rows);
-    }
-  });
-});
-*/
 /////////////////////////
 
 router.get("/outline", function (req, res) {
@@ -306,17 +264,7 @@ router.get("/house", function (req, res) {
   );
 });
 
-router.get("/house_room", function (req, res) {
-  let sql = `SELECT side, room, COUNT(*) AS cnt, ROUND(AVG(age), 1) AS age FROM House As h JOIN Profile As p ON h.id = p.id WHERE house='${req.query.house}' GROUP BY side, room`;
-
-  conn.query(sql, function (err, rows, fields) {
-    if (err) {
-      console.error(err);
-    } else {
-      res.status(200).json(rows);
-    }
-  });
-  /*
+/*
   let sql = `SELECT DISTINCT house, side, room FROM House WHERE house=${req.query.house}`;
 
   conn.query(sql, function (err, rows, fields) {
@@ -339,7 +287,6 @@ router.get("/house_room", function (req, res) {
     }
   });
   */
-});
 
 router.get("/room_cow", function (req, res) {
   let sql = `SELECT id FROM House WHERE house=${req.query.house} AND side=${req.query.side} AND room=${req.query.room}`;

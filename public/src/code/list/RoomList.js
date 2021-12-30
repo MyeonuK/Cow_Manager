@@ -1,38 +1,33 @@
-class RoomList extends List {
+class RoomList {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  data = [];
+  data = null;
   house = null;
 
-  constructor(house) {
-    super();
+  constructor(data) {
+    const { house, ...etc } = data;
+    this.title = `${house} 축사`;
     this.house = house;
-    this.getData(house);
 
-    const $mainDiv = document.createElement("div");
-    $mainDiv.className = "List";
-    this.$mainDiv = $mainDiv;
+    this.setElement();
+
+    this.setData(house).then((res) => {
+      this.render();
+    });
   }
 
-  async getData(house) {
-    await fetch(`house_room?house=${house}`)
-      .then((res) => res.json())
-      .then((res) => {
-        let left = new Array(19);
-        let right = new Array(19);
+  async setData(house) {
+    let result = await fetch(`cow/count?type=room&&house=${house}`);
+    this.data.count = await result.json();
 
-        for (let room of res) {
-          if (room.side == "L") {
-            left[room.room] = room;
-          } else {
-            right[room.room] = room;
-          }
-        }
+    let result = await fetch(`cow/age?type=room&&house=${house}`);
+    this.data.age = await result.json();
+  }
 
-        this.data.push(left);
-        this.data.push(right);
-      });
+  setElement() {
+    this.$target = document.getElementsByClassName("MainDiv")[0];
+    this.$prev = document.getElementsByClassName("ContentDiv")[0];
   }
 
   hide() {
@@ -58,13 +53,16 @@ class RoomList extends List {
       $houseDiv.appendChild($roomsDiv);
 
       for (let j = 0; j < roomNum; j++) {
+        // room
         const $room = document.createElement("div");
         $room.className = "Room";
 
+        // roomTitle
         const $roomTitle = document.createElement("div");
         $roomTitle.className = "RoomTitle";
         $roomTitle.innerText = j + 1;
 
+        // roomContent
         const $roomContent = document.createElement("div");
         $roomContent.className = "RoomContent";
         if (this.data[i][j] == undefined) {
@@ -102,10 +100,11 @@ class RoomList extends List {
     $target.appendChild($houseDiv);
   }
 
-  render() {
-    this.$target = document.getElementsByClassName("MainDiv")[0];
-    this.$prev = document.getElementsByClassName("ContentDiv")[0];
-    this.$prev.style.display = "none";
+  async render() {
+    // mainDiv
+    const $mainDiv = document.createElement("div");
+    $mainDiv.className = "List";
+    this.$mainDiv = $mainDiv;
 
     const $toolbar = document.createElement("div");
     $toolbar.className = "ToolBar";
@@ -128,15 +127,19 @@ class RoomList extends List {
     $toolbar.appendChild($backButton);
     $toolbar.appendChild($title);
     this.$mainDiv.appendChild($itemDiv);
+
     setTimeout(() => {
       this.renderItems($itemDiv);
     }, 200);
 
+    this.$prev.style.display = "none";
     this.$target.appendChild(this.$mainDiv);
-
+    /*
     if (this.house == "O") {
       this.hide();
       new CowList(document.getElementsByClassName("ContentDiv")[0], "OOOO");
     }
+*/
+    document.body.scrollTop = 0;
   }
 }

@@ -2,18 +2,18 @@ class CowList {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  data = [];
+  data = null;
   temp = null;
 
   constructor(data) {
     const { title, type, house, room, ...etc } = data;
+
     this.title = title;
     this.setElements();
-    this.setData({ type, house, room });
 
     this.setData(type, house, room).then((res) => {
       this.data = res;
-      console.log(this.data);
+      console.log(res);
       this.render();
     });
   }
@@ -28,7 +28,7 @@ class CowList {
   }
 
   async setData(data) {
-    const { type, ...etc } = data;
+    const { type, house, room, ...etc } = data;
     let res;
 
     switch (type) {
@@ -87,7 +87,6 @@ class CowList {
     this.$prev.style.display = "none";
 
     this.$target.appendChild(this.$mainDiv);
-    document.body.scrollTop = 0;
 
     const $toolBar = document.createElement("div");
     $toolBar.className = "ToolBar";

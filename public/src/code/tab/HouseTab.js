@@ -22,8 +22,9 @@ class HouseTab extends Tab {
   renderSections($target) {
     // section
     for (let house of this.data) {
+      const $houseCard = new HouseCard($target, house);
       setTimeout(() => {
-        const $houseCard = new HouseCard($target, house);
+        $houseCard.render();
       }, 100);
     }
   }
