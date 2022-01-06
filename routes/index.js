@@ -94,10 +94,6 @@ router.get("/cow/age", async (req, res) => {
 
   try {
     switch (type) {
-      case undefined:
-      case "all":
-        break;
-
       case "house":
         Profile.findAll({
           include: [
@@ -122,15 +118,39 @@ router.get("/cow/age", async (req, res) => {
       case "room":
         House.findAll({
           include: [
-            { model: Profile, where: { house: house }, attributes: ["age"] },
+            {
+              model: Profile,
+              attributes: [["age", "age"]],
+            },
           ],
           attributes: [
-            [
-              Sequelize.fn("ROUND", Sequelize.fn("AVG", Sequelize.col("age"))),
-              "age",
-            ],
+            ["side", "side"],
+            ["room", "room"],
           ],
+          where: { house: house },
+          group: ["side"],
+        }).then((result) => {
+          res.json(result);
         });
+        break;
+      /*
+        Profile.findAll({
+          include: [
+            {
+              model: House,
+              where: { house: house },
+            },
+          ],
+          attributes: [["age", "age"]],
+          group: ["side", "room"],
+        }).then((result) => {
+          res.json(result);
+        });
+        break;
+        */
+
+      case "all":
+      default:
         break;
     }
   } catch (err) {
@@ -140,29 +160,33 @@ router.get("/cow/age", async (req, res) => {
 
 router.get("/cow/list", async (req, res) => {
   const { type, house, room, ...etc } = req.query;
+  let seqSetting = {
+    include: [
+      {
+        model: House,
+      },
+    ],
+    attributes: [
+      ["id", "id"],
+      ["birthDate", "birthDate"],
+      ["age", "age"],
+      ["sex", "sex"],
+    ],
+    order: ["id", "age", "sex"],
+    group: ["Profile.id"],
+  };
+
+  if (type == "house") {
+    seqSetting.include[0].where = { house: house };
+  }
+
   try {
-    switch (type) {
-      case "all":
-      default:
-        Profile.findAll({
-          include: [
-            {
-              model: House,
-            },
-          ],
-          attributes: [
-            ["id", "id"],
-            ["birthDate", "birthDate"],
-            ["age", "age"],
-            ["sex", "sex"],
-          ],
-          order: ["id", "age", "sex"],
-          group: ["Profile.id"],
-        }).then((result) => {
-          res.json(result);
-        });
-    }
-  } catch (err) {}
+    Profile.findAll(seqSetting).then((result) => {
+      res.json(result);
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 router.get("/house/title", async (req, res) => {

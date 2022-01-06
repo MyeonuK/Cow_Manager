@@ -36,8 +36,10 @@ class HouseCard {
             type: "house",
             house: this.data.house,
           });
+          break;
         default:
-          let $roomList = new RoomList({ house: this.data.house });
+          const $roomList = new RoomList({ house: this.data.house });
+          break;
       }
       //$roomList.render();
     });

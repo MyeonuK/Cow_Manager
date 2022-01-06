@@ -11,7 +11,7 @@ class CowList {
     this.title = title;
     this.setElements();
 
-    this.setData(type, house, room).then((res) => {
+    this.setData(data).then((res) => {
       this.data = res;
       console.log(res);
       this.render();
@@ -31,12 +31,18 @@ class CowList {
     const { type, house, room, ...etc } = data;
     let res;
 
+    console.log(type);
+
     switch (type) {
+      case "house":
+        res = await fetch(`cow/list?type=house&&house=${house}`);
+        break;
       case "all":
       default:
         res = await fetch(`cow/list?type=all`);
-        return await res.json();
+        break;
     }
+    return await res.json();
   }
 
   hide() {

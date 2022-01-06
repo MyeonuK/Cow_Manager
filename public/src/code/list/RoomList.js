@@ -2,7 +2,7 @@ class RoomList {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  data = null;
+  data = { age: null, count: null };
   house = null;
 
   constructor(data) {
@@ -13,6 +13,7 @@ class RoomList {
     this.setElement();
 
     this.setData(house).then((res) => {
+      console.log(this.data);
       this.render();
     });
   }
@@ -21,7 +22,7 @@ class RoomList {
     let result = await fetch(`cow/count?type=room&&house=${house}`);
     this.data.count = await result.json();
 
-    let result = await fetch(`cow/age?type=room&&house=${house}`);
+    result = await fetch(`cow/age?type=room&&house=${house}`);
     this.data.age = await result.json();
   }
 
