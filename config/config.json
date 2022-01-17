@@ -4,7 +4,7 @@
     "password": "root",
     "database": "cowmanager",
     "host": "localhost",
-    "port": "3306",
+    "port": "8001",
     "dialect": "mysql",
     "logging": false
   },
