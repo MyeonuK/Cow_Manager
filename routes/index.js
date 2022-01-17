@@ -29,7 +29,7 @@ function writeLog(message) {
 router.get("/", function (req, res) {
   let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
 
-  conn = databaseConnection.getDatabaseConnection(ip);
+  conn = databaseConnection(ip);
   conn.query("SELECT VERSION()", function (err) {
     if (err) {
       console.log(err);
