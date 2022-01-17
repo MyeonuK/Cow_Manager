@@ -66,11 +66,11 @@ class RoomList {
         // roomContent
         const $roomContent = document.createElement("div");
         $roomContent.className = "RoomContent";
-        if (this.data[i][j] == undefined) {
+        if (this.data.age[i][j] == null) {
           $roomContent.innerText = "-";
         } else {
-          $roomContent.innerText = `${this.data[i][j].cnt}마리
-            평균 ${this.data[i][j].age}개월`;
+          $roomContent.innerText = `${this.data.count[i][j]}마리
+            평균 ${this.data.age[i][j]}개월`;
 
           $room.addEventListener("click", () => {
             new CowList(

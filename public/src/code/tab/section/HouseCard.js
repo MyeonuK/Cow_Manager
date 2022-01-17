@@ -32,7 +32,6 @@ class HouseCard {
       switch (this.data.house) {
         case "O":
           const $cowList = new CowList({
-            title: "방목 소 목록",
             type: "house",
             house: this.data.house,
           });

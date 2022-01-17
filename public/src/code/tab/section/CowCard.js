@@ -1,14 +1,33 @@
 class CowCard {
   $mainDiv = null;
+  title = null;
   data = {};
 
   constructor($target, data) {
-    const { title, type, ...etc } = data;
+    const { type, ...etc } = data;
+
+    this.setElements(data);
 
     this.setData(type).then((res) => {
       this.data = res;
-      this.render($target, title);
+      this.render($target);
     });
+  }
+
+  setElements(data) {
+    const { type, ...etc } = data;
+
+    // $mainDiv
+    this.$mainDiv = document.createElement("div");
+    this.$mainDiv.className = "CardDiv";
+    this.$mainDiv.addEventListener("click", () => {
+      new CowList({ type: "all" });
+    });
+
+    // title
+    if (type == "all") {
+      this.title = "전체 목록";
+    }
   }
 
   async setData(type) {
@@ -17,23 +36,11 @@ class CowCard {
     return await res.json();
   }
 
-  setEvent($target) {
-    $target.addEventListener("click", () => {
-      new CowList({ title: "전체 소 목록", type: "all" });
-    });
-  }
-
-  render($target, title) {
-    // $mainDiv
-    const $mainDiv = document.createElement("div");
-    $mainDiv.className = "CardDiv";
-
-    this.setEvent($mainDiv);
-
+  render($target) {
     // $cardTitle
     const $cardTitle = document.createElement("div");
     $cardTitle.className = "Title";
-    $cardTitle.innerText = title;
+    $cardTitle.innerText = this.title;
 
     // $cardContent
     const $cardContent = document.createElement("div");
@@ -46,9 +53,9 @@ class CowCard {
     $cardContent.appendChild($content);
 
     // append
-    $mainDiv.appendChild($cardTitle);
-    $mainDiv.appendChild($cardContent);
+    this.$mainDiv.appendChild($cardTitle);
+    this.$mainDiv.appendChild($cardContent);
 
-    $target.appendChild($mainDiv);
+    $target.appendChild(this.$mainDiv);
   }
 }

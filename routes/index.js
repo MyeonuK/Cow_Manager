@@ -68,7 +68,6 @@ router.get("/cow/count", async (req, res) => {
           where: { house: house },
           group: ["side", "room"],
         }).then((result) => {
-          console.log(result);
           let resultArr = new Array(2);
           resultArr[0] = new Array(19);
           resultArr[1] = new Array(19);
@@ -116,6 +115,64 @@ router.get("/cow/age", async (req, res) => {
         break;
 
       case "room":
+        let resultArr = new Array(2);
+        resultArr[0] = new Array(19);
+        resultArr[1] = new Array(19);
+
+        async function test(resultArr) {
+          for (let i = 0; i < 19; i++) {
+            await Profile.findAll({
+              include: [
+                {
+                  model: House,
+                  where: { house: house, side: "L", room: i + 1 },
+                  attributes: [],
+                },
+              ],
+              attributes: [["age", "age"]],
+              group: ["Profile.id"],
+            }).then((result) => {
+              let averageAge =
+                result.reduce(
+                  (sum, current) => sum + current.dataValues.age,
+                  0
+                ) / result.length;
+
+              averageAge = Math.round(averageAge * 10) / 10;
+              resultArr[0][i] = averageAge;
+            });
+
+            await Profile.findAll({
+              include: [
+                {
+                  model: House,
+                  where: { house: house, side: "R", room: i + 1 },
+                  attributes: [],
+                },
+              ],
+              attributes: [["age", "age"]],
+              group: ["Profile.id"],
+            }).then((result) => {
+              let averageAge =
+                result.reduce(
+                  (sum, current) => sum + current.dataValues.age,
+                  0
+                ) / result.length;
+
+              averageAge = Math.round(averageAge * 10) / 10;
+              resultArr[1][i] = averageAge;
+            });
+          }
+
+          console.log(resultArr);
+          return resultArr;
+        }
+        test(resultArr).then((ress) => {
+          res.status(200).json(ress);
+        });
+
+        break;
+      /*
         House.findAll({
           include: [
             {
@@ -133,6 +190,7 @@ router.get("/cow/age", async (req, res) => {
           res.json(result);
         });
         break;
+        */
       /*
         Profile.findAll({
           include: [

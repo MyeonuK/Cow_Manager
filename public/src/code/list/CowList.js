@@ -6,10 +6,9 @@ class CowList {
   temp = null;
 
   constructor(data) {
-    const { title, type, house, room, ...etc } = data;
+    const { type, house, room, ...etc } = data;
 
-    this.title = title;
-    this.setElements();
+    this.setElements(data);
 
     this.setData(data).then((res) => {
       this.data = res;
@@ -18,13 +17,24 @@ class CowList {
     });
   }
 
-  setElements() {
+  setElements(data) {
+    const { type, house, room, ...etc } = data;
     // mainDiv
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "List";
 
+    // target
     this.$target = document.getElementsByClassName("MainDiv")[0];
     this.$prev = document.getElementsByClassName("ContentDiv")[0];
+
+    //title
+    if (type == "all") {
+      this.title = "전체 목록";
+    } else if (type == "house") {
+      this.title = `${house}축사 소 목록`;
+    } else if (type == "room") {
+      this.title = `${house}축사 ${room}번 칸 소 목록`;
+    }
   }
 
   async setData(data) {
