@@ -15,7 +15,8 @@ sequelize
     console.error(err);
   });
 
-const PORT = 8001;
+//const PORT = 8001;
+const PORT = 3306;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
