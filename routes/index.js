@@ -5,7 +5,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-//const databaseConnection = require("./databaseConnection");
+const databaseConnection = require("./databaseConnection");
 const {
   Profile,
   Vaccin,
@@ -26,23 +26,29 @@ function writeLog(message) {
   console.log("========= error appended =========");
 }
 
-/*
 router.get("/", function (req, res) {
   let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
 
   conn = databaseConnection.getDatabaseConnection(ip);
+  conn.query("SELECT VERSION()", function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.status(200).json(rows);
+    }
+  });
   res.render("index.ejs");
 });
-*/
 
+/*
 router.get("/", async (req, res, next) => {
   try {
-    res.render("index.ejs");
+    //res.render("index.ejs");
   } catch (err) {
     console.error(err);
   }
 });
-
+*/
 router.get("/cow/count", async (req, res) => {
   const { type, house, ...etc } = req.query;
 
