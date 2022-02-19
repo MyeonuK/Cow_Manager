@@ -6,6 +6,7 @@ const sequelize = require("./models").sequelize;
 const indexRouter = require("./routes/index");
 
 const app = express();
+
 sequelize
   .sync({ force: false })
   .then(() => {

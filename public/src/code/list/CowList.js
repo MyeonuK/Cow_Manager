@@ -2,51 +2,64 @@ class CowList {
   $target = null;
   $prev = null;
   $mainDiv = null;
-  data = null;
+  dbData = null;
   temp = null;
 
   constructor(data) {
-    const { type, house, room, ...etc } = data;
+    //const { type, house, side, room, prev, ...etc } = data;
+    this.data = data;
 
-    this.setElements(data);
+    this.setElements();
 
-    this.setData(data).then((res) => {
-      this.data = res;
-      console.log(res);
+    this.setData().then((res) => {
+      this.dbData = res;
       this.render();
     });
   }
 
-  setElements(data) {
-    const { type, house, room, ...etc } = data;
+  setElements() {
     // mainDiv
     this.$mainDiv = document.createElement("div");
     this.$mainDiv.className = "List";
 
     // target
     this.$target = document.getElementsByClassName("MainDiv")[0];
-    this.$prev = document.getElementsByClassName("ContentDiv")[0];
+    if (this.data.prev != undefined) {
+      this.$prev = this.data.prev;
+    } else {
+      this.$prev = document.getElementsByClassName("ContentDiv")[0];
+    }
 
     //title
-    if (type == "all") {
-      this.title = "전체 목록";
-    } else if (type == "house") {
-      this.title = `${house}축사 소 목록`;
-    } else if (type == "room") {
-      this.title = `${house}축사 ${room}번 칸 소 목록`;
+    switch (this.data.type) {
+      case "all":
+        this.title = "전체 목록";
+        break;
+
+      case "house":
+        this.title = `${this.data.house}축사 소 목록`;
+        break;
+
+      case "room":
+        this.title = `${this.data.house}축사 ${this.data.room}칸 소 목록`;
+        break;
     }
   }
 
-  async setData(data) {
-    const { type, house, room, ...etc } = data;
+  async setData() {
     let res;
 
-    console.log(type);
-
-    switch (type) {
+    switch (this.data.type) {
       case "house":
-        res = await fetch(`cow/list?type=house&&house=${house}`);
+        res = await fetch(`cow/list?type=house&&house=${this.data.house}`);
         break;
+
+      case "room":
+        res = await fetch(
+          `cow/list?type=room&&house=${this.data.house}&&room=${this.data.room}`
+        );
+        break;
+
       case "all":
       default:
         res = await fetch(`cow/list?type=all`);
@@ -61,10 +74,10 @@ class CowList {
   }
 
   renderItems($itemDiv) {
-    let arr = Object.keys(this.data);
+    let arr = Object.keys(this.dbData);
 
     for (let i of arr) {
-      let item = this.data[i];
+      let item = this.dbData[i];
 
       const $item = document.createElement("div");
       $item.className = "Item";
@@ -118,21 +131,23 @@ class CowList {
     $title.className = "Title";
     $title.innerText = this.title;
 
-    const $updateButton = document.createElement("button");
-    $updateButton.className = "Button";
-    $updateButton.innerText = "update";
-    $updateButton.addEventListener("click", () => {
-      /*
-      this.$mainDiv.removeChild(document.getElementsByClassName("ItemDiv")[0]);
-      this.fetchUrl("update").then((res) => {
-        const $itemDiv = document.createElement("div");
-        $itemDiv.className = "ItemDiv";
-        this.$mainDiv.appendChild($itemDiv);
-        this.renderItems($itemDiv);
-        window.scrollTo(0, 0);
+    if (this.data.type == "all") {
+      const $updateButton = document.createElement("button");
+      $updateButton.className = "Button";
+      $updateButton.innerText = "update";
+      $updateButton.addEventListener("click", () => {
+        /*
+        this.$mainDiv.removeChild(document.getElementsByClassName("ItemDiv")[0]);
+        this.fetchUrl("update").then((res) => {
+          const $itemDiv = document.createElement("div");
+          $itemDiv.className = "ItemDiv";
+          this.$mainDiv.appendChild($itemDiv);
+          this.renderItems($itemDiv);
+          window.scrollTo(0, 0);
+        });
+        */
       });
-      */
-    });
+    }
 
     const $searchDiv = document.createElement("div");
     $searchDiv.className = "SearchDiv";

@@ -5,7 +5,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-const databaseConnection = require("./databaseConnection");
+//const databaseConnection = require("./databaseConnection");
 const {
   Profile,
   Vaccin,
@@ -26,29 +26,23 @@ function writeLog(message) {
   console.log("========= error appended =========");
 }
 
+/*
 router.get("/", function (req, res) {
   let ip = req.header("x-forwarded-for") || req.connection.remoteAddress;
 
-  conn = databaseConnection(ip);
-  conn.query("SELECT VERSION()", function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.status(200).json(rows);
-    }
-  });
+  conn = databaseConnection.getDatabaseConnection(ip);
   res.render("index.ejs");
 });
+*/
 
-/*
 router.get("/", async (req, res, next) => {
   try {
-    //res.render("index.ejs");
+    res.render("index.ejs");
   } catch (err) {
     console.error(err);
   }
 });
-*/
+
 router.get("/cow/count", async (req, res) => {
   const { type, house, ...etc } = req.query;
 
@@ -170,7 +164,6 @@ router.get("/cow/age", async (req, res) => {
             });
           }
 
-          console.log(resultArr);
           return resultArr;
         }
         test(resultArr).then((ress) => {
@@ -223,7 +216,7 @@ router.get("/cow/age", async (req, res) => {
 });
 
 router.get("/cow/list", async (req, res) => {
-  const { type, house, room, ...etc } = req.query;
+  const { type, house, side, room, ...etc } = req.query;
   let seqSetting = {
     include: [
       {
@@ -242,6 +235,8 @@ router.get("/cow/list", async (req, res) => {
 
   if (type == "house") {
     seqSetting.include[0].where = { house: house };
+  } else if (type == "room") {
+    seqSetting.include[0].where = { house: house, room: room };
   }
 
   try {
@@ -249,7 +244,7 @@ router.get("/cow/list", async (req, res) => {
       res.json(result);
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 });
 

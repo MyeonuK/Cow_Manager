@@ -13,7 +13,6 @@ class RoomList {
     this.setElement();
 
     this.setData(house).then((res) => {
-      console.log(this.data);
       this.render();
     });
   }
@@ -73,10 +72,13 @@ class RoomList {
             평균 ${this.data.age[i][j]}개월`;
 
           $room.addEventListener("click", () => {
-            new CowList(
-              this.$mainDiv,
-              i == 0 ? this.house + "L" + (j + 1) : this.house + "R" + (j + 1)
-            );
+            new CowList({
+              type: "room",
+              prev: this.$mainDiv,
+              house: this.house,
+              side: i == 0 ? "L" : "R",
+              room: j + 1,
+            });
           });
         }
 
