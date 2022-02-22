@@ -130,13 +130,13 @@ class CowList {
     const $title = document.createElement("span");
     $title.className = "Title";
     $title.innerText = this.title;
-
+    /*
     if (this.data.type == "all") {
       const $updateButton = document.createElement("button");
       $updateButton.className = "Button";
       $updateButton.innerText = "update";
       $updateButton.addEventListener("click", () => {
-        /*
+        
         this.$mainDiv.removeChild(document.getElementsByClassName("ItemDiv")[0]);
         this.fetchUrl("update").then((res) => {
           const $itemDiv = document.createElement("div");
@@ -145,10 +145,10 @@ class CowList {
           this.renderItems($itemDiv);
           window.scrollTo(0, 0);
         });
-        */
+        
       });
     }
-
+*/
     const $searchDiv = document.createElement("div");
     $searchDiv.className = "SearchDiv";
 
@@ -244,9 +244,11 @@ class CowList {
     this.$mainDiv.appendChild($toolBar);
     $toolBar.appendChild($backButton);
     $toolBar.appendChild($title);
+    /*
     if (this.data.type === "all") {
       $toolBar.appendChild($updateButton);
     }
+    */
     this.$mainDiv.appendChild($searchDiv);
     $searchDiv.appendChild($searchBar);
     this.$mainDiv.appendChild($itemDiv);
