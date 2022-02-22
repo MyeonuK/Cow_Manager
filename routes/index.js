@@ -236,7 +236,7 @@ router.get("/cow/list", async (req, res) => {
   if (type == "house") {
     seqSetting.include[0].where = { house: house };
   } else if (type == "room") {
-    seqSetting.include[0].where = { house: house, room: room };
+    seqSetting.include[0].where = { house: house, side: side, room: room };
   }
 
   try {

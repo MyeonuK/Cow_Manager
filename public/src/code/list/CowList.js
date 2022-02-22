@@ -41,7 +41,7 @@ class CowList {
         break;
 
       case "room":
-        this.title = `${this.data.house}축사 ${this.data.room}칸 소 목록`;
+        this.title = `${this.data.house}축사 ${this.data.side}${this.data.room}칸 소 목록`;
         break;
     }
   }
@@ -56,7 +56,7 @@ class CowList {
 
       case "room":
         res = await fetch(
-          `cow/list?type=room&&house=${this.data.house}&&room=${this.data.room}`
+          `cow/list?type=room&&house=${this.data.house}&&side=${this.data.side}&&room=${this.data.room}`
         );
         break;
 
@@ -244,7 +244,9 @@ class CowList {
     this.$mainDiv.appendChild($toolBar);
     $toolBar.appendChild($backButton);
     $toolBar.appendChild($title);
-    $toolBar.appendChild($updateButton);
+    if (this.data.type === "all") {
+      $toolBar.appendChild($updateButton);
+    }
     this.$mainDiv.appendChild($searchDiv);
     $searchDiv.appendChild($searchBar);
     this.$mainDiv.appendChild($itemDiv);
