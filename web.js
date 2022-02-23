@@ -4,6 +4,9 @@ const cors = require("cors");
 
 const sequelize = require("./models").sequelize;
 const indexRouter = require("./routes/index");
+const cowRouter = require("./routes/cowRouter");
+const houseRouter = require("./routes/houseRouter");
+const territoryRouter = require("./routes/territoryRouter");
 
 const app = express();
 
@@ -24,6 +27,9 @@ app.set("views", path.join(__dirname, "./views"));
 
 app.use("/", express.static(path.join(__dirname, "./public")));
 app.use("/", indexRouter);
+app.use("/cow", cowRouter);
+app.use("/house", houseRouter);
+app.use("/territory", territoryRouter);
 app.use(cors());
 
 app.listen(PORT, () => {
