@@ -6,6 +6,7 @@ const sequelize = require("./models").sequelize;
 const indexRouter = require("./routes/index");
 const cowRouter = require("./routes/cowRouter");
 const houseRouter = require("./routes/houseRouter");
+const vaccinRouter = require("./routes/vaccinRouter");
 const territoryRouter = require("./routes/territoryRouter");
 
 const app = express();
@@ -29,6 +30,7 @@ app.use("/", express.static(path.join(__dirname, "./public")));
 app.use("/", indexRouter);
 app.use("/cow", cowRouter);
 app.use("/house", houseRouter);
+app.use("/vaccin", vaccinRouter);
 app.use("/territory", territoryRouter);
 app.use(cors());
 

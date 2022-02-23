@@ -102,7 +102,7 @@ class CowList {
       $birth.innerText = `${item.birthDate}\n${item.age}개월`;
 
       $item.addEventListener("click", function () {
-        //const $itemModal = new CowModal(item.id);
+        const $itemModal = new CowModal(item.id);
       });
 
       $item.appendChild($itemTitle);

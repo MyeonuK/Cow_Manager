@@ -7,23 +7,18 @@ class CowModal {
     const $target = document.getElementsByTagName("body")[0];
     this.$target = $target;
 
-    const $mainDiv = document.createElement("div");
-    $mainDiv.className = "Modal";
-    this.$mainDiv = $mainDiv;
+    this.$mainDiv = document.createElement("div");
+    this.$mainDiv.className = "Modal";
 
-    this.setData(id);
-
-    setTimeout(() => {
+    this.setData(id).then((res) => {
       this.render();
-    }, 200);
+    });
   }
 
   async setData(id) {
-    await fetch(`cow_vaccin?id=${id}`)
-      .then((res) => res.json())
-      .then((res) => {
-        this.data = res[0];
-      });
+    let res = await fetch(`vaccin?id=${id}`);
+    this.data = await res.json();
+    this.data = this.data[0];
   }
 
   removeModal() {}

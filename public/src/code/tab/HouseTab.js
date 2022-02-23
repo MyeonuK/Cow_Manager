@@ -16,7 +16,6 @@ class HouseTab extends Tab {
   async setData() {
     let res = await fetch("house/title");
     this.data = await res.json();
-    console.log(this.data);
   }
 
   renderSections($target) {
