@@ -1,4 +1,4 @@
-class HouseTab extends Tab {
+class GradeTab extends Tab {
   $mainDiv = null;
   data = null;
 
@@ -13,17 +13,12 @@ class HouseTab extends Tab {
     });
   }
 
-  async setData() {
-    let res = await fetch("house/title");
-    this.data = await res.json();
-    console.log(this.data);
-  }
+  async setData() {}
 
   renderSections($target) {
     // section
     for (let house of this.data) {
       const $houseCard = new HouseCard($target, house);
-      // 축사카드 순서가 꼬이는거 방지용
       setTimeout(() => {
         $houseCard.render();
       }, 100);

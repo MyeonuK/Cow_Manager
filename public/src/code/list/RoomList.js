@@ -143,6 +143,7 @@ class RoomList {
       new CowList(document.getElementsByClassName("ContentDiv")[0], "OOOO");
     }
 */
-    document.body.scrollTop = 0;
+    document.body.scrollTop = document.body.scrollHeight;
+    //window.scrollTo(0, document.body.scrollHeight);
   }
 }

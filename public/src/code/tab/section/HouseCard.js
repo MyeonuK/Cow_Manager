@@ -6,8 +6,8 @@ class HouseCard {
   constructor($target, house) {
     this.$target = $target;
     this.requestData(house).then((res) => {
-      //this.render($target, res);
       this.data = res;
+      //this.render();
     });
   }
 
