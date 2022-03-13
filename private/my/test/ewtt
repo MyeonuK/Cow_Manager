@@ -1,0 +1,26 @@
+var request = require("request");
+
+var url =
+  "http://data.ekape.or.kr/openapi-data/service/user/grade/confirm/issueNo";
+var queryParams =
+  "?" +
+  encodeURIComponent("serviceKey") +
+  "=XW90cX0nEtt4m2vgJe4IKiYPFoodMcDMdQhWIo0SGwjCwgd%2FbbVDT2V4RjMMcKZpHI%2BcrxXkf144i1F956wgWA%3D%3D"; /* Service Key*/
+queryParams +=
+  "&" +
+  encodeURIComponent("animalNo") +
+  "=" +
+  encodeURIComponent("002143367697"); /* */
+
+request(
+  {
+    url: url + queryParams,
+    method: "GET",
+  },
+  function (error, response, body) {
+    console.log("Status", response.statusCode);
+    console.log("Headers", JSON.stringify(response.headers));
+    console.log("Reponse received", body);
+    console.log(response.animalNo);
+  }
+);
