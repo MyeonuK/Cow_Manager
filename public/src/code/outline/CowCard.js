@@ -1,4 +1,6 @@
-class CowCard {
+import { CowList } from "./CowList.js";
+
+export class CowCard {
   $mainDiv = null;
   title = null;
   data = {};

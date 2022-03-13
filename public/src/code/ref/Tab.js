@@ -1,4 +1,4 @@
-class Tab {
+export class Tab {
   $target = null;
   $mainDiv = null;
   data = null;

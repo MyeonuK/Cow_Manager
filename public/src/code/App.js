@@ -1,6 +1,6 @@
-console.log("app is running!");
+import { MainUI } from "./MainUI.js";
 
-class App {
+export class App {
   $target = null;
   data = [];
 

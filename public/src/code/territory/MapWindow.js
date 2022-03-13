@@ -1,4 +1,4 @@
-class MapWindow {
+export class MapWindow {
   $target = null;
   $prev = null;
   $mainDiv = null;

@@ -1,4 +1,8 @@
-class MainUI {
+import { OutlineTab } from "./outline/OutlineTab.js";
+import { HouseTab } from "./house/HouseTab.js";
+import { TerritoryTab } from "./territory/TerritoryTab.js";
+
+export class MainUI {
   $mainDiv = null;
   $contentDiv = null;
   $tabs = {

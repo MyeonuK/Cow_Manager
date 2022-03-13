@@ -1,5 +1,9 @@
-class OutlineTab extends Tab {
+import { Tab } from "../ref/Tab.js";
+import { TerritoryCard } from "./TerritoryCard.js";
+
+export class TerritoryTab extends Tab {
   $mainDiv = null;
+  data = null;
 
   constructor($target) {
     super($target);
@@ -10,11 +14,8 @@ class OutlineTab extends Tab {
     this.render($target);
   }
 
-  renderCards($target) {
-    const $totalCowCard = new CowCard($target, {
-      title: "전체 개체",
-      type: "all",
-    });
+  renderSections($target) {
+    const $territoryStatusCard = new TerritoryCard($target);
   }
 
   render($target) {
@@ -25,13 +26,12 @@ class OutlineTab extends Tab {
     // title
     const $title = document.createElement("h1");
     $title.className = "Title";
-    $title.innerText = "Cow_Manager";
+    $title.innerText = "Territory_Manager";
 
     this.$mainDiv.appendChild($header);
     $header.appendChild($title);
 
-    this.renderCards(this.$mainDiv);
-
+    this.renderSections(this.$mainDiv);
     $target.appendChild(this.$mainDiv);
   }
 }

@@ -1,4 +1,6 @@
-class TerritoryCard {
+import { MapWindow } from "./MapWindow.js";
+
+export class TerritoryCard {
   $mainDiv = null;
   data = null;
 

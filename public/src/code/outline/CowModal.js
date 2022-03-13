@@ -1,4 +1,4 @@
-class CowModal {
+export class CowModal {
   $mainDiv = null;
   $target = null;
   data = null;

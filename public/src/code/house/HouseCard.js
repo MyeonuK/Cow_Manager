@@ -1,4 +1,7 @@
-class HouseCard {
+import { RoomList } from "./RoomList.js";
+import { CowList } from "../outline/CowList.js";
+
+export class HouseCard {
   $target = null;
   $mainDiv = null;
   data = null;

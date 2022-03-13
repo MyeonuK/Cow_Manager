@@ -1,4 +1,7 @@
-class HouseTab extends Tab {
+import { Tab } from "../ref/Tab.js";
+import { HouseCard } from "./HouseCard.js";
+
+export class HouseTab extends Tab {
   $mainDiv = null;
   data = null;
 

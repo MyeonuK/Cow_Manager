@@ -1,4 +1,4 @@
-class TerritoryStatusUpdateSection {
+export class TerritoryStatusUpdateSection {
   $mainDiv = null;
   data = null;
 

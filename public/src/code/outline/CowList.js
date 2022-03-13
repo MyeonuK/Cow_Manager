@@ -1,4 +1,6 @@
-class CowList {
+import { CowModal } from "./CowModal.js";
+
+export class CowList {
   $target = null;
   $prev = null;
   $mainDiv = null;

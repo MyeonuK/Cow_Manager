@@ -1,4 +1,4 @@
-class RoomList {
+export class RoomList {
   $target = null;
   $prev = null;
   $mainDiv = null;
