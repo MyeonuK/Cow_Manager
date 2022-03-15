@@ -14,7 +14,7 @@ export class MapWindow {
   }
 
   async getData() {
-    fetch("territory_latlng")
+    fetch("territory/latlng")
       .then((res) => res.json())
       .then((res) => {
         for (let d of res) {
@@ -47,7 +47,7 @@ export class MapWindow {
   updateStatus() {
     console.log(polygon);
     fetch(
-      `territory_staus_update?code=${polygon.code}&status=${polygon.status}`
+      `territory/update?code=${polygon.code}&status=${polygon.status}`
     ).then((res) => {
       //console.log(res);
     });

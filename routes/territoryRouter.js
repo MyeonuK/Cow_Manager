@@ -40,19 +40,12 @@ router.get("/status", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
-  let seqSetting = {
-    include: [{ model: LatLng }],
-    attributes: [["code", "code"], [""]],
-  };
+router.get("/update", async (req, res) => {});
 
-  try {
-    Territory.findAll(seqSetting).then((result) => {
-      res.json(result);
-    });
-  } catch (err) {
-    console.error(err);
-  }
+router.get("/latlng", async (req, res) => {
+  let seqSetting = {
+    include: [{}],
+  };
 });
 
 module.exports = router;
