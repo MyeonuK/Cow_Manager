@@ -21,13 +21,13 @@ sequelize
   });
 
 const PORT = 8001;
-//const PORT = 3306;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
 
 app.use("/", express.static(path.join(__dirname, "./public")));
 app.use("/", indexRouter);
+
 app.use("/cow", cowRouter);
 app.use("/house", houseRouter);
 app.use("/vaccin", vaccinRouter);

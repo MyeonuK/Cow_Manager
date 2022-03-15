@@ -16,7 +16,13 @@ function writeLog(message) {
 
 router.get("/", async (req, res, next) => {
   try {
-    res.render("index.ejs");
+    let agent = req.header("User-Agent").toLowerCase();
+
+    if (agent.indexOf("macintosh") != -1 || agent.indexOf("windows") != -1) {
+      res.render("index_desktop.ejs");
+    } else {
+      res.render("index.ejs");
+    }
   } catch (err) {
     console.error(err);
   }
