@@ -3,7 +3,7 @@ const path = require("path");
 const cors = require("cors");
 
 const sequelize = require("./models").sequelize;
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/indexRouter");
 const cowRouter = require("./routes/cowRouter");
 const houseRouter = require("./routes/houseRouter");
 const vaccinRouter = require("./routes/vaccinRouter");
@@ -25,7 +25,7 @@ const PORT = 8001;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./views"));
 
-app.use("/", express.static(path.join(__dirname, "./public")));
+app.use("/", express.static(path.join(__dirname, "./")));
 app.use("/", indexRouter);
 
 app.use("/cow", cowRouter);

@@ -1,0 +1,304 @@
+:root {
+  /* color */
+  --color-white: #ffffff;
+  --color-gray: #424242;
+  --color-beige: beige;
+  --color-navy: #323c57;
+  --color-font: white;
+  --color-lightgray: #b3b3b3;
+  --color-green: #478e77;
+
+  /* font size */
+  --font-l: 23px;
+  --font-m: 15px;
+  --font-s: 14px;
+  --font-ss: 10px;
+
+  /* layout size */
+  --layout-m: 50px;
+  --layout-s: 20px;
+  --layout-ss: 10px;
+  --layout-nav-h: 60px;
+  --test: calc(100% - var(--layout-nav-h));
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-navy);
+  /*font-family: "Noto Sans KR", sans-serif;*/
+  font-family: "SUIT", sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: black;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-s);
+  color: var(--color-font);
+}
+
+#App {
+  height: 100%;
+  width: 100%;
+}
+
+.MainDiv {
+  height: 100%;
+}
+
+.ContentDiv {
+  height: calc(100% - var(--layout-nav-h) - var(--layout-s) * 2);
+  padding: var(--layout-s);
+  overflow-y: scroll;
+}
+
+.Header {
+  width: 100%;
+  padding: var(--layout-ss) 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Header .Title {
+  font-size: var(--font-l);
+}
+
+.Nav {
+  width: 100%;
+  height: var(--layout-nav-h);
+  background-color: var(--color-white);
+  border-top: solid var(--color-lightgray) 0.5px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.Nav > * {
+  width: 33%;
+  height: 100%;
+}
+
+.CardDiv {
+  padding: var(--layout-s);
+  margin: var(--layout-ss) 0;
+  border-radius: 5px;
+  background-color: #478e77;
+  display: flex;
+  flex-direction: column;
+}
+
+.CardDiv .Title {
+  margin-bottom: var(--layout-ss);
+  font-size: var(--font-s);
+}
+
+.CardDiv .CardContentDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.CardDiv .BigElement {
+  padding: 0 40px;
+  font-size: var(--font-m);
+}
+
+.List {
+  min-height: calc(100% - var(--layout-nav-h));
+  padding-bottom: var(--layout-nav-h);
+  background-color: var(--color-white);
+  color: black;
+}
+
+.ToolBar {
+  width: calc(100% - var(--layout-s) * 2);
+  height: 60px;
+  background-color: var(--color-green);
+  padding: 0 var(--layout-s);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+.Button {
+  color: white;
+}
+
+.SearchDiv {
+  width: calc(100% - var(--layout-s) * 2);
+  padding: var(--layout-ss) var(--layout-s);
+  border-bottom: solid var(--color-lightgray) 0.5px;
+  position: sticky;
+  top: 60px;
+  background-color: var(--color-white);
+}
+
+.Input {
+  width: calc(100% - 40px);
+  height: 35px;
+  padding: 0 20px;
+  border: solid 1px var(--color-lightgray);
+  border-radius: 17px;
+  color: black;
+}
+
+.ItemDiv {
+  padding: 0 var(--layout-s);
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  color: black;
+}
+
+.Item {
+  padding: var(--layout-ss) 0;
+  border-bottom: solid var(--color-lightgray) 0.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Item * {
+  font-size: var(--font-s);
+  color: black;
+  text-align: right;
+}
+
+.Item .ItemTitle {
+  font-size: var(--font-m);
+  padding: 0;
+  height: auto;
+}
+
+.ItemDiv .HouseDiv {
+  display: flex;
+  flex-direction: row;
+  padding: var(--layout-s) 0;
+}
+
+.HouseDiv .RoomsDivtemp {
+  width: 40%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: var(--layout-s);
+}
+
+.HouseDiv .RoomsDiv {
+  width: 40%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.HouseDiv .RoomsDiv:nth-child(2) {
+  width: 20%;
+}
+
+.HouseDiv .RoomsDiv .Room {
+  width: 80%;
+  height: 61px;
+  border: var(--color-lightgray) 0.5px solid;
+  margin-top: var(--layout-s);
+  padding: var(--layout-ss);
+}
+
+.HouseDiv .RoomsDiv .Room:last-child {
+  margin-top: 0;
+}
+
+.RoomsDiv .Room .RoomTitle {
+  font-size: var(--font-m);
+  color: var(--color-gray);
+}
+
+.RoomsDiv .Room .RoomContent {
+  font-size: var(--font-s);
+  color: var(--color-gray);
+  text-align: right;
+}
+
+.RoomsDiv .EntranceImg {
+  width: 30px;
+}
+
+.MainDiv .Windoww {
+  height: calc(100% - var(--layout-nav-h));
+  padding-bottom: var(--layout-nav-h);
+  background-color: var(--color-white);
+  color: black;
+}
+
+.Windoww .MapContainer {
+  height: 100%;
+}
+
+.Windoww .MapContainer .Map {
+  width: 100%;
+  height: var(--test);
+}
+
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Modal .Modal_Body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  padding: var(--layout-m);
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+
+  box-sizing: border-box;
+}
+
+.Modal .Modal_Body * {
+  color: black;
+}
+
+.Modal .Modal_Body .Modal_Title {
+  font-size: var(--font-l);
+  margin-bottom: var(--layout-m);
+}
+
+.Modal .Modal_Body .Modal_Info_Title {
+  font-weight: bold;
+  margin-bottom: var(--layout-ss);
+}
+
+.Modal_Body .Modal_Info_Group {
+  margin-bottom: var(--layout-s);
+}
