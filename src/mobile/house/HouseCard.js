@@ -1,5 +1,5 @@
 import { RoomList } from "./RoomList.js";
-import { CowList } from "../outline/CowList.js";
+import { CowList } from "../cow/CowList.js";
 
 export class HouseCard {
   $target = null;

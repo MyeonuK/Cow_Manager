@@ -1,3 +1,5 @@
+import { CowList } from "../cow/CowList.js";
+
 export class RoomList {
   $target = null;
   $prev = null;
@@ -93,7 +95,7 @@ export class RoomList {
 
         let $entranceImg = document.createElement("img");
         $entranceImg.className = "EntranceImg";
-        $entranceImg.src = "src/images/arrowImg.png";
+        $entranceImg.src = "public/images/arrowImg.png";
 
         $houseDiv.appendChild($roomsDiv);
         $roomsDiv.appendChild($entranceImg);

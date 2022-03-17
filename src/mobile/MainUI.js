@@ -1,4 +1,4 @@
-import { OutlineTab } from "./outline/OutlineTab.js";
+import { OutlineTab } from "./cow/cowTab.js";
 import { HouseTab } from "./house/HouseTab.js";
 import { TerritoryTab } from "./territory/TerritoryTab.js";
 
